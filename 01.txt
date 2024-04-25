@@ -1,0 +1,12 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <div>
+      <img src="https://blog.logrocket.com/wp-content/uploads/2022/07/useevent-hook-react-rfc.png" alt="event" />
+      <div>
+          <h4>UI/UX</h4>
+          <p>40+ events</p>
+      </div>
+  </div>
+)
