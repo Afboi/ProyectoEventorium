@@ -2,7 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,html}",
   ],
   theme: {
     backgroundImage: theme => ({
@@ -13,13 +13,12 @@ export default {
       'secondary': 'Open Sans, sans-serif',
     },
     colors: {
-
-
-      'bg-gradient-linear-light': 'linear-gradient(90deg, rgba(205,218,237,1) 0%, rgba(213,224,223,1) 32%, rgba(231,238,222,1) 63%);',
       
       'white': 'rgba(255, 255, 255, 1)',
 
-      'main': 'rgba(45, 50, 80, 1)',
+
+      'bg-dark': 'rgba(45, 50, 80, 1)',
+      'component-light': 'rgba(255, 255, 255, 0.38)', 
 
       'light-orange': 'rgba(248, 177, 121, 1)',
 
@@ -29,9 +28,11 @@ export default {
     },
     fontSize:{
       'xl': '6.25rem', /* 100px*/
-      'lg': '3.125rem', /* 50px*/
+      'lg': '2.125rem', /* 50px*/
       'md': '1.375rem',/* 22px*/
       'sm': '1.25rem', /* 20px*/
+      'vw': '5vw',
+       'vh': '5vh',
     },
     extend: {},
   },

@@ -2,6 +2,7 @@ import { Header } from "./components/ui/Header.jsx";
 import { Recommended } from "./components/activity/Recommended.jsx";
 import { Upcoming } from "./components/activity/Upcoming.jsx";
 import {Example} from './components/ui/Nav.jsx';
+import {Summary} from './components/activity/Summary.jsx';
 
 import "./index.css";
 
@@ -21,7 +22,9 @@ export function App() {
 
   return (
     <div className="">
+      
       <Example />
+      <Summary />
     </div>
   );
 }

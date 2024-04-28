@@ -3,7 +3,6 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  
   { name: 'Calendario', href: '#', current: false },
   { name: 'Buscar', href: '#', current: false },
   { name: 'Agregar tarea', href: '#', current: true },
