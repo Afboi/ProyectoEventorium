@@ -14,7 +14,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export function Example() {
+export function Nav() {
   return (  
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
