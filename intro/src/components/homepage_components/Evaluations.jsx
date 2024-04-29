@@ -11,8 +11,8 @@ export function Evaluations() {
   ];
 
   return (
-    <div className="flex justify-center items-center bg-[#CDDAED]">
-      <div className="grid gap-4 p-4 rounded-3xl bg-[#acb8b8] w-[60%]">
+    <div className="">
+      <div className="grid gap-4 p-4 rounded-3xl bg-[#acb8b8] w-[90%]">
         <Evaluation_List items={information}/>
       </div>
     </div>

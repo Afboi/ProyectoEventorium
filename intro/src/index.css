@@ -1,3 +1,108 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --fc-small-font-size: .85em;
+    --fc-page-bg-color: #fff;
+    --fc-neutral-bg-color: hsla(0,0%,82%,.3);
+    --fc-neutral-text-color: grey;
+    --fc-border-color: #ddd;
+    --fc-button-text-color: #fff;
+    --fc-button-bg-color: #2c3e50;
+    --fc-button-border-color: #2c3e50;
+    --fc-button-hover-bg-color: #e25967;
+    --fc-button-hover-border-color: #e25967;
+    --fc-button-active-bg-color: #e25967;
+    --fc-button-active-border-color: #e25967;
+    --fc-event-bg-color: #3788d8;
+    --fc-event-border-color: #3788d8;
+    --fc-event-text-color: #fff;
+    --fc-event-selected-overlay-color: rgba(0,0,0,.25);
+    --fc-more-link-bg-color: #d0d0d0;
+    --fc-more-link-text-color: inherit;
+    --fc-event-resizer-thickness: 8px;
+    --fc-event-resizer-dot-total-width: 8px;
+    --fc-event-resizer-dot-border-width: 1px;
+    --fc-non-business-color: hsla(0,0%,84%,.3);
+    --fc-bg-event-color: #8fdf82;
+    --fc-bg-event-opacity: 0.3;
+    --fc-highlight-color: rgba(188,232,241,.3);
+    --fc-today-bg-color: rgba(255,220,40,.15);
+    --fc-now-indicator-color: red;
+}
+
+.fc{
+    background-color:#E9F1F8;
+    padding: 20px;
+    font-size: 1em;
+    border-radius: 60px;
+  }
+
+  .fc-theme-standard td, .fc-theme-standard th{
+    border: 0px
+  }
+
+  .fc-theme-standard .fc-scrollgrid{
+    border: 0px
+  }
+
+  .fc .fc-toolbar.fc-header-toolbar{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .fc .fc-button-primary:disabled{
+    background-color: #ffb4bc;
+    border-color: #ffb4bc;
+    border-radius: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .fc .fc-button-primary{
+    background-color: #FD8390;
+    border-color: #FD8390;
+    border-radius: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .fc .fc-button-primary:hover{
+    background-color: #e25967;
+    border-color: #e25967;
+    border-radius: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .fc .fc-button-primary:active{
+    background-color: #e25967;
+    border-color: #e25967;
+    border-radius: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  
+  .fc-daygrid-day{
+    font-size: 20px;
+    border-radius: 30px;
+  }
+  
+  .fc-col-header-cell-cushion{
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  .fc-daygrid-day-top{
+    justify-content: center;
+  }
+
+  .fc-event-start{
+    border-top-left-radius: 30px;
+  }
+
+  .fc-event-end{
+    border-bottom-right-radius: 30px;
+  }
