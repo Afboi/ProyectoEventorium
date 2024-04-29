@@ -1,8 +1,10 @@
 import "../../index.css";
 import { Evaluation_Card } from "../homepage_components/Evaluation_Card";
+import { ProgressBar } from "../homepage_components/ProgressBar.jsx";
 export function Evaluation_List({items}) {
   return (
     <div>
+      <ProgressBar />
       <>
         {items.map((item) => (
           <Evaluation_Card

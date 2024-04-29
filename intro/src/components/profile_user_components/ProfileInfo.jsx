@@ -6,10 +6,10 @@ export function ProfileInfo({ items }) {
     <div className="flex gap-28 items-center justify-center">
       <div className="flex flex-col justify-center items-center ">
         <img className="w-[17rem] rounded-[50%]" src={Img} alt="Profile img" />
-        <h3 className="font-outfit font-light text-3xl mt-4 text-[#6E6E6E]">Emilia Mernes</h3>
+        <h3 className="font-outfit font-light text-md-xl mt-4 text-[#6E6E6E]">Emilia Mernes</h3>
       </div>
       <div className="flex flex-col">
-        <h2 className="font-bold text-xl text-[#6E6E6E] mb-5 ">Cursos matriculados</h2>
+        <h2 className="font-bold text-sm text-[#6E6E6E] mb-5 ">Cursos matriculados</h2>
         <ul className="grid grid-cols-2 gap-x-16 list-disc text-[#6E6E6E]">
           {items.map((item) => (
             <li className="mb-2" key={item.id}> {item.initial} </li>

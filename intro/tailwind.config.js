@@ -29,10 +29,11 @@ export default {
     fontSize:{
       'xl': '6.25rem', /* 100px*/
       'lg': '2.125rem', /* 50px*/
+      'md-xl': '1.75rem',/* 30px*/
       'md': '1.375rem',/* 22px*/
       'sm': '1.25rem', /* 20px*/
       'vw': '5vw',
-       'vh': '5vh',
+      'vh': '5vh',
     },
     extend: {},
   },

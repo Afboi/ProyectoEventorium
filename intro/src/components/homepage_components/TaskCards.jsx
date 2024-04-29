@@ -3,7 +3,7 @@ import "../../index.css";
 export function TaskCards({ fecha, curso, tarea }){
 
     return(
-        <div className="bg-white/70 rounded-[28px] lg:rounded-[60px] h-[170px]  lg:h-[195px]">
+        <div className="bg-white/70 rounded-[28px] lg:rounded-[25px] p-2 h-[170px]  lg:h-[195px]">
 
             <div className="pl-3.5 pt-7 text-gray-500 font-light text-base">
                 <p>{fecha}</p>
