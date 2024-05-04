@@ -13,7 +13,7 @@ hours = hours ? hours : 12; // the hour '0' should be '12'
 minutes = minutes < 10 ? '0' + minutes : minutes;
 let strTime = hours + ':' + minutes + ' ' + ampm;
 let strDate = now.getDate() + '/' + month + '/' + now.getFullYear();
-let strLongDate = now.getDate() + ' de ' + month;
+let strLongDate = now.getDate() + ' de ' + month + ' del ' + now.getFullYear()   ;
 // Date Vars
 // DailyTasks Vars
 import Box from '@mui/joy/Box';
@@ -22,6 +22,8 @@ import * as React from 'react';
 // DailyTasks Vars
 // WeeklyTasks Vars
 
+import Stack from '@mui/joy/Stack';
+import LinearProgress from '@mui/joy/LinearProgress'; 
 // WeeklyTasks Vars
 // Event Vars
 
@@ -44,36 +46,37 @@ export function Summary() {
 
     <div className="flex w-auto gap-3 m-6 justify-between">
       {/* Barra de Fecha */}
-      <div className="flex h-36 w-full bg-component-light rounded-3xl justify-center items-center">
+      <div className="flex flex-col h-36 w-full bg-component-light rounded-3xl justify-center items-center">
         <div className="text-main-ty-light text-lg justify-center text-center">
-          <p className="">{now.getDate()}</p>
-          <p className="">{month}</p>
+          <p className="">{strLongDate}</p>
         </div>
-        <div className="w-[0.19rem] m-2 h-[85%] bg-main-ty-light"></div>
+        <div className="w-[90%] m-2 h-[4.1%] bg-main-ty-light rounded-full"></div>
         <p className=" text-main-ty-light text-lg">{strTime}</p>
       </div>
 
       {/* Barra de tareas del día */}
       <div className="h-36 w-full  bg-component-light rounded-3xl flex items-center justify-center">
         <div>
-          <p className="text-sm">Tareas del Día</p>
-          <div className="flex flex-wrap align-baseline">
+          <p className="text-lg text-main-ty-light">Tareas del Día</p>
+          <div className="flex flex-wrap text-main-ty-light items-end">
             <p className="text-lg">50%</p>
-            <p className="text-sm">Completado</p>
+            <p className="text-md pb-1">Completadas</p>
           </div>
 
         </div>
         <div></div>
-        <CircularProgress size="lg" determinate value={25} />
+        <CircularProgress size="lg" determinate value={50} />
       </div>
       {/* Barra de tareas de la semana */}
-      <div className="h-36 w-full bg-component-light rounded-3xl">
-        <div className="w-full bg-neutral-200 dark:bg-neutral-600">
-          <div
-            className="bg-primary p-0.5 text-center text-xs font-medium leading-none text-primary-100"
-            style={{ width: '25%' }}>
-          </div>
+      <div className=" h-36  w-full bg-component-light rounded-3xl justify-center">
+        <div className="ml-6">
+          <p className="mt-6  text-lg text-main-ty-light">Tareas Semanales</p>
+          <Stack spacing={1} sx={{ flex: 1 }}>
+            <LinearProgress determinate value={75} />
+          </Stack>
+          <p className="text-md text-main-ty-light">15/20 Realizadas</p>
         </div>
+        
       </div>
       {/*   Barra de eventos */}
       <div className="h-36 w-full bg-component-light rounded-3xl relative">
