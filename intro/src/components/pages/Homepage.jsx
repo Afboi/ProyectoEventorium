@@ -19,7 +19,6 @@ export function Homepage() {
         <div  className="w-[30%]">
           <Evaluations />  
         </div>
-        
       </div>
     </div>
   );
