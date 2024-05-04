@@ -3,20 +3,19 @@ import "../../index.css";
 export function TaskCards({ fecha, curso, tarea }){
 
     return(
-        <div className="bg-white/70 rounded-[28px] lg:rounded-[25px] p-2 h-[170px]  lg:h-[195px]">
+        <div className="bg-white/70 rounded-[28px] lg:rounded-[25px] h-[200px] lg:h-[195px] mx-4 my-2 p-1">
 
-            <div className="pl-3.5 pt-7 text-gray-500 font-light text-base">
+            <div className="pl-2 pt-5 text-[#757a86] font-light text-[1rem] iPadPro:text-[0.9rem] iphone12:text-[0.9rem]">
                 <p>{fecha}</p>
 
-                <p className="-my-1.5 mb-[0.4rem] invisible lg:visible">{curso}</p>
+                <p className="-my-1.5 mb-[0.4rem]">{curso}</p>
 
-                <div className="grid lg:w-[214px] lg:h-[24px]">
-                    <p className="text-2xl text-left -mt-6 lg:-mt-0 lg:w-[230px]">{tarea}</p>
-
-                    <p className="-mb-14 mt-2 w-[283px] lg:invisible lg:float-left">{curso}</p>
+                <div className="h-8 lg:h-6 2xl:-mt-3 desktopx3:w-[214px]">
+                    <p className="desktopx2:text-sm desktopx1:text-[1.1rem] font-bold text-left desktopx2:w-[270px]">{tarea}</p>
                 </div>                
                 <div className="float-end"> 
-                <button className="bg-[#FD8390] text-white font-light text-2xl rounded-[28px] lg:rounded-[60px] px-8 py-1 mr-2 lg:mr-8 mt-8 lg:mt-10">
+                <button className="bg-[#FD8390] text-white font-light text-2xl rounded-[28px] desktopx3:rounded-[60px] px-8 py-1 mr-2 desktopx3:mr-8 mt-5
+                iPadPro:mt-8 iphone12:mt-7 desktopx3:mt-10">
                     Ver más
                 </button>
 

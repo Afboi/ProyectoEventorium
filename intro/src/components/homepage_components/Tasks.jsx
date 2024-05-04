@@ -7,7 +7,8 @@ export function Tasks(){
         { "id":1, "fecha":"24 Oct", "curso": "TM-5100 Desarrollo de Aplicaciones Interactivas II", "tarea": "Investigación de Interactivas II"},
         { "id":2, "fecha":"28 Oct", "curso": "TM-5500 Desarrollo de Aplicaciones Interactivas II", "tarea": "Investigación de Interactivas II"},
         { "id":3, "fecha":"30 Oct", "curso": "TM-5500 Desarrollo de Aplicaciones Interactivas II", "tarea": "Investigación de Interactivas II"},
-        { "id":4, "fecha":"12 Oct", "curso": "TM-5500 Desarrollo de Aplicaciones Interactivas II", "tarea": "Exposición final"}
+        { "id":4, "fecha":"12 Oct", "curso": "TM-5500 Desarrollo de Aplicaciones Interactivas II", "tarea": "Exposición final"},
+        { "id":5, "fecha":"05 Oct", "curso": "TM-5500 Desarrollo de Aplicaciones Interactivas II", "tarea": "Exposición final titulo largo jj salu2 :D"}
     ]
 
     return (

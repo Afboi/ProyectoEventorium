@@ -35,6 +35,19 @@ export default {
       'vw': '5vw',
       'vh': '5vh',
     },
+    screens: {
+      'iphone12': '390px',
+
+      'iPadPro': '1024px',
+
+      'GalaxyS22+': '412px',
+
+      'GalaxyTab': '712px',
+
+      'desktopx1': '1366px',
+      'desktopx2': '1536px',
+      'desktopx3': '1920px',
+    },    
     extend: {},
   },
   plugins: [],

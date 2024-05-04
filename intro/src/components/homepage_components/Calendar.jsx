@@ -11,7 +11,9 @@ import { createEventId } from './event-utils'
 import '../../index.css'
 import allLocales from "@fullcalendar/core/locales-all";
 
-export function Calendar() { 
+export function Calendar({calendarHeight}) { 
+
+  console.log(calendarHeight)
 
 
   function handleDateSelect(selectInfo) {
@@ -40,7 +42,7 @@ export function Calendar() {
             center: '',
             end: 'today prev,next'            
           }}
-          height={785}
+          height={calendarHeight}
           contentHeight={80}
           firstDay={1}
           locales={allLocales}
