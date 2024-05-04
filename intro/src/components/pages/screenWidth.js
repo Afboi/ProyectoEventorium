@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 const useScreenWidth = () => {
     
  const [calendarHeight] = useState({
-        height: 785,
+        heightHome: 785,
+        heightDetail: 1018,
+        gridModeDetail: "timeGridWeek",
     });
-    
+
   const [screenWidth, setScreenWidth] = useState({
     width: window.innerWidth,
   });
@@ -25,9 +27,14 @@ const useScreenWidth = () => {
   }, []);
 
   if(screenWidth.width <= 1024){
-    calendarHeight.height = 620
+    calendarHeight.heightHome = 450
+    calendarHeight.heightDetail = 700    
+    calendarHeight.gridModeDetail = "timeGridDay"
+
   }else{
-    calendarHeight.height = 785
+    calendarHeight.heightHome = 785
+    calendarHeight.heightDetail = 1018
+    calendarHeight.gridModeDetail = "timeGridWeek"
   }
 
   return calendarHeight;

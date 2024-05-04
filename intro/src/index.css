@@ -34,18 +34,50 @@
 
 .fc{
     background-color:#E9F1F8;
-    padding: 20px;
-    font-size: 1em;
+    padding: 20px;    
+    font-size: 0.5rem;
     border-radius: 25px;
   }
 
-  .fc-theme-standard td, .fc-theme-standard th{
+.fc-daygrid-day{
+    font-size: 0.7rem;
+  }
+  
+.fc-col-header-cell-cushion{
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .fc .fc-timegrid-slot{
+    height: 1.8rem;
+}
+
+@media (min-width: 1024px) {
+.fc{
+    background-color:#E9F1F8;
+    padding: 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+  }
+
+.fc-daygrid-day{
+    font-size: 0.7rem;
+  }
+  
+.fc-col-header-cell-cushion{
+    font-size: 1rem;
+    font-weight: 550;
+  }
+}
+
+
+ /* .fc-theme-standard td, .fc-theme-standard th{
     border: 0px
   }
 
   .fc-theme-standard .fc-scrollgrid{
     border: 0px
-  }
+  }*/
 
   .fc .fc-toolbar.fc-header-toolbar{
     margin-left: 1.5rem;
@@ -56,43 +88,67 @@
     background-color: #ffb4bc;
     border-color: #ffb4bc;
     border-radius: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
   
   .fc .fc-button-primary{
     background-color: #FD8390;
     border-color: #FD8390;
     border-radius: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .fc .fc-button-primary:hover{
     background-color: #e25967;
     border-color: #e25967;
     border-radius: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .fc .fc-button-primary:active{
     background-color: #e25967;
     border-color: #e25967;
     border-radius: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
+  @media (min-width: 1024px) {
+
+    .fc .fc-button-primary:disabled{
+      background-color: #ffb4bc;
+      border-color: #ffb4bc;
+      border-radius: 60px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    
+    .fc .fc-button-primary{
+      background-color: #FD8390;
+      border-color: #FD8390;
+      border-radius: 60px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   
-  .fc-daygrid-day{
-    font-size: 20px;
-    border-radius: 30px;
-  }
+    .fc .fc-button-primary:hover{
+      background-color: #e25967;
+      border-color: #e25967;
+      border-radius: 60px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   
-  .fc-col-header-cell-cushion{
-    font-size: 24px;
-    font-weight: 500;
+    .fc .fc-button-primary:active{
+      background-color: #e25967;
+      border-color: #e25967;
+      border-radius: 60px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
   
   .fc-daygrid-day-top{

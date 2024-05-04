@@ -6,13 +6,13 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import esLocale from '@fullcalendar/core/locales/es';
 
+import allLocales from "@fullcalendar/core/locales-all";
+
 import { createEventId } from './event-utils'
 
 import '../../index.css'
 
-import allLocales from "@fullcalendar/core/locales-all";
-
-export function Calendar({calendarHeight}) { 
+export function Calendar({calendarHeight, calendarMode}) { 
 
   function handleDateSelect(selectInfo) {
     let title = prompt('Como se llama el evento?')
@@ -31,17 +31,17 @@ export function Calendar({calendarHeight}) {
     }
   }
 
+
     return (
         <FullCalendar
           plugins={[ dayGridPlugin,timeGridPlugin,interactionPlugin ]}
-          initialView="dayGridMonth"          
+          initialView= {calendarMode}        
           headerToolbar={{
             start: 'title',
             center: '',
-            end: 'today prev,next'            
+            end: 'today prev,next'
           }}
           height={calendarHeight}
-          contentHeight={80}
           firstDay={1}
           selectable= {true}
           select={handleDateSelect}
@@ -59,9 +59,8 @@ export function Calendar({calendarHeight}) {
               end: '2024-10-26',
               display: 'auto'
             }
-          ]}
-          
-        />
-    );
+          ]}          
+        />     
 
+    );
 }

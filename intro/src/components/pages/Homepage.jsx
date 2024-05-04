@@ -8,7 +8,7 @@ import "../../index.css";
 
 export function Homepage() {
   const getHeight = useScreenWidth();
-  /*<p>Width: {screenWidth.height}</p>*/
+  /*<p>Width: {getHeight.heightHome}</p>*/
 
   return (
     <div className="">
@@ -18,7 +18,7 @@ export function Homepage() {
 
       <div className='iPadPro:flex iPadPro:gap-10 ml-10 mr-10 iPadPro:ml-16 iPadPro:mr-0'>
         <div className="iPadPro:w-[70%] w-[100%] mb-7 iPadPro:mb-0">
-          <Calendar calendarHeight={getHeight.height}/>
+          <Calendar calendarHeight={getHeight.heightHome}/>
         </div>
         <div  className="iPadPro:w-[30%] ml-20 iPadPro:ml-0">
           <Evaluations />  
