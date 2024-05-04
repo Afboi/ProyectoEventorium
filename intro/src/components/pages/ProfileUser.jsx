@@ -58,8 +58,8 @@ export function ProfileUser() {
   console.log(inputs);
 
   return (
-    <div className="flex justify-center items-center bg-[#CDDAED]">
-      <div className="grid gap-4 p-4 rounded-3xl bg-[#E6ECEC] w-[60%]">
+    <div className="flex justify-center items-center">
+      <div className="grid gap-4 p-4 rounded-3xl bg-[#E6ECEC] w-full md:w-[60%] lg:w-[40%]">
         <ProfileHeader />
         <ProfileInfo items={courses} />
         <InputsProfile items={inputs} />

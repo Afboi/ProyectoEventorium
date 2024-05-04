@@ -15,6 +15,8 @@ export default {
     colors: {
       
       'white': 'rgba(255, 255, 255, 1)',
+      'teal' : 'rgb(45 212 191);',
+      'gray': 'rgb(255, 255, 255)',
 
 
       'bg-dark': 'rgba(45, 50, 80, 1)',
