@@ -13,7 +13,7 @@ export function Homepage() {
   return (
     <div className="">
       <Nav />
-      <Summary />
+      {/* <Summary /> */}
       <Tasks />
 
       <div className='iPadPro:flex iPadPro:gap-10 ml-10 mr-10 iPadPro:ml-16 iPadPro:mr-0'>

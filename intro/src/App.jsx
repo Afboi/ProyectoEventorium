@@ -10,6 +10,7 @@ export function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/Homepage" element={<Homepage />} />
         <Route path="/ProfileUser" element={<ProfileUser />} />
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/Registration" element={<Registration />} />
