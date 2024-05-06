@@ -1,27 +1,27 @@
 import { RadioInput } from "./RadioInput.jsx";
 import { StrokeInput } from "./StrokeInput.jsx";
 import { SelectInput } from "./SelectInput.jsx";
-export function InputsProfile({ items }) {
+export function InputsProfile({ objects }) {
     return (
         <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-40 text-[#6E6E6E]">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-x-4 md:gap-x-40 text-[#6E6E6E]">
 
                 <RadioInput />
                 
-                {items.map(item => (
-                    item.type === "select" ? (
+                {objects.map(object => (
+                    object.type === "select" ? (
                         <SelectInput
-                            key={item.id}
-                            title={item.title}
-                            options={item.options}
-                            placeholder={item.placeholder}
+                            key={object.id}
+                            title={object.title}
+                            options={object.options}
+                            placeholder={object.placeholder}
                         />
                     ) : (
                         <StrokeInput
-                            key={item.id}
-                            title={item.title}
-                            type={item.type}
-                            placeholder={item.placeholder}
+                            key={object.id}
+                            title={object.title}
+                            type={object.type}
+                            placeholder={object.placeholder}
                         />
                     )
                 ))}

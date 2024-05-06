@@ -48,19 +48,19 @@ export default {
       'vw': '5vw',
       'vh': '5vh',
     },
-        screens: {
-      'iphone12': '390px',
+    //     screens: {
+    //   'iphone12': '390px',
 
-      'iPadPro': '1024px',
+    //   'iPadPro': '1024px',
 
-      'GalaxyS22+': '412px',
+    //   'GalaxyS22+': '412px',
 
-      'GalaxyTab': '712px',
+    //   'GalaxyTab': '712px',
 
-      'desktopx1': '1366px',
-      'desktopx2': '1536px',
-      'desktopx3': '1920px',
-    },
+    //   'desktopx1': '1366px',
+    //   'desktopx2': '1536px',
+    //   'desktopx3': '1920px',
+    // },
     extend: {
       colors:{
         primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"}

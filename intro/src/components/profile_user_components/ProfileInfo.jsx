@@ -10,7 +10,7 @@ export function ProfileInfo({ items }) {
       </div>
       <div className="flex flex-col mt-4 md:mt-0">
         <h2 className="font-bold text-sm text-[#6E6E6E] mb-5 ">Cursos matriculados</h2>
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-16 list-disc text-[#6E6E6E]">
+        <ul className="grid grid-cols-2 md:grid-cols-2 gap-x-16 list-disc text-[#6E6E6E]">
           {items.map((item) => (
             <li className="mb-2" key={item.id}> {item.initial} </li>
           ))}
