@@ -9,7 +9,8 @@ import CircularProgress from '@mui/joy/CircularProgress';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import './styles-summary.css';
+
+// import './styles-summary.css';
 
 // Import required modules
 

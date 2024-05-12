@@ -1,8 +1,7 @@
 import { Nav } from '../ui/Nav.jsx';
-import { Tasks } from '../homepage_components/Tasks.jsx';
 import { Details } from '../event_detail_components/Details.jsx';
 import { Calendar } from '../event_detail_components/Calendar.jsx';
-import { Search } from '../homepage_components/SearchBar.jsx';
+import { Search } from '../ui/SearchBar.jsx';
 import { SummaryBar } from '../homepage_components/SummaryBar.jsx';
 import useScreenWidth from './screenWidth.js';
 import "../../index.css";
@@ -20,7 +19,6 @@ export function EventDetails() {
     { id: 1, description: "Take the quiz on sequence diagrams for the course interactive application engineering.", }
 
   ]
-
   return (
     <div className=''>
       <Nav />

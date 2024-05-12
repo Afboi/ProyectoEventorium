@@ -6,12 +6,12 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import esLocale from '@fullcalendar/core/locales/es';
 
-import { createEventId } from './event-utils'
+import { createEventId } from './eventUtils'
 
 import '../../index.css'
 import allLocales from "@fullcalendar/core/locales-all";
 
-export function Calendar({calendarHeight}) { 
+export function Calendar({ calendarHeight }) {
 
   console.log(calendarHeight)
 
@@ -33,39 +33,39 @@ export function Calendar({calendarHeight}) {
     }
   }
 
-    return (
-        <FullCalendar
-          plugins={[ dayGridPlugin,timeGridPlugin,interactionPlugin ]}
-          initialView="dayGridMonth"          
-          headerToolbar={{
-            start: 'title',
-            center: '',
-            end: 'today,prev,next'            
-          }}
-          height={calendarHeight}
-          contentHeight={80}
-          firstDay={1}
-          locales={allLocales}
-          locale={esLocale}
-          selectable= {true}
-          select={handleDateSelect}
-          editable= {true}
+  return (
+    <FullCalendar
+      plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+      initialView="dayGridMonth"
+      headerToolbar={{
+        start: 'title',
+        center: '',
+        end: 'today,prev,next'
+      }}
+      height={calendarHeight}
+      contentHeight={80}
+      firstDay={1}
+      locales={allLocales}
+      locale={esLocale}
+      selectable={true}
+      select={handleDateSelect}
+      editable={true}
 
-          events={[
-            {
-              start: '2024-04-24',
-              end: '2024-04-24',
-              display: 'auto',
-              backgroundColor: 'rgb(150 240 138 / 0.2)',   
-            },
-            {
-              start: '2024-10-24',
-              end: '2024-10-26',
-              display: 'auto'
-            }
-          ]}
-          
-        />
-    );
+      events={[
+        {
+          start: '2024-04-24',
+          end: '2024-04-24',
+          display: 'auto',
+          backgroundColor: 'rgb(150 240 138 / 0.2)',
+        },
+        {
+          start: '2024-10-24',
+          end: '2024-10-26',
+          display: 'auto'
+        }
+      ]}
+
+    />
+  );
 
 }

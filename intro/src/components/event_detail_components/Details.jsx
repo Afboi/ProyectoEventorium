@@ -1,5 +1,5 @@
-import { Info_Details } from "./Info_Details";
-import { Detail_Description } from "./Detail_Description";
+import { Info_Details } from "./InfoDetails";
+import { Detail_Description } from "./DetailDescription";
 
 export function Details({ items, objects }) {
     return (

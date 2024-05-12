@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export function AccessPanel() {
   return (
-    // <RegisterForm />
     <Router>
       <Routes>
         <Route path="/AccessPanel/RegisterForm" element={<RegisterForm />} />

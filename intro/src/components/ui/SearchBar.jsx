@@ -1,5 +1,5 @@
 // Import Swiper styles
-import './styles.css';
+import '../homepage_components/styles.css';
 // Import required modules
 
 export function Search() {

@@ -8,11 +8,11 @@ import esLocale from '@fullcalendar/core/locales/es';
 
 import allLocales from "@fullcalendar/core/locales-all";
 
-import { createEventId } from './event-utils'
+import { createEventId } from './eventUtils'
 
 import '../../index.css'
 
-export function Calendar({calendarHeight, calendarMode}) { 
+export function Calendar({ calendarHeight, calendarMode }) {
 
   function handleDateSelect(selectInfo) {
     let title = prompt('Como se llama el evento?')
@@ -32,35 +32,35 @@ export function Calendar({calendarHeight, calendarMode}) {
   }
 
 
-    return (
-        <FullCalendar
-          plugins={[ dayGridPlugin,timeGridPlugin,interactionPlugin ]}
-          initialView= {calendarMode}        
-          headerToolbar={{
-            start: 'title',
-            center: '',
-            end: 'today prev,next'
-          }}
-          height={calendarHeight}
-          firstDay={1}
-          selectable= {true}
-          select={handleDateSelect}
-          editable= {true}
+  return (
+    <FullCalendar
+      plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+      initialView={calendarMode}
+      headerToolbar={{
+        start: 'title',
+        center: '',
+        end: 'today prev,next'
+      }}
+      height={calendarHeight}
+      firstDay={1}
+      selectable={true}
+      select={handleDateSelect}
+      editable={true}
 
-          events={[
-            {
-              start: '2024-04-24',
-              end: '2024-04-24',
-              display: 'auto',
-              backgroundColor: 'rgb(150 240 138 / 0.2)',   
-            },
-            {
-              start: '2024-10-24',
-              end: '2024-10-26',
-              display: 'auto'
-            }
-          ]}          
-        />     
+      events={[
+        {
+          start: '2024-04-24',
+          end: '2024-04-24',
+          display: 'auto',
+          backgroundColor: 'rgb(150 240 138 / 0.2)',
+        },
+        {
+          start: '2024-10-24',
+          end: '2024-10-26',
+          display: 'auto'
+        }
+      ]}
+    />
 
-    );
+  );
 }

@@ -1,7 +1,7 @@
 import "../../index.css";
-import { Evaluation_Card } from "../homepage_components/Evaluation_Card";
+import { Evaluation_Card } from "../homepage_components/EvaluationCard.jsx";
 import { ProgressBar } from "../homepage_components/ProgressBar.jsx";
-export function Evaluation_List({items}) {
+export function Evaluation_List({ items }) {
   return (
     <div>
       <ProgressBar />
