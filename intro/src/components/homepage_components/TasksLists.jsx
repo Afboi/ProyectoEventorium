@@ -13,7 +13,7 @@ export function TasksLists({items}){
         slidesToShow:4 ,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 8000,
         pauseOnHover: true,
         responsive: [
             {
@@ -24,6 +24,7 @@ export function TasksLists({items}){
                 infinite: true,
                 vertical: true,
                 verticalSwiping: true,
+                dots: false,
               }
             }
         ]
@@ -31,7 +32,7 @@ export function TasksLists({items}){
 
     return (
         <>
-            <div className="bg-[#E9F1F8] rounded-[28px] lg:rounded-[25px] mx-6 lg:mx-12 my-6 pt-3 pb-6 px-8 h-auto lg:h-auto">
+            <div className="bg-[#E9F1F8] rounded-sm lg:rounded-lg mx-6 lg:mx-12 my-6 pt-3 pb-6 px-8 h-auto lg:h-auto shadow-main">
                 <Slider {...settings}>
                         { items.map( item => <TaskCards
                             key={item.id}

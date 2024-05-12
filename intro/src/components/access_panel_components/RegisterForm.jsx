@@ -10,7 +10,7 @@ export function RegisterForm() {
                     <img className="w-25 h-10 mr-2 " src="../../../public/eventorium-logo-dark.png" alt="logo" />
                 </a>
                 <div className="w-full bg-bg-card-light rounded-2xl shadow-secondary md:mt-0 sm:max-w-md xl:p-0 ">
-                    <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <div className="p-6 space-y-2 md:space-y-6 sm:p-8">
                         <h1 className="text-[2rem] font-bold leading-tight tracking-tight text-gray-900 md:text-2xl xl:text-[2]">
                             Crear una cuenta
                         </h1>

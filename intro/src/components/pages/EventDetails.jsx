@@ -2,6 +2,8 @@ import { Nav } from '../ui/Nav.jsx';
 import { Tasks } from '../homepage_components/Tasks.jsx';
 import { Details } from '../event_detail_components/Details.jsx';
 import { Calendar } from '../event_detail_components/Calendar.jsx';
+import { Search } from '../homepage_components/SearchBar.jsx';
+import { SummaryBar } from '../homepage_components/SummaryBar.jsx';
 import useScreenWidth from './screenWidth.js';
 import "../../index.css";
 
@@ -22,7 +24,10 @@ export function EventDetails() {
   return (
     <div className=''>
       <Nav />
-      <Tasks />
+      <Search />
+        <div className='mt-4 mx-4'>
+          <SummaryBar />
+        </div>
       <div className='flex flex-col-reverse mb-4 sm:flex-row justify-center gap-6 mx-4 sm:mx-0'>
         <Details items={info} objects={data} />
         <div className='order-1 sm:order-2 w-full sm:w-[57%]'>

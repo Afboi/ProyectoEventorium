@@ -2,12 +2,14 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
+
+
 const navigation = [
   { name: 'Calendario', href: '#', current: false },
   { name: 'Buscar', href: '#', current: false },
-  { name: 'Agregar tarea', href: '#', current: true },
   { name: 'Tareas', href: '#', current: false },
   { name: 'Proyectos', href: '#', current: false },
+  { name: 'Agregar tarea', href: '#', current: true },
 ]
 
 function classNames(...classes) {
@@ -15,11 +17,11 @@ function classNames(...classes) {
 }
 
 export function Nav() {
-  return (  
+  return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-0 w-full px-2 sm:px-6 lg:px-8 bg-white">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -33,22 +35,23 @@ export function Nav() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-center">
-                <div className="flex flex-shrink-0 items-center mr-10">
+              {/* sm:justify-end */}
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between"> 
+                <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="h-9 w-auto"
-                    src="../../../public/eventorium-dark.png"
-                    alt="Eventorium"
+                    className="h-12 w-auto"
+                    src="../../../public/logo.png"
+                    alt="Your Company"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-4 self">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-red-btn-light text-white' : 'text-main-ty-light hover:bg-gray-700 hover:text-white',
+                          item.current ? 'bg-gray-900 text-green border-2 border-green  hover:bg-blue hover:text-white' : 'text-green hover:bg-blue hover:text-white',
                           'rounded-full px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -62,11 +65,11 @@ export function Nav() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className="relative rounded-full bg-t p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                  <BellIcon className="h-10 w-10" aria-hidden="true" />
                 </button>
 
                 {/* Profile dropdown */}
@@ -76,7 +79,7 @@ export function Nav() {
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-8 w-8 rounded-full"
+                        className="h-10 w-10 rounded-full"
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt=""
                       />
@@ -98,7 +101,7 @@ export function Nav() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Mi perfil
+                            Your Profile
                           </a>
                         )}
                       </Menu.Item>
@@ -108,7 +111,7 @@ export function Nav() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Configuración
+                            Settings
                           </a>
                         )}
                       </Menu.Item>
@@ -118,17 +121,7 @@ export function Nav() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Modo oscuro
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Salir
+                            Sign out
                           </a>
                         )}
                       </Menu.Item>
@@ -147,7 +140,7 @@ export function Nav() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    item.current ? 'bg-gray-900 text-green hover:text-white' : 'text-green hover:bg-gray-700 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}

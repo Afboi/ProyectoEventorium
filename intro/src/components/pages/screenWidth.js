@@ -32,7 +32,7 @@ const useScreenWidth = () => {
     calendarHeight.gridModeDetail = "timeGridDay"
 
   }else{
-    calendarHeight.heightHome = 785
+    calendarHeight.heightHome = 780
     calendarHeight.heightDetail = 1018
     calendarHeight.gridModeDetail = "timeGridWeek"
   }

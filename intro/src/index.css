@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+div#marca {
+  border-color: #022016;
+  border-width: 5px;
+}
+
 :root {
     --fc-small-font-size: .85em;
     --fc-page-bg-color: #fff;
@@ -33,123 +38,119 @@
 }
 
 .fc{
-    background-color:#E9F1F8;
+    margin-top: 1rem;
+    background-color:#feffff;
     padding: 20px;    
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     border-radius: 25px;
+    color: #018b8a;
   }
 
 .fc-daygrid-day{
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
   
 .fc-col-header-cell-cushion{
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 500;
   }
   
-  .fc .fc-timegrid-slot{
+.fc .fc-timegrid-slot{
     height: 1.8rem;
-}
-
-@media (min-width: 1024px) {
-.fc{
-    background-color:#E9F1F8;
-    padding: 20px;
-    font-size: 1rem;
-    border-radius: 25px;
   }
 
-.fc-daygrid-day{
-    font-size: 0.7rem;
-  }
+  @media (min-width: 1024px) {
+    .fc{
+      margin-top: 1rem;
+      background-color:#feffff;
+      padding: 20px;
+      font-size: 1.5rem;
+      border-radius: 25px;      
+      color: #018b8a;
+    }
   
-.fc-col-header-cell-cushion{
-    font-size: 1rem;
-    font-weight: 550;
+    .fc-daygrid-day{
+      font-size: 1.75rem;
+    }
+  
+    .fc-col-header-cell-cushion{
+      font-size: 1.4rem;
+      font-weight: 550;
+    }
   }
-}
 
-
- /* .fc-theme-standard td, .fc-theme-standard th{
-    border: 0px
-  }
-
-  .fc-theme-standard .fc-scrollgrid{
-    border: 0px
-  }*/
-
-  .fc .fc-toolbar.fc-header-toolbar{
+.fc .fc-toolbar.fc-header-toolbar{
     margin-left: 1.5rem;
     margin-right: 1.5rem;
   }
 
   .fc .fc-button-primary:disabled{
-    background-color: #ffb4bc;
-    border-color: #ffb4bc;
+    background-color: #67aabe;
+    border-color: #67aabe;
     border-radius: 60px;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   
   .fc .fc-button-primary{
-    background-color: #FD8390;
-    border-color: #FD8390;
+    background-color: #34798e;
+    border-color: #34798e;
     border-radius: 60px;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .fc .fc-button-primary:hover{
-    background-color: #e25967;
-    border-color: #e25967;
+    background-color: #34798e;
+    border-color: #34798e;
     border-radius: 60px;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .fc .fc-button-primary:active{
-    background-color: #e25967;
-    border-color: #e25967;
+    background-color: #34798e;
+    border-color: #34798e;
     border-radius: 60px;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   @media (min-width: 1024px) {
 
     .fc .fc-button-primary:disabled{
-      background-color: #ffb4bc;
-      border-color: #ffb4bc;
+      background-color: #67aabe;
+      border-color: #67aabe;
       border-radius: 60px;
       padding-left: 20px;
       padding-right: 20px;
     }
     
     .fc .fc-button-primary{
-      background-color: #FD8390;
-      border-color: #FD8390;
+      background-color: #34798e;
+      border-color: #34798e;
       border-radius: 60px;
       padding-left: 20px;
       padding-right: 20px;
     }
   
     .fc .fc-button-primary:hover{
-      background-color: #e25967;
-      border-color: #e25967;
+      background-color: #34798e;
+      border-color: #34798e;
       border-radius: 60px;
       padding-left: 20px;
       padding-right: 20px;
     }
   
     .fc .fc-button-primary:active{
-      background-color: #e25967;
-      border-color: #e25967;
+      background-color: #34798e;
+      border-color: #34798e;
       border-radius: 60px;
       padding-left: 20px;
       padding-right: 20px;
     }
   }
+
   
   .fc-daygrid-day-top{
     justify-content: center;

@@ -9,10 +9,12 @@ import esLocale from '@fullcalendar/core/locales/es';
 import { createEventId } from './event-utils'
 
 import '../../index.css'
-
 import allLocales from "@fullcalendar/core/locales-all";
 
 export function Calendar({calendarHeight}) { 
+
+  console.log(calendarHeight)
+
 
   function handleDateSelect(selectInfo) {
     let title = prompt('Como se llama el evento?')
@@ -38,11 +40,13 @@ export function Calendar({calendarHeight}) {
           headerToolbar={{
             start: 'title',
             center: '',
-            end: 'today prev,next'            
+            end: 'today,prev,next'            
           }}
           height={calendarHeight}
           contentHeight={80}
           firstDay={1}
+          locales={allLocales}
+          locale={esLocale}
           selectable= {true}
           select={handleDateSelect}
           editable= {true}

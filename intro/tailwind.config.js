@@ -17,13 +17,22 @@ export default {
       'secondary': '0 3px 10px rgb(0,0,0,0.2);',	
     },
     colors: {
-
-      'bg-main': 'rgba(250, 248, 253, 1)',
-      'bg-card-light': 'rgba(254, 255, 255, 1)',
-      
+      'black': 'rgba(0, 0, 0, 1)',
       'teal' : 'rgb(45 212 191);',
       'gray': 'rgb(255, 255, 255)',
       'white': 'rgba(254, 255, 255, 1)',
+
+      'blue': 'rgba(52, 121, 142, 1)',
+      'green': 'rgba(1, 139, 138, 1)',
+      'light-gray': 'rgba(239, 237, 250, 1)',
+      'bone': 'rgba(241, 242, 245, 1)',
+
+      'bg-main': '#D8E5F2',
+      'bg-main-component': '#F3F7FB',
+      'bg-main-card': '#F3F7FB',
+      
+      'bg-card-light': 'rgba(254, 255, 255, 1)',
+
       'component-light': 'rgba(255, 255, 255, 0.38)', 
       'light-orange': 'rgba(248, 177, 121, 1)',
 
