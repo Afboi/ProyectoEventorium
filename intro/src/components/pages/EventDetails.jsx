@@ -3,7 +3,7 @@ import { Details } from '../event_detail_components/Details.jsx';
 import { Calendar } from '../event_detail_components/Calendar.jsx';
 import { Search } from '../ui/SearchBar.jsx';
 import { SummaryBar } from '../homepage_components/SummaryBar.jsx';
-import useScreenWidth from './screenWidth.js';
+import useScreenWidth from '../hooks/screenWidth.js';
 import "../../index.css";
 
 

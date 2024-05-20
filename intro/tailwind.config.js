@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx,html}",
   ],
+  darkMode: 'selector',
   theme: {
     backgroundImage: theme => ({
     'bg-gradient-linear-light': 'linear-gradient(90deg, rgba(205,218,237,1) 0%, rgba(213,224,223,1) 32%, rgba(231,238,222,1) 63%);',
@@ -26,6 +27,14 @@ export default {
       'green': 'rgba(1, 139, 138, 1)',
       'light-gray': 'rgba(239, 237, 250, 1)',
       'bone': 'rgba(241, 242, 245, 1)',
+
+      /*Dark Mode*/
+        'darker-blue': '#2D3250',
+        'dark-blue': '#424669',
+        'not-so-dark-blue': '#676F9D',
+
+        'orange': '#F8B179',
+      /*Dark Mode*/
 
       'bg-main': '#D8E5F2',
       'bg-main-component': '#F3F7FB',

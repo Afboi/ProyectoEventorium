@@ -8,7 +8,7 @@ import esLocale from '@fullcalendar/core/locales/es';
 
 import allLocales from "@fullcalendar/core/locales-all";
 
-import { createEventId } from './eventUtils'
+import { createEventId } from '../hooks/eventUtils';
 
 import '../../index.css'
 

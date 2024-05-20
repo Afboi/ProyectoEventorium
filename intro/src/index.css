@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 div#marca {
-  border-color: #022016;
+  border-color: #093f2d;
+  border-width: 5px;
+}
+
+div#marca:where(.dark, .dark *) {
+  border-color: #865027;
   border-width: 5px;
 }
 
@@ -16,10 +21,10 @@ div#marca {
     --fc-button-text-color: #fff;
     --fc-button-bg-color: #2c3e50;
     --fc-button-border-color: #2c3e50;
-    --fc-button-hover-bg-color: #e25967;
-    --fc-button-hover-border-color: #e25967;
-    --fc-button-active-bg-color: #e25967;
-    --fc-button-active-border-color: #e25967;
+    --fc-button-hover-bg-color: #225e70;
+    --fc-button-hover-border-color: #225e70;
+    --fc-button-active-bg-color: #225e70;
+    --fc-button-active-border-color: #225e70;
     --fc-event-bg-color: #3788d8;
     --fc-event-border-color: #3788d8;
     --fc-event-text-color: #fff;
@@ -37,6 +42,38 @@ div#marca {
     --fc-now-indicator-color: red;
 }
 
+ /* dark mode */
+:root:where(.dark, .dark *) {
+    --fc-small-font-size: .85em;
+    --fc-page-bg-color: #fff;
+    --fc-neutral-bg-color: hsla(0,0%,82%,.3);
+    --fc-neutral-text-color: grey;
+    --fc-border-color: #272353;
+    --fc-button-text-color: #fff;
+    --fc-button-bg-color: #2c3e50;
+    --fc-button-border-color: #2c3e50;
+    --fc-button-hover-bg-color: #c07740;
+    --fc-button-hover-border-color: #c07740;
+    --fc-button-active-bg-color: #c07740;
+    --fc-button-active-border-color: #c07740;
+    --fc-event-bg-color: #3788d8;
+    --fc-event-border-color: #3788d8;
+    --fc-event-text-color: #fff;
+    --fc-event-selected-overlay-color: rgba(0,0,0,.25);
+    --fc-more-link-bg-color: #d0d0d0;
+    --fc-more-link-text-color: inherit;
+    --fc-event-resizer-thickness: 8px;
+    --fc-event-resizer-dot-total-width: 8px;
+    --fc-event-resizer-dot-border-width: 1px;
+    --fc-non-business-color: hsla(0,0%,84%,.3);
+    --fc-bg-event-color: #8fdf82;
+    --fc-bg-event-opacity: 0.3;
+    --fc-highlight-color: rgba(188,232,241,.3);
+    --fc-today-bg-color: rgba(255,220,40,.15);
+    --fc-now-indicator-color: red;
+}
+ /* dark mode */
+
 .fc{
     margin-top: 1rem;
     background-color:#feffff;
@@ -45,6 +82,17 @@ div#marca {
     border-radius: 25px;
     color: #018b8a;
   }
+
+ /* dark mode */
+.fc:where(.dark, .dark *) {
+    margin-top: 1rem;
+    background-color:#424669;
+    padding: 20px;    
+    font-size: 0.7rem;
+    border-radius: 25px;
+    color: #F8B179;
+  }
+ /* dark mode */
 
 .fc-daygrid-day{
     font-size: 1rem;
@@ -68,7 +116,17 @@ div#marca {
       border-radius: 25px;      
       color: #018b8a;
     }
-  
+ /* dark mode */
+    .fc:where(.dark, .dark *){
+      margin-top: 1rem;
+      background-color:#424669;
+      padding: 20px;
+      font-size: 1.5rem;
+      border-radius: 25px;      
+      color: #F8B179;
+    }
+   /* dark mode */
+
     .fc-daygrid-day{
       font-size: 1.75rem;
     }
@@ -115,6 +173,40 @@ div#marca {
     padding-left: 20px;
     padding-right: 20px;
   }
+  
+  /* dark mode */
+  .fc .fc-button-primary:disabled:where(.dark, .dark *){
+    background-color: #ffc89e;
+    border-color: #ffc89e;
+    border-radius: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .fc .fc-button-primary:where(.dark, .dark *){
+    background-color: #F8B179;
+    border-color: #F8B179;
+    border-radius: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .fc .fc-button-primary:hover:where(.dark, .dark *){
+    background-color: #F8B179;
+    border-color: #F8B179;
+    border-radius: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .fc .fc-button-primary:active:where(.dark, .dark *){
+    background-color: #F8B179;
+    border-color: #F8B179;
+    border-radius: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+ /* dark mode */
 
   @media (min-width: 1024px) {
 
@@ -149,9 +241,42 @@ div#marca {
       padding-left: 20px;
       padding-right: 20px;
     }
-  }
 
+    /* dark mode */
+    .fc .fc-button-primary:disabled:where(.dark, .dark *){
+      background-color: #ffc89e;
+      border-color: #ffc89e;
+      border-radius: 60px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    
+    .fc .fc-button-primary:where(.dark, .dark *){
+      background-color: #F8B179;
+      border-color: #F8B179;
+      border-radius: 60px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   
+    .fc .fc-button-primary:hover:where(.dark, .dark *){
+      background-color: #F8B179;
+      border-color: #F8B179;
+      border-radius: 60px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  
+    .fc .fc-button-primary:active:where(.dark, .dark *){
+      background-color: #F8B179;
+      border-color: #F8B179;
+      border-radius: 60px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    /* dark mode */
+  }
+    
   .fc-daygrid-day-top{
     justify-content: center;
   }

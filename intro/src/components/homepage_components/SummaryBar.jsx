@@ -47,7 +47,6 @@ export function SummaryBar() {
                                 spaceBetween: 30
                             }
                         }}
-
                     >
 
                         <SwiperSlide>
@@ -55,14 +54,14 @@ export function SummaryBar() {
                             <div className='flex flex-col justify-center'>
 
                                 <div className='grid grid-cols-5 gap-5 grow px-2'>
-                                    <div className='h-[50px] w-[60px] bg-[#34798e]/50 rounded-l-full'></div>
-                                    <div className='h-[50px] w-[60px] bg-[#34798e]/60' id='marca'></div>
-                                    <div className='h-[50px] w-[60px] bg-[#34798e]/70 '></div>
-                                    <div className='h-[50px] w-[60px] bg-[#34798e]/80 '></div>
-                                    <div className='h-[50px] w-[60px] bg-[#34798e] rounded-r-full'></div>
+                                    <div className='h-[50px] w-[60px] bg-blue/50 rounded-l-full dark:bg-orange/50'></div>
+                                    <div className='h-[50px] w-[60px] bg-blue/60 dark:bg-orange/60' id='marca'></div>
+                                    <div className='h-[50px] w-[60px] bg-blue/70 dark:bg-orange/70'></div>
+                                    <div className='h-[50px] w-[60px] bg-blue/80 dark:bg-orange/80'></div>
+                                    <div className='h-[50px] w-[60px] bg-blue rounded-r-full dark:bg-orange'></div>
                                 </div>
 
-                            <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem] ml-24">Carga de Trabajo</p>
+                            <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem] ml-24 dark:text-orange">Carga de Trabajo</p>
                             </div>                       
 
 
@@ -79,8 +78,8 @@ export function SummaryBar() {
                                     2 / 3
                                 </CircularProgress>
                                 <div className='flex flex-col ml-4 items-start  justify-center'>
-                                    <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem]">Tareas del Día</p>
-                                    <p className="font-normal text-[1.7rem] text-blue sm:[1.3rem]">Completadas</p>
+                                    <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem] dark:text-orange">Tareas del Día</p>
+                                    <p className="font-normal text-[1.7rem] text-blue sm:[1.3rem] dark:text-orange">Completadas</p>
                                 </div>
                             </div>
                         </SwiperSlide>
@@ -96,8 +95,8 @@ export function SummaryBar() {
                                     2 / 10
                                 </CircularProgress>
                                 <div className='flex flex-col ml-4 items-start  justify-center'>
-                                    <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem]">Tareas de la Semana</p>
-                                    <p className="font-normal text-[1.7rem] text-blue sm:[1.3rem]">Completadas</p>
+                                    <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem] dark:text-orange">Tareas de la Semana</p>
+                                    <p className="font-normal text-[1.7rem] text-blue sm:[1.3rem] dark:text-orange">Completadas</p>
                                 </div>
                             </div>
                         </SwiperSlide>

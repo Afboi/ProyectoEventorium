@@ -2,7 +2,7 @@ import { Nav } from '../ui/Nav.jsx';
 import { Evaluations } from '../homepage_components/Evaluations.jsx';
 import { Calendar } from '../homepage_components/Calendar.jsx';
 import { Search } from '../ui/SearchBar.jsx';
-import useScreenWidth from './screenWidth.js';
+import useScreenWidth from '../hooks/screenWidth.js';
 import { SwiperTasks } from '../homepage_components/Swiper.jsx';
 import { SummaryBar } from '../homepage_components/SummaryBar.jsx';
 // import "../../index.css";

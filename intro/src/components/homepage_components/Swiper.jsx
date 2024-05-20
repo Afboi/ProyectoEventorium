@@ -12,9 +12,9 @@ import './styles.css';
 export function SwiperTasks() {
     return (
         <>
-            <div className='swiper-tasks rounded-xl bg-bg-main-component shadow-secondary'>
+            <div className='swiper-tasks rounded-xl bg-bg-main-component shadow-secondary dark:bg-dark-blue'>
                 <section className='m-4'>
-                <h5 className='text-lg font-medium ml-3 text-blue'>Actividades</h5>
+                <h5 className='text-lg font-medium ml-3 text-blue dark:text-orange'>Actividades</h5>
                 </section>
             
                 <div className='w-full h-52'>
@@ -55,64 +55,65 @@ export function SwiperTasks() {
 
                         <SwiperSlide>
                             <section className='overflow-hidden text-left'>
-                                <p class="font-light text-md text-blue dark:text-gray-400">Oct 30</p>
-                                <p class="font-medium text-lg text-blue dark:text-gray-400">Investigación I</p>
-                                <p class="font-normal text-blue dark:text-gray-400">Desarrollo de Aplicaciones Interactivas</p>
+                                <p class="font-light text-md text-blue dark:text-orange">Oct 30</p>
+                                <p class="font-medium text-lg text-blue dark:text-orange">Investigación I</p>
+                                <p class="font-normal text-blue dark:text-orange">Desarrollo de Aplicaciones Interactivas</p>
                             </section>
-                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full">
+                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full dark:bg-orange">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9 12H15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 9L12 15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                             </button>
                         </SwiperSlide>
                         <SwiperSlide>
                             <section className='overflow-hidden text-left'>
-                                <p class="font-light text-md text-blue dark:text-gray-400">Oct 30</p>
-                                <p class="font-medium text-lg text-blue dark:text-gray-400">Investigación I</p>
-                                <p class="font-normal text-blue dark:text-gray-400">Desarrollo de Aplicaciones Interactivas</p>
+                                <p class="font-light text-md text-blue dark:text-orange">Oct 30</p>
+                                <p class="font-medium text-lg text-blue dark:text-orange">Investigación I</p>
+                                <p class="font-normal text-blue dark:text-orange">Desarrollo de Aplicaciones Interactivas</p>
                             </section>
-                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full">
+                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full dark:bg-orange">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9 12H15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 9L12 15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                             </button>
                         </SwiperSlide>
                         <SwiperSlide>
                             <section className='overflow-hidden text-left'>
-                                <p class="font-light text-md text-blue dark:text-gray-400">Oct 30</p>
-                                <p class="font-medium text-lg text-blue dark:text-gray-400">Investigación I</p>
-                                <p class="font-normal text-blue dark:text-gray-400">Desarrollo de Aplicaciones Interactivas</p>
+                                <p class="font-light text-md text-blue dark:text-orange">Oct 30</p>
+                                <p class="font-medium text-lg text-blue dark:text-orange">Investigación I</p>
+                                <p class="font-normal text-blue dark:text-orange">Desarrollo de Aplicaciones Interactivas</p>
                             </section>
-                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full">
+                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full dark:bg-orange">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9 12H15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 9L12 15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                             </button>
                         </SwiperSlide>
                         <SwiperSlide>
                             <section className='overflow-hidden text-left'>
-                                <p class="font-light text-md text-blue dark:text-gray-400">Oct 30</p>
-                                <p class="font-medium text-lg text-blue dark:text-gray-400">Investigación I</p>
-                                <p class="font-normal text-blue dark:text-gray-400">Desarrollo de Aplicaciones Interactivas</p>
+                                <p class="font-light text-md text-blue dark:text-orange">Oct 30</p>
+                                <p class="font-medium text-lg text-blue dark:text-orange">Investigación I</p>
+                                <p class="font-normal text-blue dark:text-orange">Desarrollo de Aplicaciones Interactivas</p>
                             </section>
-                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full">
+                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full dark:bg-orange">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9 12H15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 9L12 15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                             </button>
                         </SwiperSlide>
                         <SwiperSlide>
                             <section className='overflow-hidden text-left'>
-                                <p class="font-light text-md text-blue dark:text-gray-400">Oct 30</p>
-                                <p class="font-medium text-lg text-blue dark:text-gray-400">Investigación I</p>
-                                <p class="font-normal text-blue dark:text-gray-400">Desarrollo de Aplicaciones Interactivas</p>
+                                <p class="font-light text-md text-blue dark:text-orange">Oct 30</p>
+                                <p class="font-medium text-lg text-blue dark:text-orange">Investigación I</p>
+                                <p class="font-normal text-blue dark:text-orange">Desarrollo de Aplicaciones Interactivas</p>
                             </section>
-                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full">
+                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full dark:bg-orange">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9 12H15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 9L12 15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                             </button>
                         </SwiperSlide>
                         <SwiperSlide>
                             <section className='overflow-hidden text-left'>
-                                <p class="font-light text-md text-blue dark:text-gray-400">Oct 30</p>
-                                <p class="font-medium text-lg text-blue dark:text-gray-400">Investigación I</p>
-                                <p class="font-normal text-blue dark:text-gray-400">Desarrollo de Aplicaciones Interactivas</p>
+                                <p class="font-light text-md text-blue dark:text-orange">Oct 30</p>
+                                <p class="font-medium text-lg text-blue dark:text-orange">Investigación I</p>
+                                <p class="font-normal text-blue dark:text-orange">Desarrollo de Aplicaciones Interactivas</p>
                             </section>
-                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full">
+                            <button type="submit" className="self-start w-14 h-14 text-white bg-blue focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-full dark:bg-orange">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9 12H15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 9L12 15" stroke="#ffffff" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                             </button>
                         </SwiperSlide>
+                        
                         
 
 

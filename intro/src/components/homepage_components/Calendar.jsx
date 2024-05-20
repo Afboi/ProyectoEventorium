@@ -6,15 +6,12 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import esLocale from '@fullcalendar/core/locales/es';
 
-import { createEventId } from './eventUtils'
+import { createEventId } from '../hooks/eventUtils';
 
 import '../../index.css'
 import allLocales from "@fullcalendar/core/locales-all";
 
 export function Calendar({ calendarHeight }) {
-
-  console.log(calendarHeight)
-
 
   function handleDateSelect(selectInfo) {
     let title = prompt('Como se llama el evento?')
