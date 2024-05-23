@@ -1,5 +1,5 @@
+
 import { Nav } from '../ui/Nav.jsx';
-import { Evaluations } from '../homepage_components/Evaluations.jsx';
 import { Calendar } from '../homepage_components/Calendar.jsx';
 import { Search } from '../ui/SearchBar.jsx';
 import useScreenWidth from '../hooks/screenWidth.js';
@@ -9,8 +9,22 @@ import { ModalProfile } from '../profile_user_components/ModalProfile.jsx';
 import { EditProfileInfo } from '../profile_user_components/EditProfileInfo.jsx';
 import { useModal } from '../profile_user_components/useModal.js';
 import { useState } from 'react';
+import { Assignments } from '../homepage_components/AssignmentsBar.jsx';
+
 // import "../../index.css";
 
+/**
+ * Homepage component.
+ * This is the main page of the application.
+ *
+ * Subcomponents:
+ * @see Nav
+ * @see Search
+ * @see SummaryBar
+ * @see SwiperTasks
+ * @see Calendar
+ * @see Assignments
+ */
 export function Homepage() {
 
   const [isProfileModalOpen, openProfileModal, closeProfileModal] = useModal();
@@ -38,20 +52,20 @@ export function Homepage() {
     <div>
       <Nav onOpenProfileModal={openProfileModal}/>
       <Search />
-      <div>
-        <div className='mt-4 mx-4'>
-          <SummaryBar />
+      <div className='mt-4 mx-4'>
+        {/* Summary bar with key metrics */}
+        <SummaryBar />
+        {/* Carousel of tasks */}
+        <SwiperTasks />
+      </div>
+      <div className='lg:flex lg:w-screen lg:gap-3 p-4'>
+        <div className='lg:w-[70%] sm:w-[100%]'>
+          {/* Calendar component. The height is set based on the screen width */}
+          <Calendar calendarHeight={getHeight.heightHome} />
         </div>
-        <div className='mt-4 mx-4'>
-          <SwiperTasks />
-        </div>
-        <div className='lg:flex lg:w-full lg:gap-3 mx-4'>
-          <div className='lg:w-[70%] sm:w-[100%] mt-4'>
-            <Calendar calendarHeight={getHeight.heightHome} />
-          </div>
-          <div className='lg:w-[30%] sm:w-[100%]'>
-            <Evaluations />
-          </div>
+        <div className='lg:w-[36.2%] sm:w-[100%]'>
+          {/* List of assignments */}
+          <Assignments />
         </div>
       </div>
       <ModalProfile isOpen={isProfileModalOpen} onClose={closeProfileModal} onOpenEditModal={() => {

@@ -18,7 +18,7 @@ export function SummaryBar() {
     return (
         <>
             <div className='swiper-summary text-center'>
-                <div className='w-full h-52'>
+                <div className='w-full h-36'>
                     <Swiper
                         direction={'horizontal'}
                         loop={true}
@@ -44,33 +44,33 @@ export function SummaryBar() {
                             // when window width is >= 640px
                             640: {
                                 slidesPerView: 4,
-                                spaceBetween: 30
+                                spaceBetween: 20
                             }
                         }}
                     >
 
                         <SwiperSlide>
 
-                            <div className='flex flex-col justify-center'>
+                        <div className='flex flex-col items-center'>
 
-                                <div className='grid grid-cols-5 gap-5 grow px-2'>
-                                    <div className='h-[50px] w-[60px] bg-blue/50 rounded-l-full dark:bg-orange/50'></div>
-                                    <div className='h-[50px] w-[60px] bg-blue/60 dark:bg-orange/60' id='marca'></div>
-                                    <div className='h-[50px] w-[60px] bg-blue/70 dark:bg-orange/70'></div>
-                                    <div className='h-[50px] w-[60px] bg-blue/80 dark:bg-orange/80'></div>
-                                    <div className='h-[50px] w-[60px] bg-blue rounded-r-full dark:bg-orange'></div>
-                                </div>
+                            <div className='flex gap-1 '>
+                                <div className='h-8 w-10 bg-[#34798e]/50 rounded-l-full dark:bg-orange/50'></div>
+                                <div className='h-8 w-10 bg-[#34798e]/60 dark:bg-orange/60' id='marca'></div>
+                                <div className='h-8 w-10 bg-[#34798e]/70 dark:bg-orange/70'></div>
+                                <div className='h-8 w-10 bg-[#34798e]/80 dark:bg-orange/80'></div>
+                                <div className='h-8 w-10 bg-[#34798e] rounded-r-full dark:bg-orange'></div>
+                            </div>
 
-                            <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem] ml-24 dark:text-orange">Carga de Trabajo</p>
-                            </div>                       
+                            <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem] dark:text-orange">Carga de Trabajo</p>
+                        </div>
 
 
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className='flex justify-center overflow-hidden'>
-                                <CircularProgress determinate value={33.67} color="primary"
+                                <CircularProgress determinate value={60.67} color="primary"
                                     sx={{
-                                        "--CircularProgress-size": "120px",
+                                        "--CircularProgress-size": "100px",
                                         "--CircularProgress-trackThickness": "12px",
                                         "--CircularProgress-progressThickness": "12px"
                                     }}
@@ -84,15 +84,15 @@ export function SummaryBar() {
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <div className='flex justify-center overflow-hidden'>
-                                <CircularProgress determinate value={10.67} color="primary"
+                        <div className='flex justify-center overflow-hidden'>
+                                <CircularProgress determinate value={60.67} color="primary"
                                     sx={{
-                                        "--CircularProgress-size": "120px",
+                                        "--CircularProgress-size": "100px",
                                         "--CircularProgress-trackThickness": "12px",
                                         "--CircularProgress-progressThickness": "12px"
                                     }}
                                 >
-                                    2 / 10
+                                    2 / 3
                                 </CircularProgress>
                                 <div className='flex flex-col ml-4 items-start  justify-center'>
                                     <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem] dark:text-orange">Tareas de la Semana</p>
