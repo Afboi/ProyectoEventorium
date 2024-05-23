@@ -1,23 +1,22 @@
-import { Fragment} from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { changeTheme } from '../hooks/changeTheme'
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { changeTheme } from "../hooks/changeTheme";
 
 const navigation = [
-  { name: 'Calendario', href: '#', current: false },
-  { name: 'Buscar', href: '#', current: false },
-  { name: 'Tareas', href: '#', current: false },
-  { name: 'Proyectos', href: '#', current: false },
-  { name: 'Agregar tarea', href: '#', current: true },
-]
+  { name: "Calendario", href: "#", current: false },
+  { name: "Buscar", href: "#", current: false },
+  { name: "Tareas", href: "#", current: false },
+  { name: "Proyectos", href: "#", current: false },
+  { name: "Agregar tarea", href: "#", current: true },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
-export function Nav() {
-const setTheme = changeTheme();
-
+export function Nav({ onOpenProfileModal }) {
+  const setTheme = changeTheme();
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -37,7 +36,7 @@ const setTheme = changeTheme();
                 </Disclosure.Button>
               </div>
               {/* sm:justify-end */}
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between"> 
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-12 w-auto"
@@ -52,10 +51,12 @@ const setTheme = changeTheme();
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-green border-2 border-green  hover:bg-blue hover:text-white dark:border-orange dark:hover:bg-orange dark:text-white' : 'text-green hover:bg-blue hover:text-white dark:text-white dark:hover:bg-orange dark:hover:text-white',
-                          'rounded-full px-3 py-2 text-sm font-medium'
+                          item.current
+                            ? "bg-gray-900 text-green border-2 border-green  hover:bg-blue hover:text-white dark:border-orange dark:hover:bg-orange dark:text-white"
+                            : "text-green hover:bg-blue hover:text-white dark:text-white dark:hover:bg-orange dark:hover:text-white",
+                          "rounded-full px-3 py-2 text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </a>
@@ -98,9 +99,13 @@ const setTheme = changeTheme();
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-dark-blue dark:ring-white dark:text-white">
                       <Menu.Item>
                         {({ active }) => (
-                          <a                            
+                          <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            onClick={onOpenProfileModal}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Your Profile
                           </a>
@@ -108,7 +113,14 @@ const setTheme = changeTheme();
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')} onClick={setTheme}>
+                          <a
+                            href="#"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
+                            onClick={setTheme}
+                          >
                             Change Theme
                           </a>
                         )}
@@ -117,7 +129,10 @@ const setTheme = changeTheme();
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Settings
                           </a>
@@ -127,7 +142,10 @@ const setTheme = changeTheme();
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Sign out
                           </a>
@@ -148,10 +166,12 @@ const setTheme = changeTheme();
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-green hover:text-white' : 'text-green hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-green hover:text-white"
+                      : "text-green hover:bg-gray-700 hover:text-white",
+                    "block rounded-md px-3 py-2 text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -161,5 +181,5 @@ const setTheme = changeTheme();
         </>
       )}
     </Disclosure>
-  )
+  );
 }

@@ -1,10 +1,6 @@
-import "../../index.css";
-
-import { ProfileInfo } from "../profile_user_components/ProfileInfo.jsx";
-import { ProfileHeader } from "../profile_user_components/ProfileHeader.jsx";
-import { InputsProfile } from "../profile_user_components/InputsProfile.jsx";
-import { ModalProfile } from "../profile_user_components/ModalProfile.jsx"
+import { ModalProfile } from "../components/profile_user_components/ModalProfile.jsx"
 import React, { useState } from 'react';
+import "../../index.css";
 export function ProfileUser() {
 
   const [isOpen, setIsOpen] = useState(false);

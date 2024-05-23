@@ -52,9 +52,11 @@ export default {
     fontSize:{
       'xl': '6.25rem', /* 100px*/
       'lg': '2.125rem', /* 50px*/
+      'lg-sm': '2rem', /* 50px*/
       'md-xl': '1.75rem',/* 30px*/
       'md': '1.375rem',/* 22px*/
       'sm': '1.25rem', /* 20px*/
+      'xs': '0.89rem', /* 12px */
       'vw': '5vw',
       'vh': '5vh',
     },

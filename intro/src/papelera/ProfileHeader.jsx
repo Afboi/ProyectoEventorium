@@ -1,7 +1,7 @@
-import pencilIcon from '../../assets/imgs/pencil-svgrepo-com.png';
-import xmark from '../../assets/imgs/xmark-svgrepo-com.svg'
-import settings from '../../assets/imgs/settings-svgrepo-com.svg'
-import "../../index.css";
+import pencilIcon from '../assets/imgs/pencil-svgrepo-com.svg';
+import xmark from '../assets/imgs/xmark-svgrepo-com.svg'
+import settings from '../assets/imgs/settings-svgrepo-com.svg'
+import "../index.css";
 
 export function ProfileHeader(close) {
   return (
