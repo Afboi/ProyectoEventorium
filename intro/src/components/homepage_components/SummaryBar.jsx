@@ -4,15 +4,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import CircularProgress from '@mui/joy/CircularProgress';
 
-
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// import './styles-summary.css';
-
-// Import required modules
 
 export function SummaryBar() {
     return (

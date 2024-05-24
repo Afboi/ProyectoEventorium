@@ -1,7 +1,7 @@
 export function PagesDirectory() {
   return (
-    <div className="flex flex-col">
-      <h1>Directorio de Páginas</h1>
+    <div className="flex flex-col m-10">
+      <h1 className="font-medium text-sm">Directorio de Páginas</h1>
       <p>Aqui puede encontrar todas las páginas de la aplicación.</p>
       <div className="m-2 flex flex-col">
       <p className="font-medium">Aplicación</p>
