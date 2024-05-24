@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export function FormInput({type, name, placeholder}) {
     return (
         <div>
@@ -6,3 +8,9 @@ export function FormInput({type, name, placeholder}) {
         </div>
     );
 }
+
+FormInput.propTypes = {
+    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+};
