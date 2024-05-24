@@ -21,13 +21,11 @@ export function App() {
   return (
     <Router>
       <Routes>
-
         <Route path="/" element={<PagesDirectory/>}/>
         <Route path="/Homepage" element={<Homepage isProfileModalOpen={isProfileModalOpen} onOpenProfileModal={handleOpenProfileModal} onCloseProfileModal={handleCloseProfileModal}/>} />
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/Registration" element={<Registration />} />
         <Route path="/PasswordRecovery" element={<PasswordRecovery />} />
-        
         <Route path="/EventDetails" element={<EventDetails />} />
       </Routes>
     </Router>

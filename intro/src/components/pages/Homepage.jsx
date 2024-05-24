@@ -11,8 +11,6 @@ import { useModal } from '../profile_user_components/useModal.js';
 import { useState } from 'react';
 import { Assignments } from '../homepage_components/AssignmentsBar.jsx';
 
-// import "../../index.css";
-
 /**
  * Homepage component.
  * This is the main page of the application.
