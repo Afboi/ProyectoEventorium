@@ -53,7 +53,7 @@ export function SwiperTasks() {
                     >
 
                         <SwiperSlide>
-                            <section className='overflow-hidden text-left w-full my-2'>
+                            <section className='text-left w-full my-2'>
                                 <div className='flex items-center my-2'>
                                     <div className='flex items-center'>
                                         <div className='flex bg-blue w-16 h-14 rounded-lg justify-center items-center'>
@@ -71,7 +71,7 @@ export function SwiperTasks() {
                                 <p class="font-light text-sm text-blue my-2 dark:text-gray-400">Desarrollo de Aplicaciones Interactivas</p>
 
                                 <p class="font-light text-sm text-blue my-2 dark:text-gray-400">Oct 30</p>
-                                <button type="submit" className="w-full text-white bg-blue hover:bg-light-gray hover:text-blue focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-full text-sm py-4 text-center ">Visualizar</button>
+                                <button type="submit" className="w-full  text-white bg-blue hover:bg-light-gray hover:text-blue focus:ring-2 focus:outline-none focus:ring-primary-300 font-medium rounded-full text-sm py-3 text-center">Visualizar</button>
 
                             </section>
 

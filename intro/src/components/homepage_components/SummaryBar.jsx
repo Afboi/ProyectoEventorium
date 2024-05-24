@@ -61,7 +61,7 @@ export function SummaryBar() {
                                 <div className='h-8 w-10 bg-[#34798e] rounded-r-full dark:bg-orange'></div>
                             </div>
 
-                            <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem] dark:text-orange">Carga de Trabajo</p>
+                            <p className="font-medium text-md text-blue sm:[1.3rem] dark:text-orange">Carga de Trabajo</p>
                         </div>
 
 
@@ -78,8 +78,8 @@ export function SummaryBar() {
                                     2 / 3
                                 </CircularProgress>
                                 <div className='flex flex-col ml-4 items-start  justify-center'>
-                                    <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem] dark:text-orange">Tareas del Día</p>
-                                    <p className="font-normal text-[1.7rem] text-blue sm:[1.3rem] dark:text-orange">Completadas</p>
+                                    <p className="font-medium text-md text-blue sm:[1.3rem] dark:text-orange">Tareas del Día</p>
+                                    <p className="font-normal text-md text-blue sm:[1.3rem] dark:text-orange">Completadas</p>
                                 </div>
                             </div>
                         </SwiperSlide>
@@ -95,8 +95,8 @@ export function SummaryBar() {
                                     2 / 3
                                 </CircularProgress>
                                 <div className='flex flex-col ml-4 items-start  justify-center'>
-                                    <p className="font-medium text-[1.7rem] text-blue sm:[1.3rem] dark:text-orange">Tareas de la Semana</p>
-                                    <p className="font-normal text-[1.7rem] text-blue sm:[1.3rem] dark:text-orange">Completadas</p>
+                                    <p className="font-medium text-md text-blue sm:[1.3rem] dark:text-orange">Tareas de la Semana</p>
+                                    <p className="font-normal text-md text-blue sm:[1.3rem] dark:text-orange">Completadas</p>
                                 </div>
                             </div>
                         </SwiperSlide>
@@ -105,8 +105,8 @@ export function SummaryBar() {
                                 <img className="w-full h-full object-cover rounded-[1rem]" src="./src/assets/imgs/dia-internacional-trabajadores-2022-celebra-domingo-1-mayo_98.webp" alt="" />
                                 <div className="absolute inset-0 bg-black opacity-25 rounded-[1rem]"></div>
                                 <div className="absolute bottom-2 left-2 text-white">
-                                    <p className="text-[1.7rem]  sm:[1.3rem]">01 de mayo</p>
-                                    <p className="text-[1.7rem]  sm:[1.3rem]">Día del Trabajador</p>
+                                    <p className="text-md  sm:[1.3rem]">01 de mayo</p>
+                                    <p className="text-md  sm:[1.3rem]">Día del Trabajador</p>
                                 </div>
                             </div>
                         </SwiperSlide>
