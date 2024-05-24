@@ -1,4 +1,3 @@
-import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -11,7 +10,7 @@ import './styles.css';
 
 export function Assignments() {
     return (
-        <>
+        
             <div className='swiper-assignments rounded-xl bg-bg-main-component'>
                 <section className='m-4'>
                     <h5 className='text-lg font-medium text-blue text-center'>Asignaciones</h5>
@@ -213,6 +212,6 @@ export function Assignments() {
             </div>
 
 
-        </>
+        
     );
 }
