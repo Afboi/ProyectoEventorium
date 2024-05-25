@@ -2,7 +2,7 @@
 import { Nav } from '../ui/Nav.jsx';
 import { Calendar } from '../homepage_components/Calendar.jsx';
 import { Search } from '../ui/SearchBar.jsx';
-import useScreenWidth from '../hooks/screenWidth.js';
+import useScreenWidth from '../../hooks/useScreenWidth.js';
 import { SwiperTasks } from '../homepage_components/Swiper.jsx';
 import { SummaryBar } from '../homepage_components/SummaryBar.jsx';
 import { ModalProfile } from '../profile_user_components/ModalProfile.jsx';

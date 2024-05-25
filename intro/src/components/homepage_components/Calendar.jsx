@@ -1,16 +1,20 @@
-
+import PropTypes from 'prop-types';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import esLocale from '@fullcalendar/core/locales/es';
 
-import { createEventId } from '../hooks/eventUtils';
+import { createEventId } from '../../utils/eventUtils';
 
 import '../../index.css'
 import allLocales from "@fullcalendar/core/locales-all";
 
 export function Calendar({ calendarHeight }) {
+
+  Calendar.PropTypes = {
+    calendarHeight: PropTypes.number.isRequired
+  }
 
   function handleDateSelect(selectInfo) {
     let title = prompt('Como se llama el evento?')

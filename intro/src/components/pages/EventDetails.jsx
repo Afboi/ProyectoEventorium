@@ -7,7 +7,7 @@ import { ModalProfile } from '../profile_user_components/ModalProfile.jsx';
 import { EditProfileInfo } from '../profile_user_components/EditProfileInfo.jsx';
 import { useModal } from '../profile_user_components/useModal.js';
 import { useState } from 'react';
-import useScreenWidth from '../hooks/screenWidth.js';
+import useScreenWidth from '../../hooks/useScreenWidth.js';
 import "../../index.css";
 
 
