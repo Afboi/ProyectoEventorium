@@ -1,10 +1,14 @@
 import { Nav } from "../ui/Nav.jsx";
 import { Search } from "../ui/SearchBar.jsx";
-import useScreenWidth from "../../hooks/useScreenWidth.js";
 import { ModalProfile } from "../profile_user_components/ModalProfile.jsx";
 import { EditProfileInfo } from "../profile_user_components/EditProfileInfo.jsx";
-import { useModal } from "../profile_user_components/useModal.js";
-import { useState } from "react";
+
+import {
+  useProfileModal,
+  useEditModal,
+  useProfileData,
+  handleEditConfirm,
+} from "../../hooks/useGeneralInfo.js";
 import { CardsExtra } from "../view_more_components/CardsExtra.jsx";
 
 /**
@@ -20,26 +24,16 @@ import { CardsExtra } from "../view_more_components/CardsExtra.jsx";
  * @see Assignments
  */
 export function ViewMore() {
-  const [isProfileModalOpen, openProfileModal, closeProfileModal] = useModal();
-  const [isEditModalOpen, openEditModal, closeEditModal] = useModal();
-  const [profileData, setProfileData] = useState({
-    username: "",
-    courses: [
-      { id: 1, initial: "TM-5150" },
-      { id: 2, initial: "TM-5250" },
-      { id: 3, initial: "TM-5350" },
-      { id: 4, initial: "TM-5450" },
-      { id: 5, initial: "TM-5550" },
-    ],
-  });
+  const [isProfileModalOpen, openProfileModal, closeProfileModal] =
+    useProfileModal();
+  const [isEditModalOpen, openEditModal, closeEditModal] = useEditModal();
+  const [profileData, setProfileData] = useProfileData();
 
-  const getHeight = useScreenWidth();
-
-  const handleEditConfirm = (updatedData) => {
-    setProfileData(updatedData);
-    closeEditModal();
-    openProfileModal();
-  };
+  const confirmEdit = handleEditConfirm(
+    setProfileData,
+    closeEditModal,
+    openProfileModal
+  );
 
   return (
     <div>
@@ -65,7 +59,7 @@ export function ViewMore() {
           openProfileModal();
         }}
         profileData={profileData}
-        onConfirm={handleEditConfirm}
+        onConfirm={confirmEdit}
       />
     </div>
   );
