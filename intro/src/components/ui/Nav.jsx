@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { changeTheme } from "../../hooks/useChangeTheme";
+import { useChangeTheme } from "../../hooks/useChangeTheme";
 
 const navigation = [
   { name: "Calendario", href: "/EventDetails", current: false },
@@ -15,7 +15,7 @@ function classNames(...classes) {
 }
 
 export function Nav({ onOpenProfileModal }) {
-  const setTheme = changeTheme();
+  const setTheme = useChangeTheme();
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -107,7 +107,7 @@ export function Nav({ onOpenProfileModal }) {
                             onClick={onOpenProfileModal}
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-blue"
+                              "block px-4 py-2 text-sm text-blue dark:text-white"
                             )}
                           >
                             Mi perfil
@@ -120,7 +120,7 @@ export function Nav({ onOpenProfileModal }) {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-blue"
+                              "block px-4 py-2 text-sm text-blue dark:text-white" 
                             )}
                             onClick={setTheme}
                           >
@@ -135,7 +135,7 @@ export function Nav({ onOpenProfileModal }) {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-blue"
+                              "block px-4 py-2 text-sm text-blue dark:text-white"
                             )}
                           >
                             Configuración
@@ -146,7 +146,7 @@ export function Nav({ onOpenProfileModal }) {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-blue')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-blue dark:text-white')}
                           >
                             Salir
                           </a>

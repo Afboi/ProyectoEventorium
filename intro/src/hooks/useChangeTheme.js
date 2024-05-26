@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export const changeTheme = () => {
+export const useChangeTheme = () => {
 
     const [theme, setTheme] = useState('light')
 

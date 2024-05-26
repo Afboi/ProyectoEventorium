@@ -112,14 +112,12 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
         </div>
         <div className="flex justify-end">
           
-          <div className="flex gap-4 ">
-            <a onClick={onClose} className="cursor-pointer">
+          <div className="flex gap-4 cursor-pointer" onClick={onClose} role="button">
               <img
                 src={Cancel}
                 alt=""
                 className="size-10"
               />
-            </a>
           </div>
         </div>
 
