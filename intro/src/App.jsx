@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Homepage } from "./components/pages/Homepage.jsx";
+import { ViewMore } from "./components/pages/ViewMore.jsx";
 import { SignIn } from "./components/pages/SignIn.jsx";
 import { Registration } from "./components/pages/Registration.jsx";
 import { EventDetails } from "./components/pages/EventDetails.jsx";
@@ -23,6 +24,7 @@ export function App() {
       <Routes>
         <Route path="/" element={<PagesDirectory/>}/>
         <Route path="/Homepage" element={<Homepage isProfileModalOpen={isProfileModalOpen} onOpenProfileModal={handleOpenProfileModal} onCloseProfileModal={handleCloseProfileModal}/>} />
+        <Route path="/ViewMore" element={<ViewMore />} />
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/Registration" element={<Registration />} />
         <Route path="/PasswordRecovery" element={<PasswordRecovery />} />

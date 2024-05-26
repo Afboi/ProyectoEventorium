@@ -12,7 +12,7 @@ import './styles.css';
 export function SwiperTasks() {
     return (
         <>
-            <div className='swiper-tasks rounded-xl bg-bg-main-component  pt-4 mt-4'>
+            <div className='swiper-tasks rounded-xl bg-white  pt-4 mt-4'>
             
                     <h5 className='text-lg font-medium text-blue text-center'>Actividades</h5>
                 

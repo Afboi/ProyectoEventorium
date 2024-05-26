@@ -24,6 +24,7 @@
   }
 
   .swiper-slide {
+    border: 3px solid #D8E5F2;
     justify-content: space-between;
     background: #fff;
     display: flex;
@@ -49,6 +50,7 @@
   }
 
   .swiper-slide {
+    border: 3px solid #D8E5F2;
     justify-content: space-between;
     background: #fff;
     display: flex;

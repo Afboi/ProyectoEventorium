@@ -1,6 +1,16 @@
 // Import Swiper styles
 import '../homepage_components/styles.css';
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import { ThemeProvider } from '@mui/material/styles';
+import {optionsTipoDeEvento, optionsOrganizador, optionsFrecuencia, style } from '../../utils/filterSearchBar';
 // Import required modules
+
+const tipoDeEvento = optionsTipoDeEvento();
+const organizador = optionsOrganizador();
+const frecuencia = optionsFrecuencia();
+const theme= style();
 
 export function Search() {
     return (
@@ -14,6 +24,41 @@ export function Search() {
                         </svg>
                     </button>
                 </div>
+            </div>
+            <div className='flex items-center justify-center gap-5 pb-4'>
+
+                    <ThemeProvider theme={theme}>
+                        <Autocomplete 
+                            id="tipoDeEvento"
+                            size='small'
+                            options={tipoDeEvento}
+                            getOptionLabel={(option) => option.title}
+                            sx={{width: 250}}
+                            renderInput={(params) => <TextField {...params} label="Tipo de Evento" />}
+                        />
+                    </ThemeProvider>
+
+                    <ThemeProvider theme={theme}>
+                        <Autocomplete 
+                            id="organizador"
+                            size='small'
+                            options={organizador}
+                            getOptionLabel={(option) => option.title}
+                            sx={{width: 250}}
+                            renderInput={(params) => <TextField {...params} label="Organizador" />}
+                        />
+                    </ThemeProvider>
+
+                    <ThemeProvider theme={theme}>
+                        <Autocomplete 
+                            id="frecuencia"
+                            size='small'
+                            options={frecuencia}
+                            getOptionLabel={(option) => option.title}
+                            sx={{width: 250}}
+                            renderInput={(params) => <TextField {...params} label="Frecuencia" />}
+                        />
+                    </ThemeProvider>
             </div>
         </div>
     );

@@ -1,6 +1,5 @@
 import "../../index.css";
 import Img from "../../assets/imgs/profile_img.png";
-import Edit from "../../assets/imgs/pen-svgrepo-com.svg";
 import Cancel from "../../assets/imgs/close-circle-svgrepo-com.svg";
 
 

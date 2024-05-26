@@ -11,12 +11,12 @@ import './styles.css';
 export function Assignments() {
     return (
         
-            <div className='swiper-assignments rounded-xl bg-bg-main-component'>
+            <div className='swiper-assignments rounded-xl bg-white'>
                 <section className='m-4'>
                     <h5 className='text-lg font-medium text-blue text-center'>Asignaciones</h5>
                 </section>
 
-                <div className='flex flex-col items-center  bg-white  m-3 rounded-xl'>
+                <div className='flex flex-col items-center  bg-white border-[3px] border-bg-main m-3 rounded-xl'>
                     <div className="relative p-4">
                         <div className="flex mb-2 items-center justify-between">
                             <div>

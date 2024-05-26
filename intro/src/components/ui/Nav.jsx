@@ -99,7 +99,7 @@ export function Nav({ onOpenProfileModal }) {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-dark-blue dark:ring-white dark:text-white">
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-main-bg ring-opacity-5 focus:outline-none dark:bg-dark-blue dark:ring-white dark:text-white">
                       <Menu.Item>
                         {({ active }) => (
                           <a
@@ -107,7 +107,7 @@ export function Nav({ onOpenProfileModal }) {
                             onClick={onOpenProfileModal}
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-blue"
                             )}
                           >
                             Mi perfil
@@ -120,7 +120,7 @@ export function Nav({ onOpenProfileModal }) {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-blue"
                             )}
                             onClick={setTheme}
                           >
@@ -135,7 +135,7 @@ export function Nav({ onOpenProfileModal }) {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-blue"
                             )}
                           >
                             Configuración
@@ -146,7 +146,7 @@ export function Nav({ onOpenProfileModal }) {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-blue')}
                           >
                             Salir
                           </a>

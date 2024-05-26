@@ -1,11 +1,13 @@
 import { FormInput } from "../access_panel_components/FormInput";
+import Logo from "../../assets/imgs/logoEventorium.svg";
+
 
 export function PasswordRecoveryForm() {
     return (
         <section className="dark:text-white">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 <a href="/Registration" className="flex items-center mb-6 text-2xl font-semibold text-gray-900">
-                    <img className="w-25 h-10 mr-2 " src="../../../public/eventorium-logo-dark.png" alt="logo" />
+                    <img className="w-25 h-10 mr-2 " src={Logo} alt="logo" />
                 </a>
                 <div className="w-full bg-bg-card-light rounded-2xl shadow-secondary md:mt-0 sm:max-w-md xl:p-0 dark:bg-dark-blue">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">

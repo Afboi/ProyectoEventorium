@@ -142,7 +142,7 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
         {error && <p className="text-red-500 text-center">{error}</p>}
         <div className="mt-8 justify-center items-center flex">
           <button
-            className="rounded-full text-light-gray bg-blue w-full md:w-48 h-10"
+            className="rounded-full text-light-gray bg-blue w-full md:w-48W h-10"
             onClick={handleConfirm}
           >
             Confirmar
