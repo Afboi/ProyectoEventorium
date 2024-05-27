@@ -1,3 +1,7 @@
+/**
+ * Pages Directory component.
+ * Page created to make it easier to review all pages of the application
+ */
 export function PagesDirectory() {
   return (
     <div className="flex flex-col m-10">

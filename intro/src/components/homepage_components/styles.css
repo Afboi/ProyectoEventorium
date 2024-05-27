@@ -13,7 +13,6 @@
     padding: 0rem;
     justify-content: center;
   }
-
 }
 
 .swiper-assignments {
@@ -24,7 +23,7 @@
   }
 
   .swiper-slide {
-    border: 3px solid #D8E5F2;
+    border: 3px solid #d8e5f2;
     justify-content: space-between;
     background: #fff;
     display: flex;
@@ -39,7 +38,6 @@
     height: 100%;
     object-fit: cover;
   }
-
 }
 
 .swiper-tasks {
@@ -50,7 +48,7 @@
   }
 
   .swiper-slide {
-    border: 3px solid #D8E5F2;
+    border: 3px solid #d8e5f2;
     justify-content: space-between;
     background: #fff;
     display: flex;
@@ -65,5 +63,4 @@
     height: 100%;
     object-fit: cover;
   }
-
 }

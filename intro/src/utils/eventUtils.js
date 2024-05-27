@@ -1,4 +1,4 @@
-//Util encargado de la creacion de los eventos yy asignarles su respectiva ID
+//Utility in charge of creating events and assigning them their respective IDs
 
 let eventGuid = 0
 

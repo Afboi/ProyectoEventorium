@@ -1,10 +1,13 @@
+// Importing page components
 import "../../index.css";
 import Img from "../../assets/imgs/profile_img.png";
 import Cancel from "../../assets/imgs/close-circle-svgrepo-com.svg";
 import { InputsProfile } from "./InputsProfile";
 import { useState, useEffect } from "react";
 
+// The main EditProfileInfo component
 export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
+  // State for managing form data.
   const [formData, setFormData] = useState({
     username: profileData.username,
     gender: profileData.gender || "",
@@ -12,8 +15,10 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
     dream: profileData.dream || "",
   });
 
+  // State for managing error messages.
   const [error, setError] = useState("");
 
+  // Effect hook to update form data when modal is opened or profile data changes.
   useEffect(() => {
     if (isOpen) {
       setFormData({
@@ -25,6 +30,7 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
     }
   }, [isOpen, profileData]);
 
+  // Handler for input changes.
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -33,6 +39,7 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
     });
   };
 
+  // Handler for confirming changes.
   const handleConfirm = () => {
     if (!formData.gender || !formData.birthday || !formData.dream) {
       setError("Para confirmar tienes que seleccionar todas las opciones");
@@ -48,10 +55,12 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
     setError("");
   };
 
+  // Return null if modal is not open.
   if (!isOpen) {
     return null;
   }
 
+  // Input configuration for the profile form.
   const inputs = [
     {
       id: 1,
@@ -96,11 +105,13 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
     },
   ];
 
+  // Return the modal structure.
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="absolute inset-0 bg-[#1d1d1d] opacity-50" />
 
       <div className="z-10 bg-white mx-4 p-8 rounded-lg shadow-md max-w-2xl h-[45rem] md:max-h-[36rem] w-full">
+        {/* Profile Picture */}
         <div className="relative">
           <img
             src={Img}
@@ -108,6 +119,7 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
             className="absolute bottom-0 left-2/4 transform -translate-x-1/2 translate-y-1/2 w-32 h-32 rounded-full border-4 border-white"
           />
         </div>
+        {/* Close Button */}
         <div className="flex justify-end">
           <div className="flex gap-4">
             <a
@@ -122,6 +134,7 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
           </div>
         </div>
 
+        {/* Course Information */}
         <div className="mt-8">
           <h2 className="text-blue font-medium mt-2 text-md-xl">Cursos:</h2>
           <div className="flex gap-2">
@@ -137,8 +150,10 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
           </div>
         </div>
 
+        {/* Form Inputs */}
         <InputsProfile objects={inputs} />
         {error && <p className="text-red-500 text-center">{error}</p>}
+        {/* Button to confirm the editing of the information */}
         <div className="mt-8 justify-center items-center flex">
           <button
             className="rounded-full text-light-gray bg-blue w-full md:w-48W h-10"

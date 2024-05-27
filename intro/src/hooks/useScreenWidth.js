@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 
-//Hook encargado de leer la resolucion de la pantalla y de devolver los datos necesarios para que los calendarios se ajusten dependiendo del tamano de la pantalla
-const useScreenWidth = () => {   
+//Hook in charge of reading the screen resolution and returning the data necessary for the calendars to adjust to the screen size.
+const useScreenWidth = () => {
 
-  //esta const almacenara los datos bases que se usan para los calendarios 
- const [calendarHeight] = useState({
-        heightHome: 785,
-        heightDetail: 1018,
-        gridModeDetail: "timeGridWeek",
-    });
+  //this const will store the base data used for the calendars. 
+  const [calendarHeight] = useState({
+    heightHome: 785,
+    heightDetail: 1018,
+    gridModeDetail: "timeGridWeek",
+  });
 
-  //esta const almacena los datos de la resolucion de la pantalla
+  // This const stores the data of the screen resolution
   const [screenWidth, setScreenWidth] = useState({
     width: window.innerWidth,
   });
 
-  //se encarga de modificar el valor de la resolucion de la pantalla en caso de que el usuario modifique el tamano de la pantalla en el navegador
+  // it is in charge of modifying the screen resolution value in case the user modifies the screen size in the browser
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth({
@@ -30,13 +30,13 @@ const useScreenWidth = () => {
   }, []);
 
 
-  //se encarga de modificar los datos bases de los calendarios dependiendo de la resolucion de la pantalla
-  if(screenWidth.width <= 1024){
+  // Modifies the base data of the calendars depending on the resolution of the screen.
+  if (screenWidth.width <= 1024) {
     calendarHeight.heightHome = 450
-    calendarHeight.heightDetail = 700    
+    calendarHeight.heightDetail = 700
     calendarHeight.gridModeDetail = "timeGridDay"
 
-  }else{
+  } else {
     calendarHeight.heightHome = 780
     calendarHeight.heightDetail = 1018
     calendarHeight.gridModeDetail = "timeGridWeek"

@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { useModal } from './useModal';
 
+// These hooks utilize the useModal hook to manage the state of the profile modal and edit modal, respectively.
+// They return an array containing state variables and functions to control the modal.
 export const useProfileModal = () => useModal();
 export const useEditModal = () => useModal();
 
+// This hook initializes and manages the state of the profile data.
+// It returns an array containing the profile data state variable and its setter function.
 export const useProfileData = () => useState({
   username: "",
   courses: [
@@ -15,6 +19,9 @@ export const useProfileData = () => useState({
   ],
 });
 
+// This function handles the confirmation of profile data editing.
+// It takes setProfileData, closeEditModal, and openProfileModal functions as parameters.
+// Upon confirmation, it sets the updated profile data, closes the edit modal, and opens the profile modal.
 export const handleEditConfirm = (setProfileData, closeEditModal, openProfileModal) => (updatedData) => {
   setProfileData(updatedData);
   closeEditModal();

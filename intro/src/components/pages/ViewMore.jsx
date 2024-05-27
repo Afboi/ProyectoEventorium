@@ -1,8 +1,8 @@
+// Importing necessary libraries, components, and utilities
 import { Nav } from "../ui/Nav.jsx";
 import { Search } from "../ui/SearchBar.jsx";
 import { ModalProfile } from "../profile_user_components/ModalProfile.jsx";
 import { EditProfileInfo } from "../profile_user_components/EditProfileInfo.jsx";
-
 import {
   useProfileModal,
   useEditModal,
@@ -12,18 +12,18 @@ import {
 import { CardsExtra } from "../view_more_components/CardsExtra.jsx";
 
 /**
- * Homepage component.
- * This is the main page of the application.
+ * View More Page component.
+ * This page displays the search bar results.
  *
  * Subcomponents:
  * @see Nav
  * @see Search
- * @see SummaryBar
- * @see SwiperTasks
- * @see Calendar
- * @see Assignments
+ * @see CardsExtra
+ * @see ModalProfile
+ * @see EditProfileInfo
  */
 export function ViewMore() {
+  // State variables and functions for managing profile modal and edit modal
   const [isProfileModalOpen, openProfileModal, closeProfileModal] =
     useProfileModal();
   const [isEditModalOpen, openEditModal, closeEditModal] = useEditModal();
@@ -37,12 +37,15 @@ export function ViewMore() {
 
   return (
     <div>
+      {/* Navigation and search components */}
       <Nav onOpenProfileModal={openProfileModal} />
       <Search />
-      <div className="mt-4 mx-4">{/* Summary bar with key metrics */}</div>
-      <div className="lg:flex lg:w-screen lg:gap-3 p-4">
+      {/* Results cards components */}
+      <div className="flex lg:flex lg:w-full lg:gap-3 p-4">
         <CardsExtra />
       </div>
+
+      {/*Profile modal components */}
       <ModalProfile
         isOpen={isProfileModalOpen}
         onClose={closeProfileModal}
@@ -52,6 +55,8 @@ export function ViewMore() {
         }}
         profileData={profileData}
       />
+
+      {/* Edit profile modal components */}
       <EditProfileInfo
         isOpen={isEditModalOpen}
         onClose={() => {

@@ -1,3 +1,4 @@
+// Importing necessary libraries, components, and utilities
 import { Nav } from "../ui/Nav.jsx";
 import { Calendar } from "../ui/Calendar.jsx";
 import { Search } from "../ui/SearchBar.jsx";
@@ -37,36 +38,39 @@ export function Homepage() {
     closeEditModal,
     openProfileModal
   );
-  
-  //const encargada de almacenar los datos del hook useScreenWidth para determinar el tipo de calendario que se muestra en pantalla
-  //por medio de las medidas de esta
+
+  //const is responsible for storing data from the useScreenWidth hook to determine the type of calendar that is displayed on the screen by means of the measurements of this
   const getHeight = useScreenWidth();
 
   return (
     <div>
+      {/* Navigation and search components */}
       <Nav onOpenProfileModal={openProfileModal} />
       <Search />
       <div className="mt-4 mx-4">
         {/* Summary bar with key metrics */}
         <SummaryBar />
+
         {/* Carousel of tasks */}
         <SwiperTasks />
       </div>
-      <div className="lg:flex lg:w-screen lg:gap-3 p-4">
+      <div className="lg:flex lg:w-full lg:gap-3 p-4">
         <div className="lg:w-[70%] sm:w-[100%]">
-          {/* Componente del calendario. Su altura y diseño depende de las medidas de la pantalla.
-          El lenguaje empleado se especifica en el atributo "calendarLanguage" */}
-          <Calendar 
-          calendarHeight={getHeight.heightHome}
-          calendarMode={"dayGridMonth"}
-          calendarLanguage={"es"}
+          {/* Calendar component. Its height and design depends on the measurements of the screen. 
+          The language used is specified in the "calendarLanguage" attribute*/}
+          <Calendar
+            calendarHeight={getHeight.heightHome}
+            calendarMode={"dayGridMonth"}
+            calendarLanguage={"es"}
           />
         </div>
-        <div className="lg:w-[36.2%] sm:w-[100%]">
+        <div className="lg:w-[34.2%] sm:w-[100%]">
           {/* List of assignments */}
           <Assignments />
         </div>
       </div>
+
+      {/* Profile modal components */}
       <ModalProfile
         isOpen={isProfileModalOpen}
         onClose={closeProfileModal}
@@ -76,6 +80,8 @@ export function Homepage() {
         }}
         profileData={profileData}
       />
+
+      {/* Edit profile modal components */}
       <EditProfileInfo
         isOpen={isEditModalOpen}
         onClose={() => {

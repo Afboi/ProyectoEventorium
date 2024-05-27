@@ -1,3 +1,4 @@
+// Importing page components
 import { Nav } from "../ui/Nav.jsx";
 import { Details } from "../event_detail_components/Details.jsx";
 import { Calendar } from "../ui/Calendar.jsx";
@@ -14,12 +15,12 @@ import {
 import useScreenWidth from "../../hooks/useScreenWidth.js";
 import "../../index.css";
 
+// The main EventDetails component
 export function EventDetails() {
-
-  //const encargada de almacenar los datos del hook useScreenWidth para determinar el tipo de calendario que se muestra en pantalla
-  //por medio de las medidas de esta
+  //const in charge of storing the data of the hook useScreenWidth to determine the type of calendar displayed on the screen by means of the measurements of this hook.
   const getHeight = useScreenWidth();
 
+  // State variables and functions for managing profile modal and edit modal
   const [isProfileModalOpen, openProfileModal, closeProfileModal] =
     useProfileModal();
   const [isEditModalOpen, openEditModal, closeEditModal] = useEditModal();
@@ -31,8 +32,7 @@ export function EventDetails() {
     openProfileModal
   );
 
-  /*<p>Width: {getHeight.gridModeDetail}</p>*/
-
+  // Sample event information
   const info = [
     {
       id: 1,
@@ -43,25 +43,31 @@ export function EventDetails() {
     },
   ];
 
+  // Sample data for event details
   const data = [
     {
       id: 1,
       description:
-        "Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering Take the quiz on sequence diagrams for the course interactive application engineering",
+        "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
     },
   ];
   return (
     <div className="">
+      {/* Navigation and search components */}
       <Nav onOpenProfileModal={openProfileModal} />
       <Search />
+
+      {/* Summary bar component */}
       <div className="mt-4 mx-4">
         <SummaryBar />
       </div>
+
+      {/* Event details and calendar components */}
       <div className="flex flex-col-reverse mb-4 sm:flex-row justify-center gap-6 mx-4 sm:mx-0">
         <Details items={info} objects={data} />
         <div className="order-1 sm:order-2 w-full sm:w-[61%]">
-          {/* Componente del calendario. Su altura y diseño depende de las medidas de la pantalla.
-          El lenguaje empleado se especifica en el atributo "calendarLanguage" */}
+          {/* Calendar component. Its height and layout depends on the screen size.
+          The language used is specified in the "calendarLanguage" attribute. */}
           <Calendar
             calendarHeight={getHeight.heightDetail}
             calendarMode={getHeight.gridModeDetail}
@@ -69,6 +75,8 @@ export function EventDetails() {
           />
         </div>
       </div>
+
+      {/* Profile modal components */}
       <ModalProfile
         isOpen={isProfileModalOpen}
         onClose={closeProfileModal}
@@ -78,6 +86,8 @@ export function EventDetails() {
         }}
         profileData={profileData}
       />
+
+      {/* Edit profile modal components */}
       <EditProfileInfo
         isOpen={isEditModalOpen}
         onClose={() => {

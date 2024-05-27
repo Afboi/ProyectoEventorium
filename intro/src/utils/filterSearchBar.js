@@ -1,61 +1,61 @@
 import { createTheme } from '@mui/material/styles';
 
-//Util encargado de almacenar los datos que se muestran en los filtros de busqueda, ademas del estilo visual de estos filtros
+//Utility in charge of storing the data shown in the search filters, as well as the visual style of these filters.
 
-//Datos del filtro de tipo de evento
+//Event type filter data
 export const optionsTipoDeEvento = () => {
     const tipoDeEvento = [
-        { title: 'Universitario'},
-        { title: 'Carrera'},
-        { title: 'Curso'},
-        { title: 'Estudiantil'},
-      ];
-
-      return tipoDeEvento;
-}
-
-//Datos del filtro de organizador
-export const optionsOrganizador = () => {
-      const organizador = [
-        { title: 'UCR'},
+        { title: 'Universitario' },
+        { title: 'Carrera' },
         { title: 'Curso' },
-        { title: 'Grupo'},
-      ];  
+        { title: 'Estudiantil' },
+    ];
 
-      return organizador;
+    return tipoDeEvento;
 }
 
-//Datos del filtro de frecuencia
+//Organizer filter data
+export const optionsOrganizador = () => {
+    const organizador = [
+        { title: 'UCR' },
+        { title: 'Curso' },
+        { title: 'Grupo' },
+    ];
+
+    return organizador;
+}
+
+//Frequency filter data
 export const optionsFrecuencia = () => {
-      const frecuencia = [
+    const frecuencia = [
         { title: 'Mensual' },
         { title: 'Semanal' },
         { title: 'Diario' },
-      ];    
+    ];
 
     return frecuencia;
 }
 
-//Estilo visual
+//Visual style of the search filters
 export function style() {
     return createTheme({
         components: {
             MuiAutocomplete: {
                 styleOverrides: {
                     root: {
-                    '& .MuiOutlinedInput-root': {
-                        borderRadius: '50px',
-                        backgroundColor: 'rgba(239, 237, 250, 1)',
-                        '& fieldset': {
-                        border: 'none',
-                        },
-                        '&:hover fieldset': {
-                        border: 'none',
-                        color: 'rgb(255 255 255)',
-                        },
-                        '&.Mui-focused fieldset': {
-                        border: 'none',
-                        },
+                        '& .MuiOutlinedInput-root': {
+                            borderRadius: '50px',
+                            backgroundColor: 'rgba(239, 237, 250, 1)',
+                            '& fieldset': {
+                                border: 'none',
+                            },
+                            '&:hover fieldset': {
+                                border: 'none',
+                                color: 'rgb(255 255 255)',
+                            },
+                            '&.Mui-focused fieldset': {
+                                border: 'none',
+                            },
                         },
                     },
                 },
