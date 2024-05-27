@@ -2,10 +2,9 @@ import "../../index.css";
 import Img from "../../assets/imgs/profile_img.png";
 import Cancel from "../../assets/imgs/close-circle-svgrepo-com.svg";
 import { InputsProfile } from "./InputsProfile";
-import { useState, useEffect  } from "react";
+import { useState, useEffect } from "react";
 
 export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
-
   const [formData, setFormData] = useState({
     username: profileData.username,
     gender: profileData.gender || "",
@@ -98,9 +97,8 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
   ];
 
   return (
-
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="absolute inset-0 bg-[#1d1d1d] opacity-50"/>
+      <div className="absolute inset-0 bg-[#1d1d1d] opacity-50" />
 
       <div className="z-10 bg-white mx-4 p-8 rounded-lg shadow-md max-w-2xl h-[45rem] md:max-h-[36rem] w-full">
         <div className="relative">
@@ -111,14 +109,16 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
           />
         </div>
         <div className="flex justify-end">
-          <div className="flex gap-4" >
-            <a onClick={onClose} className="cursor-pointer">
-              <img
-                src={Cancel}
-                alt=""
-                className="size-10"
-                />
-              </a>
+          <div className="flex gap-4">
+            <a
+              role="button"
+              onClick={onClose}
+              onKeyDown={onClose}
+              className="cursor-pointer"
+              tabIndex="0"
+            >
+              <img src={Cancel} alt="Close button" className="size-10" />
+            </a>
           </div>
         </div>
 

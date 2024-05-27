@@ -19,9 +19,6 @@ export function ProfileUserResult({
           />
         </div>
         <div className="grid gap-4 justify-end">
-          {/* <a onClick={onClose} className="cursor-pointer"  >
-          <img src={Cancel} alt="Close Button" className="size-10 " />
-          </a> */}
           <a
             role="button"
             onClick={onClose}

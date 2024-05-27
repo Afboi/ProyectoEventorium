@@ -11,14 +11,14 @@ export function ModalProfile({
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="absolute inset-0 bg-[#1d1d1d] opacity-50" onClick={onClose}
-      />
-      <ProfileUserResult
-        items={profileData.courses}
-        profileData={profileData}
-        onOpenEditModal={onOpenEditModal}
-        onClose={onClose}
-      />
+      <div role="button" className="absolute inset-0 bg-[#1d1d1d] opacity-50" onClick={onClose} tabIndex="0">
+        <ProfileUserResult
+          items={profileData.courses}
+          profileData={profileData}
+          onOpenEditModal={onOpenEditModal}
+          onClose={onClose}
+        />
+      </div>
     </div>
   );
 }
