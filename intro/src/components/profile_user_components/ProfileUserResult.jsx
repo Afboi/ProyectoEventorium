@@ -19,8 +19,10 @@ export function ProfileUserResult({
           />
         </div>
         <div
-          className="grid gap-4 justify-end cursor-pointer" onClick={onClose} role="button">
+          className="grid gap-4 justify-end">
+          <a onClick={onClose}  className="cursor-pointer">
           <img src={Cancel} alt="Close Button" className="size-10 " />
+          </a>
         </div>
         <div className="flex justify-between mt-5">
           <div>
