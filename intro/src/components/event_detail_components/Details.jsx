@@ -44,7 +44,9 @@ export function Details({ items, objects }) {
         </div>
       </div>
       {/* Edit Button */}
-      <button className="">Editar</button>
+      <div className="justify-center items-center flex">
+      <button className="border-2 border-bg-main my-4 rounded-full hover:bg-blue hover:text-white w-[24rem] md:w-[14rem] py-3">Editar</button>
+      </div>
     </div>
   );
 }
