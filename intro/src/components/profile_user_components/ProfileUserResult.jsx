@@ -18,10 +18,18 @@ export function ProfileUserResult({
             className="absolute bottom-0 left-2/4 transform -translate-x-1/2 translate-y-2/4 w-32 h-32 rounded-full border-4 border-white"
           />
         </div>
-        <div
-          className="grid gap-4 justify-end">
-          <a onClick={onClose}  className="cursor-pointer">
+        <div className="grid gap-4 justify-end">
+          {/* <a onClick={onClose} className="cursor-pointer"  >
           <img src={Cancel} alt="Close Button" className="size-10 " />
+          </a> */}
+          <a
+            role="button"
+            onClick={onClose}
+            onKeyDown={onClose}
+            className="cursor-pointer"
+            tabIndex="0"
+          >
+            <img src={Cancel} alt="Close Button" className="size-10" />
           </a>
         </div>
         <div className="flex justify-between mt-5">
