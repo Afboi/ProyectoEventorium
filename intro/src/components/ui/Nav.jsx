@@ -1,7 +1,8 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useChangeTheme } from "../../hooks/useChangeTheme";
+//import encargado detraer el hook que cambia el tema
+//import { useChangeTheme } from "../../hooks/useChangeTheme";
 
 const navigation = [
   { name: "Calendario", href: "/EventDetails", current: false },
@@ -15,7 +16,10 @@ function classNames(...classes) {
 }
 
 export function Nav({ onOpenProfileModal }) {
-  const setTheme = useChangeTheme();
+
+  //constante encargada de realizar el cambio de tema
+  //const setTheme = useChangeTheme();
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -114,6 +118,9 @@ export function Nav({ onOpenProfileModal }) {
                           </a>
                         )}
                       </Menu.Item>
+                      {/* 
+                      Boton encargado de activar y desactivar el modo oscuro de la web, desactivado en estos momentos hasta tener resuelto el diseño oscuro
+
                       <Menu.Item>
                         {({ active }) => (
                           <a
@@ -128,7 +135,7 @@ export function Nav({ onOpenProfileModal }) {
                           </a>
                         )}
                       </Menu.Item>
-
+                      */}
                       <Menu.Item>
                         {({ active }) => (
                           <a

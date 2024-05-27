@@ -1,6 +1,6 @@
 import { Nav } from "../ui/Nav.jsx";
 import { Details } from "../event_detail_components/Details.jsx";
-import { Calendar } from "../event_detail_components/Calendar.jsx";
+import { Calendar } from "../ui/Calendar.jsx";
 import { Search } from "../ui/SearchBar.jsx";
 import { SummaryBar } from "../homepage_components/SummaryBar.jsx";
 import { ModalProfile } from "../profile_user_components/ModalProfile.jsx";
@@ -15,7 +15,11 @@ import useScreenWidth from "../../hooks/useScreenWidth.js";
 import "../../index.css";
 
 export function EventDetails() {
+
+  //const encargada de almacenar los datos del hook useScreenWidth para determinar el tipo de calendario que se muestra en pantalla
+  //por medio de las medidas de esta
   const getHeight = useScreenWidth();
+
   const [isProfileModalOpen, openProfileModal, closeProfileModal] =
     useProfileModal();
   const [isEditModalOpen, openEditModal, closeEditModal] = useEditModal();
@@ -56,9 +60,12 @@ export function EventDetails() {
       <div className="flex flex-col-reverse mb-4 sm:flex-row justify-center gap-6 mx-4 sm:mx-0">
         <Details items={info} objects={data} />
         <div className="order-1 sm:order-2 w-full sm:w-[61%]">
+          {/* Componente del calendario. Su altura y diseño depende de las medidas de la pantalla.
+          El lenguaje empleado se especifica en el atributo "calendarLanguage" */}
           <Calendar
             calendarHeight={getHeight.heightDetail}
             calendarMode={getHeight.gridModeDetail}
+            calendarLanguage={"en"}
           />
         </div>
       </div>

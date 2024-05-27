@@ -7,6 +7,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import {optionsTipoDeEvento, optionsOrganizador, optionsFrecuencia, style } from '../../utils/filterSearchBar';
 // Import required modules
 
+//constantes qie almacenan los datos que se mostraran en los filtros, así como el estilo visual
 const tipoDeEvento = optionsTipoDeEvento();
 const organizador = optionsOrganizador();
 const frecuencia = optionsFrecuencia();
@@ -26,7 +27,7 @@ export function Search() {
                 </div>
             </div>
             <div className='flex items-center justify-center gap-5 pb-4'>
-
+                    {/* Filtro de busqueda por tipo de evento */}
                     <ThemeProvider theme={theme}>
                         <Autocomplete 
                             id="tipoDeEvento"
@@ -37,7 +38,7 @@ export function Search() {
                             renderInput={(params) => <TextField {...params} label="Tipo de Evento" />}
                         />
                     </ThemeProvider>
-
+                    {/* Filtro de busqueda por organizador */}
                     <ThemeProvider theme={theme}>
                         <Autocomplete 
                             id="organizador"
@@ -48,7 +49,7 @@ export function Search() {
                             renderInput={(params) => <TextField {...params} label="Organizador" />}
                         />
                     </ThemeProvider>
-
+                    {/* Filtro de busqueda por frecuencia */}
                     <ThemeProvider theme={theme}>
                         <Autocomplete 
                             id="frecuencia"

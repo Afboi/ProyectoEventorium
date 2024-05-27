@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 
+//Hook encargado de realizar los cambios del tema claro a oscuro colocando etiquetas de estilo en el documento html base.
+
 export const useChangeTheme = () => {
 
     const [theme, setTheme] = useState('light')

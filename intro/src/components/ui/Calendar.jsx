@@ -1,26 +1,28 @@
+import React from "react";
 import PropTypes from 'prop-types';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import esLocale from '@fullcalendar/core/locales/es';
 
 import { createEventId } from '../../utils/eventUtils';
 
 import '../../index.css'
-import allLocales from "@fullcalendar/core/locales-all";
 
-export function Calendar({ calendarHeight }) {
-
-  Calendar.PropTypes = {
-    calendarHeight: PropTypes.number.isRequired
+export function Calendar({ calendarHeight, calendarMode, calendarLanguage }) {
+  //Proptypes para especificar el tipo de datos que acepta el componente
+  Calendar.propTypes = {
+    calendarHeight: PropTypes.number.isRequired,
+    calendarMode: PropTypes.string.isRequired,
+    calendarLanguage: PropTypes.string.isRequired
   }
 
+  //Esta funcion se encarga de manejar la creacion de evento al hacer un click en la fecha del calendario.
   function handleDateSelect(selectInfo) {
     let title = prompt('Como se llama el evento?')
     let calendarApi = selectInfo.view.calendar
 
-    calendarApi.unselect() // clear date selection
+    calendarApi.unselect() //Quita el la seleccion del dia
 
     if (title) {
       calendarApi.addEvent({
@@ -33,20 +35,19 @@ export function Calendar({ calendarHeight }) {
     }
   }
 
+  //Renderiza el calendario con cada parametro asignado, como el tipo de calendario, el alto, el lenguaje, los eventos y demas.
   return (
     <FullCalendar
       plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-      initialView="dayGridMonth"
+      initialView={calendarMode}
       headerToolbar={{
         start: 'title',
         center: '',
-        end: 'today,prev,next'
+        end: 'today prev,next'
       }}
       height={calendarHeight}
-      contentHeight={80}
       firstDay={1}
-      locales={allLocales}
-      locale={esLocale}
+      locale={calendarLanguage}
       selectable={true}
       select={handleDateSelect}
       editable={true}
@@ -64,8 +65,6 @@ export function Calendar({ calendarHeight }) {
           display: 'auto'
         }
       ]}
-
     />
   );
-
 }

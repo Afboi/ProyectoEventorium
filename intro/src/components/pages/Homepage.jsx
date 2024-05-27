@@ -1,5 +1,5 @@
 import { Nav } from "../ui/Nav.jsx";
-import { Calendar } from "../homepage_components/Calendar.jsx";
+import { Calendar } from "../ui/Calendar.jsx";
 import { Search } from "../ui/SearchBar.jsx";
 import useScreenWidth from "../../hooks/useScreenWidth.js";
 import { SwiperTasks } from "../homepage_components/Swiper.jsx";
@@ -37,7 +37,9 @@ export function Homepage() {
     closeEditModal,
     openProfileModal
   );
-
+  
+  //const encargada de almacenar los datos del hook useScreenWidth para determinar el tipo de calendario que se muestra en pantalla
+  //por medio de las medidas de esta
   const getHeight = useScreenWidth();
 
   return (
@@ -52,8 +54,13 @@ export function Homepage() {
       </div>
       <div className="lg:flex lg:w-screen lg:gap-3 p-4">
         <div className="lg:w-[70%] sm:w-[100%]">
-          {/* Calendar component. The height is set based on the screen width */}
-          <Calendar calendarHeight={getHeight.heightHome} />
+          {/* Componente del calendario. Su altura y diseño depende de las medidas de la pantalla.
+          El lenguaje empleado se especifica en el atributo "calendarLanguage" */}
+          <Calendar 
+          calendarHeight={getHeight.heightHome}
+          calendarMode={"dayGridMonth"}
+          calendarLanguage={"es"}
+          />
         </div>
         <div className="lg:w-[36.2%] sm:w-[100%]">
           {/* List of assignments */}
