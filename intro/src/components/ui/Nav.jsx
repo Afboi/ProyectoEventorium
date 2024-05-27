@@ -120,7 +120,6 @@ export function Nav({ onOpenProfileModal }) {
                       </Menu.Item>
                       {/* 
                       Boton encargado de activar y desactivar el modo oscuro de la web, desactivado en estos momentos hasta tener resuelto el diseño oscuro
-
                       <Menu.Item>
                         {({ active }) => (
                           <a
