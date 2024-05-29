@@ -43,7 +43,7 @@ export function Calendar({ calendarHeight, calendarMode, calendarLanguage }) {
       headerToolbar={{
         start: "title",
         center: "",
-        end: "today prev,next",
+        end: "today,prev,next",
       }}
       height={calendarHeight}
       firstDay={1}
