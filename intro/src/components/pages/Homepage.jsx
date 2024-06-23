@@ -14,6 +14,7 @@ import {
   handleEditConfirm,
 } from "../../hooks/useGeneralInfo.js";
 import { Assignments } from "../homepage_components/AssignmentsBar.jsx";
+import { useFetchUsers } from "../../hooks/useFetchUsers.js";
 
 /**
  * Homepage component.
@@ -38,6 +39,11 @@ export function Homepage() {
     closeEditModal,
     openProfileModal
   );
+
+  console.log(profileData);
+
+  const usefetchUser = useFetchUsers();
+  console.log(usefetchUser);
 
   //const is responsible for storing data from the useScreenWidth hook to determine the type of calendar that is displayed on the screen by means of the measurements of this
   const getHeight = useScreenWidth();

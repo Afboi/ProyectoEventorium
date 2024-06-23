@@ -1,35 +1,30 @@
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+export const useFetchLogIn = (user, password) => {
 
-export const useFetchUsers = (username, password) => {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState("");
-  const history = useHistory(); 
-
-  const getData = async () => {
-    try {
-      const response = await fetch(`http://eventoriumbackend.test/api/user/all`);
-      const users = await response.json();
-      const userExists = users.some(user => user.username === username && user.password === password);
-      if (userExists) {
-        history.push("/Homepage");
+    fetch('http://eventoriumbackend.test/api/user/logIn', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: user,
+        password: password,
+      }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        // Almacenar el token en localStorage
+        localStorage.setItem('token', data.token);
+        // Redireccionar a principal
+        window.location.href = 'http://localhost:5173/Homepage';
       } else {
-        setError("This user doesn't exist");
-      }
-    } catch (error) {
-      console.log(error);
-      setError("An error occurred while fetching the data.");
-    }
-  };
 
-  useEffect(() => {
-    getData();
-  }, [username, password]);
-  
-  return {
-    data,
-    error,
+        // setError('Usuario o contraseña incorrectos');
+        // document.getElementsByName('usuario')[0].value='';
+        // document.getElementsByName('contrasena')[0].value='';
+      }
+    })
+    .catch(error => console.error('Error al iniciar sesión:', error));
   };
-};
 
 

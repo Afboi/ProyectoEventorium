@@ -1,5 +1,7 @@
-import { FormInput } from "../access_panel_components/FormInput";
+// import { FormInput } from "../access_panel_components/FormInput";
 import Logo from "../../assets/imgs/logoEventorium.svg";
+// import { useFetchLogIn } from "../../hooks/useFetchLogIn";
+import React, { useState } from "react";
 
 /**
  * Sign In Form component.
@@ -8,50 +10,35 @@ import Logo from "../../assets/imgs/logoEventorium.svg";
  * @see FormInput
  */
 export function SignInForm() {
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  //   fetch('http://localhost/eventoriumBackend/public/api/user/authentificator', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       user: user,
-  //       password: password,
-  //     }),
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     if (data.success) {
-  //       // Almacenar el token en localStorage
-  //       localStorage.setItem('token', data.token);
-  //       // Redireccionar a principal
-  //       window.location.href = 'http://localhost:5173/Homepage';
-  //     } else {
+  const handleSubmit = (event) => {
+    console.log("Datos enviados:", { user, password });
 
-  //       setError('Usuario o contraseña incorrectos');
-  //       document.getElementsByName('usuario')[0].value='';
-  //       document.getElementsByName('contrasena')[0].value='';
-  //     }
-  //   })
-  //   .catch(error => console.error('Error al iniciar sesión:', error));
-  // };
-
-  // public function login(Request $request){
-
-  //   $user=User::select('user_user_name','user_password')->where('user_user_name',$request->user)->first();
-  //   if(!Bycript::check($request->password, $user->user_password)){
-  //       return response(['message'=>'Invalid credentials'],Response::HTTP_UNAUTHORIZED);
-  //   }
-  //   $user=User::select('user_id')->where('user_user_name',$request->user)->first();
-  //   $token = $user->createToken('Token')->plainTextToken;
-
-  //   return response()->json([
-  //       'success' => true,
-  //       'token' => $token]);
-
-  // }
+    
+    event.preventDefault();
+    fetch("http://eventoriumbackend.test/api/user/logIn", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: user,
+        password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          localStorage.setItem("token", data.token);
+          window.location.href = "http://localhost:5173/Homepage";
+        } else {
+        }
+      })
+      .catch((error) => console.error("Error al iniciar sesión:", error));
+  };
 
   return (
     <section className="dark:text-white">
@@ -65,23 +52,49 @@ export function SignInForm() {
         <div className="w-full bg-bg-card-light rounded-2xl shadow-secondary md:mt-0 sm:max-w-md xl:p-0 dark:bg-dark-blue">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-[2rem] font-bold leading-tight tracking-tight text-blue md:text-2xl">
-            Welcome back!
+              Welcome back!
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
-              <FormInput
-                type="text"
-                title="username"
-                name="Username"
-                placeholder="luis_solis_b "
-              />
-              <FormInput
+            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+              <div>
+                <label
+                  htmlFor=""
+                  className="block mb-2 text-sm font-medium text-blue"
+                >
+                  Username
+                </label>
+                <input
+                onChange={(e) => setUser(e.target.value)}
+                  type="text"
+                  name="username"
+                  placeholder="uwu"
+                  className="bg-gray-50 border border-gray-300 text-blue sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor=""
+                  className="block mb-2 text-sm font-medium text-blue"
+                >
+                  Password
+                </label>
+                <input
+                onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  name="Password"
+                  className="bg-gray-50 border border-gray-300 text-blue sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  required
+                />
+              </div>
+              {/* <FormInput
                 type="password"
                 title="password"
                 name="Password"
-                placeholder="••••••••"
-              />
+                placeholder=""
+                onChange={(e) => setPassword(e.target.value)}
+              /> */}
               <p className="text-sm font-light text-gray-500">
-              Forgot your password?{" "}
+                Forgot your password?{" "}
                 <a
                   href="/PasswordRecovery"
                   className="font-medium text-blue hover:underline dark:text-orange"
@@ -90,7 +103,6 @@ export function SignInForm() {
                 </a>
               </p>
               <button
-                type="submit"
                 className="w-full text-white bg-blue hover:bg-light-gray hover:text-blue focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-orange dark:hover:bg-[#bb7c4c] dark:focus:ring-[#ffcca4]"
               >
                 Login

@@ -149,11 +149,7 @@ export function RegisterForm() {
                   title="password"
                   required
                 />
-                <FormInput
-                    type="password"
-                    name="Confirm Password"
-                    required
-                />
+                
               </div>
 
               <div className="flex items-start">
