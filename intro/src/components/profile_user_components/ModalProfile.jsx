@@ -7,6 +7,7 @@ export function ModalProfile({
   onClose,
   onOpenEditModal,
   profileData,
+  data
 }) {
   // If the modal is not open, do not render anything.
   if (!isOpen) {
@@ -30,6 +31,7 @@ export function ModalProfile({
         profileData={profileData}
         onOpenEditModal={onOpenEditModal}
         onClose={onClose}
+        data={data}
       />
     </div>
   );

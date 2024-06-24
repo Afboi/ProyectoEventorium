@@ -5,27 +5,28 @@ export const useFetchUsers = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getData = async () => {
-    console.log(localStorage.getItem('token'));
-    const response = await fetch('http://eventoriumbackend.test/api/user/token', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json'
-      },
-    });
 
-    const data = await response.json();
-    console.log(data);
-    const id = data.id;
+  const getData = async () => {
     try {
-      const response = await fetch(`http://eventoriumbackend.test/api/user/${id}`);
+      console.log(localStorage.getItem('token'));
+      const response = await fetch('http://eventoriumbackend.test/api/token', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json'
+        },
+      });
+      console.log(response);
       const data = await response.json();
       setData(data);
-      setIsLoading(false)
-    } catch (err) {
-
+      console.log(data);
+      setIsLoading(false);
+      const id = data.id;
     }
+    catch (err) {
+      console.log(err, "Error in user data request");
+    }
+    console.log(data);
   }
 
   useEffect(() => {

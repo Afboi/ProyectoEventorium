@@ -13,18 +13,16 @@ export const useFetchLogIn = (user, password) => {
     .then(response => response.json())
     .then(data => {
       if (data.success) {
-        // Almacenar el token en localStorage
         localStorage.setItem('token', data.token);
-        // Redireccionar a principal
         window.location.href = 'http://localhost:5173/Homepage';
       } else {
 
-        // setError('Usuario o contraseña incorrectos');
-        // document.getElementsByName('usuario')[0].value='';
-        // document.getElementsByName('contrasena')[0].value='';
+        setError('Incorrecto user or password');
+        document.getElementsByName('user')[0].value='';
+        document.getElementsByName('password')[0].value='';
       }
     })
-    .catch(error => console.error('Error al iniciar sesión:', error));
+    .catch(error => console.error('Log In failed:', error));
   };
 
 

@@ -6,19 +6,21 @@ import Cancel from "../../assets/imgs/close-circle-svgrepo-com.svg";
 // The main ProfileUserResult component
 export function ProfileUserResult({
   items,
-  profileData,
   onOpenEditModal,
   onClose,
+  data
 }) {
+
+
   return (
     <div className="z-10 bg-gray-100 flex items-center justify-center p-2">
       <div className="z-10 bg-white mx-4 p-8 rounded-lg shadow-md max-w-2xl h-[45rem] md:max-h-[34rem] w-full">
         {/* Profile picture */}
         <div className="relative">
           <img
-            src={Img}
+            src={data.image_url}
             alt="Profile Picture"
-            className="absolute bottom-0 left-2/4 transform -translate-x-1/2 translate-y-2/4 w-32 h-32 rounded-full border-4 border-white"
+            className=" object-cover absolute bottom-0 left-2/4 transform -translate-x-1/2 translate-y-2/4 w-32 h-32 rounded-full border-4 border-white"
           />
         </div>
 
@@ -40,7 +42,7 @@ export function ProfileUserResult({
           <div>
             <h2 className="font-medium text-blue text-md-xl">User:</h2>
             <h2 className="text-md-xl font-light text-main-ty-light">
-              {profileData.username}
+              {data.username}
             </h2>
           </div>
         </div>
@@ -63,28 +65,28 @@ export function ProfileUserResult({
 
         {/* Additional profile information */}
         <div className="flex flex-col md:flex-row justify-center items-center mt-6 gap-10 md:gap-20">
-          <div className="text-center">
-            <span className="block text-md-xl font-medium text-blue">
-              Género
+          <div className="text-center mt-4">
+            <span className="block text-[1.45rem] font-medium text-blue">
+              Diseases
             </span>
             <label className="text-sm text-main-ty-light">
-              {profileData.gender || ""}
+              {data.diseases|| ""}
             </label>
           </div>
-          <div className="text-center">
-            <span className="block text-md-xl font-medium text-blue">
-              Cumpleaños
+          <div className="text-center mt-4">
+            <span className="block text-[1.45rem] font-medium text-blue">
+              Physical Activity
             </span>
             <label className="text-sm text-main-ty-light">
-              {profileData.birthday || ""}
+              {data.physical_activity || ""}
             </label>
           </div>
-          <div className="text-center">
-            <span className="block text-md-xl font-medium text-blue">
-              Sueño
+          <div className="text-center mt-4">
+            <span className="block text-[1.45rem] font-medium text-blue">
+              Sleep Hours
             </span>
             <label className="text-sm text-main-ty-light">
-              {profileData.dream || ""}
+              {data.sleep_hours || ""}
             </label>
           </div>
         </div>

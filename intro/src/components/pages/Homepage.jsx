@@ -15,6 +15,7 @@ import {
 } from "../../hooks/useGeneralInfo.js";
 import { Assignments } from "../homepage_components/AssignmentsBar.jsx";
 import { useFetchUsers } from "../../hooks/useFetchUsers.js";
+import { useFetchEnrollCourses } from "../../hooks/useFetchEnrollCourses.js";
 
 /**
  * Homepage component.
@@ -40,10 +41,13 @@ export function Homepage() {
     openProfileModal
   );
 
-  console.log(profileData);
+  const {data, isLoading} = useFetchUsers();
+  console.log(data);
 
-  const usefetchUser = useFetchUsers();
-  console.log(usefetchUser);
+  
+  const {info, isLoadingEnrollCourses} = useFetchEnrollCourses(data.id);
+  console.log(info);
+
 
   //const is responsible for storing data from the useScreenWidth hook to determine the type of calendar that is displayed on the screen by means of the measurements of this
   const getHeight = useScreenWidth();
@@ -51,7 +55,7 @@ export function Homepage() {
   return (
     <div>
       {/* Navigation and search components */}
-      <Nav onOpenProfileModal={openProfileModal} />
+      <Nav onOpenProfileModal={openProfileModal} data={data} />
       <Search />
       <div className="mt-4 mx-4">
         {/* Summary bar with key metrics */}
@@ -85,6 +89,7 @@ export function Homepage() {
           openEditModal();
         }}
         profileData={profileData}
+        data={data} 
       />
 
       {/* Edit profile modal components */}

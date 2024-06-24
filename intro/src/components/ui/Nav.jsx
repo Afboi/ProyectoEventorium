@@ -21,7 +21,7 @@ function classNames(...classes) {
  * This component is responsible for displaying the navigation bar on the page.
  *
  */
-export function Nav({ onOpenProfileModal }) {
+export function Nav({ onOpenProfileModal, data }) {
   // Constant responsible for changing the theme
   //const setTheme = useChangeTheme();
 
@@ -123,8 +123,8 @@ export function Nav({ onOpenProfileModal }) {
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-10 w-10 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        className="h-10 w-10 rounded-full object-cover"
+                        src={data.image_url}
                         alt="User profile"
                       />
                     </Menu.Button>
