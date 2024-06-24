@@ -3,11 +3,35 @@ import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { ActivityCard } from "./ActivityCard";
+
+import { useFetchAllEventDetail } from "../../hooks/useFetchEventDetail";
+
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
 
-export function SwiperTasks() {
+export function SwiperTasks({id}) {
+
+  const { data } = useFetchAllEventDetail(id);
+  console.log('Soy la data de eventos',data);
+
+  const createEvents = (items) => {
+    return items.map( item => 
+      <SwiperSlide>
+        <ActivityCard 
+        key={item.id}
+        event_id={item.event_id}
+        user_id={item.user_id}
+        event_name={item.event_name}
+        event_date_start={item.event_date_start_short}
+        event_date_end={item.event_date_end_short}
+        course_name={item.course_name}
+        />
+      </SwiperSlide>    
+    )
+}
+
   return (
     <>
       {/* A div container for the swiper tasks */}
@@ -20,7 +44,6 @@ export function SwiperTasks() {
 
         <div className="w-full h-96">
           {/* The Swiper component with various props */}
-
           <Swiper
             direction={"horizontal"}
             pagination={{
@@ -53,23 +76,7 @@ export function SwiperTasks() {
               },
             }}
           >
-            {/* The SwiperSlide component */}
-            <SwiperSlide>
-              {/* A section for the task details */}
-              <ActivityCard/>
-            </SwiperSlide>
-            <SwiperSlide>
-              {/* A section for the task details */}
-              <ActivityCard/>
-            </SwiperSlide>
-            <SwiperSlide>
-              {/* A section for the task details */}
-              <ActivityCard/>
-            </SwiperSlide>
-            <SwiperSlide>
-              {/* A section for the task details */}
-              <ActivityCard/>
-            </SwiperSlide>
+            {createEvents(data)}
           </Swiper>
         </div>
       </div>

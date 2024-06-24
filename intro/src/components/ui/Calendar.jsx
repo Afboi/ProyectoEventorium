@@ -8,7 +8,13 @@ import interactionPlugin from "@fullcalendar/interaction";
 import { createEventId } from "../../utils/eventUtils";
 import "../../index.css";
 
-export function Calendar({ calendarHeight, calendarMode, calendarLanguage }) {
+import { useFetchEventCalendar } from "../../hooks/useFetchEventCalendar";
+
+export function Calendar({ calendarHeight, calendarMode, calendarLanguage, id}){
+  
+  const { data } = useFetchEventCalendar(id);
+
+  //console.log('Soy el Calendario',data);
   
   //Proptypes to specify the type of data the component accepts
   Calendar.propTypes = {
@@ -35,6 +41,17 @@ export function Calendar({ calendarHeight, calendarMode, calendarLanguage }) {
     }
   }
 
+  // This function is in charge of handling the event creation when clicking on the calendar date.
+  function handleEventSelect(event) {
+    //alert(`Event ID: ${event.event.id}\nEvent Title: ${event.event.title}\nDescription: ${event.event.extendedProps.description}\nState: ${event.event.extendedProps.state}`);
+  
+    event.jsEvent.preventDefault(); // don't let the browser navigate
+
+    if (event.event.url) {
+      window.location.href = "/" + event.event.url;
+    }
+  }
+
   // Render the calendar with each assigned parameter, such as calendar type, height, language, events and so on.
   return (
     <FullCalendar
@@ -48,22 +65,10 @@ export function Calendar({ calendarHeight, calendarMode, calendarLanguage }) {
       height={calendarHeight}
       firstDay={1}
       locale={calendarLanguage}
-      selectable={true}
-      select={handleDateSelect}
-      editable={true}
-      events={[
-        {
-          start: "2024-04-24",
-          end: "2024-04-24",
-          display: "auto",
-          backgroundColor: "rgb(150 240 138 / 0.2)",
-        },
-        {
-          start: "2024-10-24",
-          end: "2024-10-26",
-          display: "auto", 
-        },
-      ]}
+      eventClick={handleEventSelect}
+      //selectable={true}
+      //select={handleDateSelect}
+      events={data}
     />
   );
 }

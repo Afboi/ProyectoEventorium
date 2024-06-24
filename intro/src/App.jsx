@@ -1,5 +1,5 @@
 // Importing necessary libraries and components
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Importing page components
 import { Homepage } from "./components/pages/Homepage.jsx";
@@ -45,6 +45,7 @@ export function App() {
         <Route path="/Registration" element={<Registration />} />
         <Route path="/PasswordRecovery" element={<PasswordRecovery />} />
         <Route path="/EventDetails" element={<EventDetails />} />
+        <Route path="/EventDetails/:id" element={<EventDetails />} />
       </Routes>
     </Router>
   );

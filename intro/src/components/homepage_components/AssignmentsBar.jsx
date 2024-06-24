@@ -7,6 +7,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
 
+import { useFetchAllEventDetail } from "../../hooks/useFetchEventDetail";
+import { useParams } from 'react-router-dom';
+
 /**
  * Assignments Component
  * This component is used to display a list of assignments in a carousel.
@@ -14,7 +17,27 @@ import "./styles.css";
  * The carousel supports autoplay and pagination.
  * 
 **/
-export function Assignments() {
+export function Assignments({id}) {
+
+  const { data } = useFetchAllEventDetail(id);
+ // console.log(data);
+
+  const createEvents = (items) => {
+    return items.map( item => 
+      <SwiperSlide>
+        <DefaultActivityCard 
+        key={item.id}
+        event_id={item.id}
+        user_id={item.user_id}
+        event_name={item.event_name}
+        event_date_start={item.event_date_start_short}
+        event_date_end={item.event_date_end_short}
+        course_initials={item.course_initial}
+        />
+      </SwiperSlide>    
+    )
+}
+
   return (
     <div className="swiper-assignments rounded-xl bg-white">
       <section className="m-4">
@@ -80,28 +103,7 @@ export function Assignments() {
             },
           }}
         >
-          {/* The SwiperSlide component */}
-          <SwiperSlide>
-            <DefaultActivityCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <DefaultActivityCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <DefaultActivityCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <DefaultActivityCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <DefaultActivityCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <DefaultActivityCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <DefaultActivityCard />
-          </SwiperSlide>
+          {createEvents(data)}
         </Swiper>
       </div>
     </div>

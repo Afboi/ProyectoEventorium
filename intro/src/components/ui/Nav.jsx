@@ -22,6 +22,7 @@ function classNames(...classes) {
  *
  */
 export function Nav({ onOpenProfileModal, data }) {
+
   // Constant responsible for changing the theme
   //const setTheme = useChangeTheme();
 

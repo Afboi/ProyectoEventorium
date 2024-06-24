@@ -11,7 +11,6 @@ export function ProfileUserResult({
   data
 }) {
 
-
   return (
     <div className="z-10 bg-gray-100 flex items-center justify-center p-2">
       <div className="z-10 bg-white mx-4 p-8 rounded-lg shadow-md max-w-2xl h-[45rem] md:max-h-[34rem] w-full">

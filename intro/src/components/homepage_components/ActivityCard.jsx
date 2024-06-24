@@ -1,4 +1,11 @@
-export function ActivityCard() {
+import PropTypes from 'prop-types'
+
+export function ActivityCard({event_id, user_id, event_name, event_date_start, event_date_end, course_name}) {
+
+  const handleClick = () => {
+    window.location.href = `/EventDetails/${event_id}`;
+  };
+
   return (
     <section className="text-left w-full my-2">
       <div className="flex items-center my-2">
@@ -19,25 +26,25 @@ export function ActivityCard() {
             </svg>
           </div>
           {/* The task title */}
-          <p className="font-normal text-md ml-2 text-blue dark:text-gray-400">
+          <p className="font-normal text-sm ml-2 text-blue dark:text-gray-400">
             Universidad
           </p>
         </div>
       </div>
       {/* The task name */}
-      <p className="font-medium text-lg text-blue my-2 dark:text-gray-400">
-        Investigación I
+      <p className="font-medium text-md text-blue my-2 dark:text-gray-400">
+        {event_name}
       </p>
       {/* The task description */}
       <p className="font-light text-sm text-blue my-2 dark:text-gray-400">
-        Desarrollo de Aplicaciones Interactivas
+        {course_name}
       </p>
       {/* The task date */}
       <p className="font-light text-sm text-blue my-2 dark:text-gray-400">
-        Oct 30
+        {event_date_start} - {event_date_end}
       </p>
       {/* The task action button */}
-      <button
+      <button onClick={handleClick}
         type="submit"
         className="w-full  text-white bg-blue hover:bg-light-gray hover:text-blue focus:ring-2 focus:outline-none focus:ring-primary-300 font-medium rounded-full text-sm py-3 text-center"
       >
@@ -45,4 +52,22 @@ export function ActivityCard() {
       </button>
     </section>
   );
+}
+
+ActivityCard.propTypes = {
+  event_id: PropTypes.number.isRequired,
+  user_id: PropTypes.number.isRequired,
+  event_name: PropTypes.string.isRequired,
+  event_date_start: PropTypes.string.isRequired,
+  event_date_end: PropTypes.string.isRequired,
+  course_name: PropTypes.string.isRequired
+}
+
+ActivityCard.defaultProps = {
+  event_id: 0,
+  user_id: 0,
+  event_name: 'Event name',
+  event_date_start: 'Event date start',
+  event_date_end: 'Event date end',
+  course_name: 'Course name'
 }

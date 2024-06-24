@@ -15,8 +15,8 @@ export function SignInForm() {
   const [error, setError] = useState("");
 
   const handleSubmit = (event) => {
+    
     console.log("Datos enviados:", { user, password });
-
     
     event.preventDefault();
     fetch("http://eventoriumbackend.test/api/user/logIn", {

@@ -4,7 +4,7 @@ export function DetailDescription({ description }) {
     <div className="flex flex-col items-start gap-5 border-2 border-bg-main  w-[95%] h-[34rem] rounded-3xl p-4 dark:bg-not-so-dark-blue ">
       {/* Title */}
       <h1 className="border-b-4 border-[#018B8A] dark:border-orange">
-        Description
+        Descripción
       </h1>
 
       {/* Description content */}

@@ -4,9 +4,14 @@
  * This component is used to display an activity card on the main page of the application.
  * Each card contains an SVG icon, activity name, progress, time, and course code.
 **/
-export function DefaultActivityCard() {
+export function DefaultActivityCard({event_id, user_id, event_name, event_date_start, event_date_end, course_initials}) {
+
+  const handleClick = () => {
+    window.location.href = `/EventDetails/${event_id}`;
+  };
+
   return (
-    <div className="flex w-full justify-center items-center">
+    <div className="flex w-full justify-center items-center hover:cursor-pointer" onClick={handleClick}>
       <div className="flex bg-blue w-16 h-14 rounded-lg justify-center items-center">
         <svg
           width="33"
@@ -23,8 +28,8 @@ export function DefaultActivityCard() {
       </div>
       <div className="flex flex-col items-start justify-between w-full px-4">
         <div className="flex items-center justify-between w-full">
-          <span className="text-md font-semibold inline-block py-1 px-2 uppercase rounded-full text-green ">
-            Quiz 2
+          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green ">
+            {event_name}
           </span>
           <span className="text-md font-semibold inline-block text-green">
             10%
@@ -32,10 +37,10 @@ export function DefaultActivityCard() {
         </div>
         <div className="flex items-center justify-between w-full font-extralight">
           <span className="text-[1rem] font-semibold inline-block py-1 px-2 uppercase rounded-full text-green ">
-            Hoy/10:00-11:00
+            {event_date_start} - {event_date_end}
           </span>
           <span className="text-[1rem] font-semibold inline-block text-green">
-            TM-5100
+            {course_initials}
           </span>
         </div>
       </div>

@@ -15,7 +15,7 @@ import {
 } from "../../hooks/useGeneralInfo.js";
 import { Assignments } from "../homepage_components/AssignmentsBar.jsx";
 import { useFetchUsers } from "../../hooks/useFetchUsers.js";
-import { useFetchEnrollCourses } from "../../hooks/useFetchEnrollCourses.js";
+//import { useFetchEnrollCourses } from "../../hooks/useFetchEnrollCourses.js";
 
 /**
  * Homepage component.
@@ -30,6 +30,11 @@ import { useFetchEnrollCourses } from "../../hooks/useFetchEnrollCourses.js";
  * @see Assignments
  */
 export function Homepage() {
+
+  const {data, isLoading} = useFetchUsers();
+
+  //console.log('Soy la data de usuario del homepage!',data);
+
   const [isProfileModalOpen, openProfileModal, closeProfileModal] =
     useProfileModal();
   const [isEditModalOpen, openEditModal, closeEditModal] = useEditModal();
@@ -41,19 +46,19 @@ export function Homepage() {
     openProfileModal
   );
 
-  const {data, isLoading} = useFetchUsers();
-  console.log(data);
+  //const {info, isLoadingEnrollCourses} = useFetchEnrollCourses(data.id);
+  //console.log(info);
 
-  
-  const {info, isLoadingEnrollCourses} = useFetchEnrollCourses(data.id);
-  console.log(info);
-
+  //const usefetchUser = useFetchUsers();
+  //console.log(usefetchUser);
 
   //const is responsible for storing data from the useScreenWidth hook to determine the type of calendar that is displayed on the screen by means of the measurements of this
   const getHeight = useScreenWidth();
 
   return (
     <div>
+    { isLoading ? <h1 className="text-center text-9xl">Cargando...</h1> : <div> 
+      
       {/* Navigation and search components */}
       <Nav onOpenProfileModal={openProfileModal} data={data} />
       <Search />
@@ -62,7 +67,7 @@ export function Homepage() {
         <SummaryBar />
 
         {/* Carousel of tasks */}
-        <SwiperTasks />
+        <SwiperTasks  id={data.id}/>
       </div>
       <div className="lg:flex lg:w-full lg:gap-3 p-4">
         <div className="lg:w-[70%] sm:w-[100%]">
@@ -72,11 +77,12 @@ export function Homepage() {
             calendarHeight={getHeight.heightHome}
             calendarMode={"dayGridMonth"}
             calendarLanguage={"es"}
+            id={data.id}
           />
         </div>
         <div className="lg:w-[34.2%] sm:w-[100%]">
           {/* List of assignments */}
-          <Assignments />
+          <Assignments id={data.id} />
         </div>
       </div>
 
@@ -101,7 +107,8 @@ export function Homepage() {
         }}
         profileData={profileData}
         onConfirm={confirmEdit}
-      />
+      /></div> }
+      
     </div>
   );
 }

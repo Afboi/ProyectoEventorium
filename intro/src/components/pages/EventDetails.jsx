@@ -14,13 +14,16 @@ import {
 } from "../../hooks/useGeneralInfo.js";
 import useScreenWidth from "../../hooks/useScreenWidth.js";
 import "../../index.css";
+import { useFetchUsers } from "../../hooks/useFetchUsers.js";
+//import { useFetchEnrollCourses } from "../../hooks/useFetchEnrollCourses.js";
 
 // The main EventDetails component
 export function EventDetails() {
-  //const in charge of storing the data of the hook useScreenWidth to determine the type of calendar displayed on the screen by means of the measurements of this hook.
-  const getHeight = useScreenWidth();
 
-  // State variables and functions for managing profile modal and edit modal
+  const {data, isLoading} = useFetchUsers();
+
+  //console.log('Soy la data de usuario del EventDetail',data)
+
   const [isProfileModalOpen, openProfileModal, closeProfileModal] =
     useProfileModal();
   const [isEditModalOpen, openEditModal, closeEditModal] = useEditModal();
@@ -31,30 +34,23 @@ export function EventDetails() {
     closeEditModal,
     openProfileModal
   );
+  
+  //const {info, isLoadingEnrollCourses} = useFetchEnrollCourses(data.id);
+  //console.log(info);
 
-  // Sample event information
-  const info = [
-    {
-      id: 1,
-      course: "TM-5100",
-      priority: "High",
-      progress: "Incomplete",
-      time: "8:00a.m.-9:00a.m.",
-    },
-  ];
+  //console.log(profileData);
 
-  // Sample data for event details
-  const data = [
-    {
-      id: 1,
-      description:
-        "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-    },
-  ];
+  //const usefetchUser = useFetchUsers();
+  //console.log(usefetchUser);
+
+  //const in charge of storing the data of the hook useScreenWidth to determine the type of calendar displayed on the screen by means of the measurements of this hook.
+  const getHeight = useScreenWidth();
+
+
   return (
     <div className="">
-      {/* Navigation and search components */}
-      <Nav onOpenProfileModal={openProfileModal} />
+    { isLoading ? <h1 className="text-center text-9xl">Cargando...</h1> : <div> {/* Navigation and search components */}
+      <Nav onOpenProfileModal={openProfileModal} data={data} />
       <Search />
 
       {/* Summary bar component */}
@@ -64,7 +60,9 @@ export function EventDetails() {
 
       {/* Event details and calendar components */}
       <div className="flex flex-col-reverse mb-4 sm:flex-row justify-center gap-6 mx-4 sm:mx-0">
-        <Details items={info} objects={data} />
+
+        <Details userID={data.id}/>
+        
         <div className="order-1 sm:order-2 w-full sm:w-[61%]">
           {/* Calendar component. Its height and layout depends on the screen size.
           The language used is specified in the "calendarLanguage" attribute. */}
@@ -72,6 +70,7 @@ export function EventDetails() {
             calendarHeight={getHeight.heightDetail}
             calendarMode={getHeight.gridModeDetail}
             calendarLanguage={"en"}
+            id={data.id}            
           />
         </div>
       </div>
@@ -96,7 +95,7 @@ export function EventDetails() {
         }}
         profileData={profileData}
         onConfirm={confirmEdit}
-      />
+      /></div>}
     </div>
   );
 }
