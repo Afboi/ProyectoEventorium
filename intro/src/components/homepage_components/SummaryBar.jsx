@@ -58,7 +58,7 @@ export function SummaryBar() {
                 </div>
 
                 <p className="font-medium text-md text-blue sm:[1.3rem] dark:text-orange">
-                  Carga de Trabajo
+                  Workload
                 </p>
               </div>
             </SwiperSlide>
@@ -80,10 +80,10 @@ export function SummaryBar() {
                 </CircularProgress>
                 <div className="flex flex-col ml-4 items-start  justify-center">
                   <p className="font-medium text-md text-blue sm:[1.3rem] dark:text-orange">
-                    Tareas del Día
+                    Tasks of the Day
                   </p>
                   <p className="font-normal text-md text-blue sm:[1.3rem] dark:text-orange">
-                    Completadas
+                    Completed
                   </p>
                 </div>
               </div>
@@ -106,10 +106,10 @@ export function SummaryBar() {
                 </CircularProgress>
                 <div className="flex flex-col ml-4 items-start  justify-center">
                   <p className="font-medium text-md text-blue sm:[1.3rem] dark:text-orange">
-                    Tareas de la Semana
+                  Tasks of the Week
                   </p>
                   <p className="font-normal text-md text-blue sm:[1.3rem] dark:text-orange">
-                    Completadas
+                  Completed
                   </p>
                 </div>
               </div>
@@ -125,8 +125,8 @@ export function SummaryBar() {
                 />
                 <div className="absolute inset-0 bg-black opacity-25 rounded-[1rem]"></div>
                 <div className="absolute bottom-2 left-2 text-white">
-                  <p className="text-md  sm:[1.3rem]">01 de mayo</p>
-                  <p className="text-md  sm:[1.3rem]">Día del Trabajador</p>
+                  <p className="text-md  sm:[1.3rem]">May 1</p>
+                  <p className="text-md  sm:[1.3rem]">Labor Day</p>
                 </div>
               </div>
             </SwiperSlide>

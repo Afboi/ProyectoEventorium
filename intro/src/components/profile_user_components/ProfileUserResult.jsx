@@ -89,7 +89,7 @@ export function ProfileUserResult({
             className="rounded-full text-light-gray bg-blue w-full md:w-48 h-10"
             onClick={onOpenEditModal}
           >
-            Editar
+            Edit
           </button>
         </div>
       </div>

@@ -7,9 +7,9 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 // Navigation items for the navigation bar
 const navigation = [
   // { name: "Calendario", href: "/EventDetails", current: false },
-  { name: "Actividades", href: "#", current: false },
-  { name: "Homepage", href: "/Homepage", current: false },
-  { name: "Agregar tarea", href: "#", current: true },
+  { name: "Activities", href: "/ViewMore", current: false },
+  { name: "Homepage", href: "/Homepage", current: true },
+  // { name: "Agregar tarea", href: "#", current: false },
 ];
 // Helper function to join class names into a single string
 function classNames(...classes) {
@@ -25,6 +25,15 @@ export function Nav({ onOpenProfileModal, data }) {
 
   // Constant responsible for changing the theme
   //const setTheme = useChangeTheme();
+
+  export const removeToken = async () => {
+    try {
+      await AsyncStorage.removeItem("Token");
+    } catch (error) {
+      console.log("Renove authentication token failed :", error?.message);
+    }
+  };
+  
 
   // The Disclosure component from Headless UI is used to create a responsive navigation bar
   return (
@@ -55,6 +64,7 @@ export function Nav({ onOpenProfileModal, data }) {
                       alt="Your Company"
                     />
                   </a>
+                  <p className="text-lg font-[380] text-[#018B8A]  ml-4 text-center">Eventorium</p>
                 </div>
                 {/* Navigation items */}
                 <div className="hidden sm:ml-6 sm:block">
@@ -79,43 +89,7 @@ export function Nav({ onOpenProfileModal, data }) {
               </div>
               {/* Notification button */}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 dark:text-white dark:hover:text-orange dark:focus:ring-orange dark:focus:ring-offset-orange"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <svg
-                    width="40px"
-                    height="50px"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12.0196 2.91016C8.7096 2.91016 6.0196 5.60016 6.0196 8.91016V11.8002C6.0196 12.4102 5.7596 13.3402 5.4496 13.8602L4.2996 15.7702C3.5896 16.9502 4.0796 18.2602 5.3796 18.7002C9.6896 20.1402 14.3396 20.1402 18.6496 18.7002C19.8596 18.3002 20.3896 16.8702 19.7296 15.7702L18.5796 13.8602C18.2796 13.3402 18.0196 12.4102 18.0196 11.8002V8.91016C18.0196 5.61016 15.3196 2.91016 12.0196 2.91016Z"
-                      stroke="rgba(1, 139, 138, 1)"
-                      strokeWidth="1.5"
-                      strokeMiterlimit="10"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M13.8699 3.19994C13.5599 3.10994 13.2399 3.03994 12.9099 2.99994C11.9499 2.87994 11.0299 2.94994 10.1699 3.19994C10.4599 2.45994 11.1799 1.93994 12.0199 1.93994C12.8599 1.93994 13.5799 2.45994 13.8699 3.19994Z"
-                      stroke="rgba(1, 139, 138, 1)"
-                      strokeWidth="1.5"
-                      strokeMiterlimit="10"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      opacity="0.4"
-                      d="M15.0195 19.0601C15.0195 20.7101 13.6695 22.0601 12.0195 22.0601C11.1995 22.0601 10.4395 21.7201 9.89953 21.1801C9.35953 20.6401 9.01953 19.8801 9.01953 19.0601"
-                      stroke="#292D32"
-                      strokeWidth="1.5"
-                      strokeMiterlimit="10"
-                    />
-                  </svg>
-                </button>
+               
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
@@ -151,7 +125,7 @@ export function Nav({ onOpenProfileModal, data }) {
                               "block px-4 py-2 text-sm text-blue dark:text-white"
                             )}
                           >
-                            Mi perfil
+                            My profile
                           </a>
                         )}
                       </Menu.Item>
@@ -172,6 +146,8 @@ export function Nav({ onOpenProfileModal, data }) {
                         )}
                       </Menu.Item>
                       */}
+                    
+                          
                       <Menu.Item>
                         {({ active }) => (
                           <a
@@ -181,20 +157,7 @@ export function Nav({ onOpenProfileModal, data }) {
                               "block px-4 py-2 text-sm text-blue dark:text-white"
                             )}
                           >
-                            Configuración
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-blue dark:text-white"
-                            )}
-                          >
-                            Salir
+                            Log out
                           </a>
                         )}
                       </Menu.Item>

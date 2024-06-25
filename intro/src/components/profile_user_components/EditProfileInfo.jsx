@@ -183,7 +183,7 @@ export function EditProfileInfo({
               className="rounded-full text-light-gray bg-blue w-full md:w-48W h-10"
               
             >
-              Confirmar
+              Confirm
             </button>
           </div>
         </form>

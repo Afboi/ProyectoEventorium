@@ -39,7 +39,7 @@ export function SwiperTasks({id}) {
         {/* A heading for the swiper tasks */}
 
         <h5 className="text-lg font-medium text-blue text-center">
-          Actividades
+          Activities
         </h5>
 
         <div className="w-full h-96">

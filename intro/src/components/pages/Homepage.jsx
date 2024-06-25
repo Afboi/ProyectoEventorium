@@ -76,7 +76,7 @@ export function Homepage() {
           <Calendar
             calendarHeight={getHeight.heightHome}
             calendarMode={"dayGridMonth"}
-            calendarLanguage={"es"}
+            calendarLanguage={"en"}
             id={data.id}
           />
         </div>

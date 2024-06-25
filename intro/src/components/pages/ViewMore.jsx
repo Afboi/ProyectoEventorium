@@ -10,6 +10,8 @@ import {
   handleEditConfirm,
 } from "../../hooks/useGeneralInfo.js";
 import { CardsExtra } from "../view_more_components/CardsExtra.jsx";
+import { useFetchUsers } from "../../hooks/useFetchUsers.js";
+
 
 /**
  * View More Page component.
@@ -35,10 +37,13 @@ export function ViewMore() {
     openProfileModal
   );
 
+  const {data, isLoading} = useFetchUsers();
+  console.log(data);
+
   return (
     <div>
       {/* Navigation and search components */}
-      <Nav onOpenProfileModal={openProfileModal} />
+      <Nav onOpenProfileModal={openProfileModal} data={data} />
       <Search />
       {/* Results cards components */}
       <div className="flex lg:flex lg:w-full lg:gap-3 p-4">
@@ -54,6 +59,7 @@ export function ViewMore() {
           openEditModal();
         }}
         profileData={profileData}
+        data={data}
       />
 
       {/* Edit profile modal components */}
@@ -65,6 +71,7 @@ export function ViewMore() {
         }}
         profileData={profileData}
         onConfirm={confirmEdit}
+        data={data}
       />
     </div>
   );
