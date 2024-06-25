@@ -19,14 +19,12 @@ export const useFetchUsers = () => {
       console.log(response);
       const data = await response.json();
       setData(data);
-      //console.log(data);
       setIsLoading(false);
       const id = data.id;
     }
     catch (err) {
       console.log(err, "Error in user data request");
     }
-    //console.log(data);
   }
 
   useEffect(() => {
@@ -35,7 +33,7 @@ export const useFetchUsers = () => {
 
   return {
     data,
-    isLoading,
+    isLoading
   }
 }
 

@@ -31,14 +31,11 @@ import { useFetchUsers } from "../../hooks/useFetchUsers.js";
  */
 export function Homepage() {
 
-  const {data, isLoading} = useFetchUsers();
-
-  //console.log('Soy la data de usuario del homepage!',data);
-
   const [isProfileModalOpen, openProfileModal, closeProfileModal] =
     useProfileModal();
   const [isEditModalOpen, openEditModal, closeEditModal] = useEditModal();
   const [profileData, setProfileData] = useProfileData();
+  
 
   const confirmEdit = handleEditConfirm(
     setProfileData,
@@ -46,11 +43,14 @@ export function Homepage() {
     openProfileModal
   );
 
+
+  const {data, isLoading} = useFetchUsers();
+  console.log(data);
+
+
   //const {info, isLoadingEnrollCourses} = useFetchEnrollCourses(data.id);
   //console.log(info);
 
-  //const usefetchUser = useFetchUsers();
-  //console.log(usefetchUser);
 
   //const is responsible for storing data from the useScreenWidth hook to determine the type of calendar that is displayed on the screen by means of the measurements of this
   const getHeight = useScreenWidth();
@@ -107,6 +107,7 @@ export function Homepage() {
         }}
         profileData={profileData}
         onConfirm={confirmEdit}
+        data={data}
       /></div> }
       
     </div>

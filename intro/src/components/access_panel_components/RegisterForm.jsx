@@ -5,18 +5,18 @@ import Logo from "../../assets/imgs/logoEventorium.svg";
 import { SelectInput } from "../access_panel_components/SelectInput";
 
 export const diseases = [
-  { id: 0, name: "Diabetes" },
-  { id: 1, name: "Hipertension" },
-  { id: 2, name: "Obesidad" },
-  { id: 2, name: "Asma" },
-  { id: 2, name: "Artritis" },
-  { id: 2, name: "Ninguna" },
+  { id: 1, name: "Diabetes", label: "Diabetes"},
+  { id: 2, name: "Hipertension", label: "Hypertension"},
+  { id: 3, name: "Obesidad", label: "Obesity" },
+  { id: 4, name: "Asma", label: "Asthma" },
+  { id: 5, name: "Artritis", label: "Arthritis" },
+  { id: 6, name: "Ninguna", label: "None" },
 ];
 
 export const physical_activity = [
-  { id: 0, name: "Sedentario" },
-  { id: 1, name: "Moderado" },
-  { id: 2, name: "Activo" },
+  { id: 1, name: "Sedentario", label: "Sedentary" },
+  { id: 2, name: "Moderado",  label: "Moderate" },
+  { id: 3, name: "Activo",  label: "Active" },
 ];
 
 

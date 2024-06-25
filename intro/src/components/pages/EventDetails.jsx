@@ -20,8 +20,6 @@ import { useFetchUsers } from "../../hooks/useFetchUsers.js";
 // The main EventDetails component
 export function EventDetails() {
 
-  const {data, isLoading} = useFetchUsers();
-
   //console.log('Soy la data de usuario del EventDetail',data)
 
   const [isProfileModalOpen, openProfileModal, closeProfileModal] =
@@ -35,13 +33,10 @@ export function EventDetails() {
     openProfileModal
   );
   
-  //const {info, isLoadingEnrollCourses} = useFetchEnrollCourses(data.id);
-  //console.log(info);
+  const {data, isLoading} = useFetchUsers();
+  console.log(data);
 
-  //console.log(profileData);
 
-  //const usefetchUser = useFetchUsers();
-  //console.log(usefetchUser);
 
   //const in charge of storing the data of the hook useScreenWidth to determine the type of calendar displayed on the screen by means of the measurements of this hook.
   const getHeight = useScreenWidth();
@@ -84,6 +79,7 @@ export function EventDetails() {
           openEditModal();
         }}
         profileData={profileData}
+        data={data}
       />
 
       {/* Edit profile modal components */}
@@ -95,6 +91,7 @@ export function EventDetails() {
         }}
         profileData={profileData}
         onConfirm={confirmEdit}
+        data={data}
       /></div>}
     </div>
   );

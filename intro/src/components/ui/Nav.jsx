@@ -6,7 +6,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 // Navigation items for the navigation bar
 const navigation = [
-  { name: "Calendario", href: "/EventDetails", current: false },
+  // { name: "Calendario", href: "/EventDetails", current: false },
   { name: "Actividades", href: "#", current: false },
   { name: "Homepage", href: "/Homepage", current: false },
   { name: "Agregar tarea", href: "#", current: true },

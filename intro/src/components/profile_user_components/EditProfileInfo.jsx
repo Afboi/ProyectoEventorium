@@ -1,19 +1,28 @@
 // Importing page components
 import "../../index.css";
-import Img from "../../assets/imgs/profile_img.png";
 import Cancel from "../../assets/imgs/close-circle-svgrepo-com.svg";
 import { InputsProfile } from "./InputsProfile";
 import { useState, useEffect } from "react";
 
 // The main EditProfileInfo component
-export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
+export function EditProfileInfo({
+  isOpen,
+  onClose,
+  profileData,
+  onConfirm,
+  data,
+}) {
   // State for managing form data.
-  const [formData, setFormData] = useState({
-    username: profileData.username,
-    gender: profileData.gender || "",
-    birthday: profileData.birthday || "",
-    dream: profileData.dream || "",
-  });
+  const [formData, setFormData] = useState(
+    Object.entries({
+      username: data.username,
+      diseases: data.diseases,
+      physical_activity: data.physical_activity,
+      sleep_hours: data.sleep_hours,
+    })
+  );
+
+  console.log("formdata" + formData);
 
   // State for managing error messages.
   const [error, setError] = useState("");
@@ -22,10 +31,10 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
   useEffect(() => {
     if (isOpen) {
       setFormData({
-        username: profileData.username,
-        gender: profileData.gender || "",
-        birthday: profileData.birthday || "",
-        dream: profileData.dream || "",
+        username: data.username,
+        diseases: data.diseases,
+        physical_activity: data.physical_activity,
+        sleep_hours: data.sleep_hours,
       });
     }
   }, [isOpen, profileData]);
@@ -41,16 +50,20 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
 
   // Handler for confirming changes.
   const handleConfirm = () => {
-    if (!formData.gender || !formData.birthday || !formData.dream) {
+    if (
+      !formData.diseases ||
+      !formData.physical_activity ||
+      !formData.sleep_hours
+    ) {
       setError("Para confirmar tienes que seleccionar todas las opciones");
       return;
     }
     onConfirm({
       ...profileData,
       username: formData.username,
-      gender: formData.gender,
-      birthday: formData.birthday,
-      dream: formData.dream,
+      diseases: formData.diseases,
+      physical_activity: formData.physical_activity,
+      sleep_hours: formData.sleep_hours,
     });
     setError("");
   };
@@ -60,48 +73,56 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
     return null;
   }
 
-  // Input configuration for the profile form.
+  //Input configuration for the profile form.
   const inputs = [
     {
       id: 1,
-      title: "Username",
+      title: "Username:",
       type: "text",
-      placeholder: "Ingresa tu nombre",
+      placeholder: "Enter your username",
       value: formData.username,
       onChange: handleChange,
       name: "username",
     },
     {
       id: 2,
-      title: "Genero: ",
+      title: "Diseases: ",
       type: "select",
-      placeholder: "Escoge tu genero",
+      placeholder: "choose your disease",
       options: [
-        { value: "Masculino", label: "Masculino" },
-        { value: "Femenino", label: "Femenino" },
-        { value: "Otro", label: "Otro" },
+        { value: "Diabetes", label: "Diabetes" },
+        { value: "Hipertension", label: "Hypertension" },
+        { value: "Obesidad", label: "Obesity" },
+        { value: "Asma", label: "Asthma" },
+        { value: "Artritis", label: "Arthritis" },
+        { value: "Ninguna", label: "None" },
       ],
-      value: formData.gender,
+      value: formData.diseases,
       onChange: handleChange,
-      name: "gender",
+      name: "disease",
     },
     {
       id: 3,
-      title: "Cumpleaños: ",
-      type: "date",
-      placeholder: "Escoge una fecha",
-      value: formData.birthday,
+      title: "Physical Activity: ",
+      type: "select",
+      placeholder: "Choose your physical activity",
+      options: [
+        { value: "Sedentario", label: "Sedentary" },
+        { value: "Moderado", label: "Moderate" },
+        { value: "Activo", label: "Active" },
+      ],
+      value: formData.physical_activity,
       onChange: handleChange,
-      name: "birthday",
+      name: "physical_activity",
     },
     {
       id: 4,
-      title: "Sueño: ",
+      title: "Sleep Hours: ",
       type: "number",
-      placeholder: "Escoge un número",
-      value: formData.dream,
+      placeholder: "Choose a number",
+      value: formData.sleep_hours,
       onChange: handleChange,
-      name: "dream",
+      name: "sleep_hours",
     },
   ];
 
@@ -114,7 +135,7 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
         {/* Profile Picture */}
         <div className="relative">
           <img
-            src={Img}
+            src={data.image_url}
             alt="Profile Picture"
             className="absolute bottom-0 left-2/4 transform -translate-x-1/2 translate-y-1/2 w-32 h-32 rounded-full border-4 border-white"
           />
@@ -135,33 +156,37 @@ export function EditProfileInfo({ isOpen, onClose, profileData, onConfirm }) {
         </div>
 
         {/* Course Information */}
-        <div className="mt-8">
-          <h2 className="text-blue font-medium mt-2 text-md-xl">Cursos:</h2>
-          <div className="flex gap-2">
-            {profileData.courses.map((item) => (
-              <p
-                className="text-main-ty-light mt-3 text-md font-light"
-                key={item.id}
-              >
-                {" "}
-                | {item.initial} |{" "}
-              </p>
-            ))}
+        <form
+          action="http://eventoriumbackend.test/api/updateProfile"
+          method="POST"
+        >
+          <div className="mt-8">
+            <h2 className="text-blue font-medium mt-2 text-[1.90rem] text-center">
+              Edit the profile information
+            </h2>
+            <div className="flex flex-col gap-2">
+              <h2 className="text-[1.50rem] font-medium text-blue">Email:</h2>
+              <input name="email"
+                className="text-main-ty-light border-main-ty-light border-2 rounded-full py-2 px-3 w-full"
+                type="email"
+                defaultValue={data.email}
+              />
+            </div>
           </div>
-        </div>
 
-        {/* Form Inputs */}
-        <InputsProfile objects={inputs} />
-        {error && <p className="text-red-500 text-center">{error}</p>}
-        {/* Button to confirm the editing of the information */}
-        <div className="mt-8 justify-center items-center flex">
-          <button
-            className="rounded-full text-light-gray bg-blue w-full md:w-48W h-10"
-            onClick={handleConfirm}
-          >
-            Confirmar
-          </button>
-        </div>
+          {/* Form Inputs */}
+          <InputsProfile data={data} objects={inputs} />
+          {error && <p className="text-red-500 text-center">{error}</p>}
+          {/* Button to confirm the editing of the information */}
+          <div className="mt-8 justify-center items-center flex">
+            <button type="submit"
+              className="rounded-full text-light-gray bg-blue w-full md:w-48W h-10"
+              
+            >
+              Confirmar
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

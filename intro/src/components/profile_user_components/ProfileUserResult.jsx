@@ -13,7 +13,7 @@ export function ProfileUserResult({
 
   return (
     <div className="z-10 bg-gray-100 flex items-center justify-center p-2">
-      <div className="z-10 bg-white mx-4 p-8 rounded-lg shadow-md max-w-2xl h-[45rem] md:max-h-[34rem] w-full">
+      <div className="z-10 bg-white mx-4 p-8 rounded-lg shadow-md max-w-2xl h-[45rem] md:max-h-[32rem] w-full">
         {/* Profile picture */}
         <div className="relative">
           <img
@@ -48,43 +48,37 @@ export function ProfileUserResult({
 
         {/* List of user courses */}
         <div className="mt-8">
-          <h2 className="text-blue font-medium mt-2 text-md-xl">Cursos:</h2>
+          <h2 className="text-blue font-medium mt-2 text-md-xl">Email:</h2>
           <div className="flex gap-0 md:gap-2">
-            {items.map((item) => (
-              <p
-                className="text-main-ty-light mt-3 md:text-md text-xs font-light"
-                key={item.id}
-              >
-                {" "}
-                | {item.initial} |{" "}
+              <p className="text-md-xl font-light text-main-ty-light">
+              {data.email }
               </p>
-            ))}
           </div>
         </div>
 
         {/* Additional profile information */}
-        <div className="flex flex-col md:flex-row justify-center items-center mt-6 gap-10 md:gap-20">
+        <div className="flex flex-col md:flex-row justify-between items-center mt-6 gap-10 md:gap-20">
           <div className="text-center mt-4">
-            <span className="block text-[1.45rem] font-medium text-blue">
+            <span className="block text-[1.70rem] font-medium text-blue">
               Diseases
             </span>
-            <label className="text-sm text-main-ty-light">
+            <label className="text-[1.40rem] text-main-ty-light">
               {data.diseases|| ""}
             </label>
           </div>
           <div className="text-center mt-4">
-            <span className="block text-[1.45rem] font-medium text-blue">
+            <span className="block text-[1.70rem] font-medium text-blue">
               Physical Activity
             </span>
-            <label className="text-sm text-main-ty-light">
+            <label className="text-[1.40rem] text-main-ty-light">
               {data.physical_activity || ""}
             </label>
           </div>
           <div className="text-center mt-4">
-            <span className="block text-[1.45rem] font-medium text-blue">
+            <span className="block text-[1.70rem] font-medium text-blue">
               Sleep Hours
             </span>
-            <label className="text-sm text-main-ty-light">
+            <label className="text-[1.40rem] text-main-ty-light">
               {data.sleep_hours || ""}
             </label>
           </div>

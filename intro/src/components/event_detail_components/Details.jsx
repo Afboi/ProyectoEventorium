@@ -20,7 +20,6 @@ export function Details({userID}) {
         {/* Date and Progress */}
         <div className="my-8 flex justify-between mx-4 border-b-4 border-blue dark:border-orange">
           <h1>{item.event_date_start_short}</h1>
-          <p>10%</p>
         </div>
 
         {/* Event/Task Cards */}

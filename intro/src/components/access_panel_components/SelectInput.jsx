@@ -19,7 +19,7 @@ export function SelectInput({ name, items, placeholder, title, id, type }) {
         >
           {items.map((item) => (
             <option key={item.id} value={item.id}>
-              {item.name}
+              {item.label}
             </option>
           ))}
         </select>

@@ -16,7 +16,6 @@ export function SignInForm() {
 
   const handleSubmit = (event) => {
     
-    console.log("Datos enviados:", { user, password });
     
     event.preventDefault();
     fetch("http://eventoriumbackend.test/api/user/logIn", {
@@ -60,13 +59,13 @@ export function SignInForm() {
                   htmlFor=""
                   className="block mb-2 text-sm font-medium text-blue"
                 >
-                  Username
+                  Email
                 </label>
                 <input
                 onChange={(e) => setUser(e.target.value)}
                   type="text"
-                  name="username"
-                  placeholder="uwu"
+                  name="email"
+                  placeholder="Enter your email"
                   className="bg-gray-50 border border-gray-300 text-blue sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   required
                 />
