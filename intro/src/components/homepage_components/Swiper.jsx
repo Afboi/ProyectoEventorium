@@ -14,7 +14,13 @@ import "./styles.css";
 export function SwiperTasks({id}) {
 
   const { data } = useFetchAllEventDetail(id);
-  console.log('Soy la data de eventos',data);
+  //console.log('Soy la data de eventos',data);
+
+  const areEvents = (items) =>{
+    if (items.length === 0){
+      return <p className="text-center text-lg textfont-normal ml-2 text-blue">No events available</p>
+    }
+  }
 
   const createEvents = (items) => {
     return items.map( item => 
@@ -22,7 +28,6 @@ export function SwiperTasks({id}) {
         <ActivityCard 
         key={item.id}
         event_id={item.event_id}
-        user_id={item.user_id}
         event_name={item.event_name}
         event_date_start={item.event_date_start_short}
         event_date_end={item.event_date_end_short}
@@ -43,6 +48,7 @@ export function SwiperTasks({id}) {
         </h5>
 
         <div className="w-full h-96">
+        {areEvents(data)}
           {/* The Swiper component with various props */}
           <Swiper
             direction={"horizontal"}

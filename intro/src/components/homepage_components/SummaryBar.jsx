@@ -4,12 +4,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import CircularProgress from "@mui/joy/CircularProgress";
 
+import { useFetchUserEventsComplete, useFetchUserEventsIncomplete } from "../../hooks/useFetchEventDetail";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
 //SummaryBar component displays a summary bar using Swiper for sliding.
-export function SummaryBar() {
+export function SummaryBar({id}) {
+
+  const { dataComplete } = useFetchUserEventsComplete(id);
+  const { dataIncomplete } = useFetchUserEventsIncomplete(id);
+
   return (
     <>
       <div className="swiper-summary text-center">
@@ -21,7 +27,7 @@ export function SummaryBar() {
               delay: 5000,
               disableOnInteraction: false,
             }}
-            slidesPerView={4}
+            slidesPerView={3}
             spaceBetween={30}
             modules={[Pagination, Autoplay]}
             className="mySwiper"
@@ -38,37 +44,17 @@ export function SummaryBar() {
               },
               // when window width is >= 640px
               640: {
-                slidesPerView: 4,
+                slidesPerView: 3,
                 spaceBetween: 20,
               },
             }}
           >
-            {/* Slide 1: Workload */}
-            <SwiperSlide>
-              <div className="flex flex-col items-center">
-                <div className="flex gap-1 ">
-                  <div className="h-8 w-10 bg-[#34798e]/50 rounded-l-full dark:bg-orange/50"></div>
-                  <div
-                    className="h-8 w-10 bg-[#34798e]/60 dark:bg-orange/60"
-                    id="marca"
-                  ></div>
-                  <div className="h-8 w-10 bg-[#34798e]/70 dark:bg-orange/70"></div>
-                  <div className="h-8 w-10 bg-[#34798e]/80 dark:bg-orange/80"></div>
-                  <div className="h-8 w-10 bg-[#34798e] rounded-r-full dark:bg-orange"></div>
-                </div>
-
-                <p className="font-medium text-md text-blue sm:[1.3rem] dark:text-orange">
-                  Workload
-                </p>
-              </div>
-            </SwiperSlide>
-
             {/* Slide 2: Daily Tasks */}
             <SwiperSlide>
               <div className="flex justify-center overflow-hidden">
                 <CircularProgress
                   determinate
-                  value={60.67}
+                  value={dataIncomplete.length / (dataComplete.length + dataIncomplete.length) * 100}
                   color="primary"
                   sx={{
                     "--CircularProgress-size": "100px",
@@ -76,14 +62,14 @@ export function SummaryBar() {
                     "--CircularProgress-progressThickness": "12px",
                   }}
                 >
-                  2 / 3
+                  {dataIncomplete.length} / {dataComplete.length + dataIncomplete.length}
                 </CircularProgress>
                 <div className="flex flex-col ml-4 items-start  justify-center">
                   <p className="font-medium text-md text-blue sm:[1.3rem] dark:text-orange">
-                    Tasks of the Day
+                  Total Tasks: {dataComplete.length + dataIncomplete.length}
                   </p>
                   <p className="font-normal text-md text-blue sm:[1.3rem] dark:text-orange">
-                    Completed
+                    {dataIncomplete.length} Incompleted
                   </p>
                 </div>
               </div>
@@ -94,7 +80,7 @@ export function SummaryBar() {
               <div className="flex justify-center overflow-hidden">
                 <CircularProgress
                   determinate
-                  value={60.67}
+                  value={dataComplete.length / (dataComplete.length + dataIncomplete.length) * 100}
                   color="primary"
                   sx={{
                     "--CircularProgress-size": "100px",
@@ -102,14 +88,14 @@ export function SummaryBar() {
                     "--CircularProgress-progressThickness": "12px",
                   }}
                 >
-                  2 / 3
+                  {dataComplete.length} / {dataComplete.length + dataIncomplete.length}
                 </CircularProgress>
                 <div className="flex flex-col ml-4 items-start  justify-center">
                   <p className="font-medium text-md text-blue sm:[1.3rem] dark:text-orange">
-                  Tasks of the Week
+                  Total Tasks: {dataComplete.length + dataIncomplete.length}
                   </p>
                   <p className="font-normal text-md text-blue sm:[1.3rem] dark:text-orange">
-                  Completed
+                  {dataComplete.length} Completed
                   </p>
                 </div>
               </div>

@@ -28,18 +28,18 @@ export function DefaultActivityCard({event_id, user_id, event_name, event_date_s
       </div>
       <div className="flex flex-col items-start justify-between w-full px-4">
         <div className="flex items-center justify-between w-full">
-          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green ">
+          <span className="text-[0.7rem] xl:text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green ">
             {event_name}
           </span>
-          <span className="text-md font-semibold inline-block text-green">
+          <span className="text-[0.8rem] xl:text-md font-semibold inline-block text-green">
             10%
           </span>
         </div>
         <div className="flex items-center justify-between w-full font-extralight">
-          <span className="text-[1rem] font-semibold inline-block py-1 px-2 uppercase rounded-full text-green ">
+          <span className="text-[0.6rem] xl:text-[1rem] font-semibold inline-block py-1 px-2 uppercase rounded-full text-green ">
             {event_date_start} - {event_date_end}
           </span>
-          <span className="text-[1rem] font-semibold inline-block text-green">
+          <span className="text-[0.8rem] xl:text-[1rem] font-semibold inline-block text-green">
             {course_initials}
           </span>
         </div>

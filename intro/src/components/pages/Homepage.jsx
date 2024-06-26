@@ -1,4 +1,5 @@
 // Importing necessary libraries, components, and utilities
+import { useEffect } from "react";
 import { Nav } from "../ui/Nav.jsx";
 import { Calendar } from "../ui/Calendar.jsx";
 import { Search } from "../ui/SearchBar.jsx";
@@ -51,6 +52,20 @@ export function Homepage() {
   //const {info, isLoadingEnrollCourses} = useFetchEnrollCourses(data.id);
   //console.log(info);
 
+  /*function redirect() {
+    const authToken = localStorage.getItem("token");
+
+    if (!authToken) {
+      window.location.href = "/SignIn";
+    }
+  }*/
+
+    useEffect(() => {
+      const authToken = localStorage.getItem("token");
+      if (!authToken) {
+        window.location.href = "/SignIn";
+      }
+    }, []);
 
   //const is responsible for storing data from the useScreenWidth hook to determine the type of calendar that is displayed on the screen by means of the measurements of this
   const getHeight = useScreenWidth();
@@ -64,7 +79,7 @@ export function Homepage() {
       <Search />
       <div className="mt-4 mx-4">
         {/* Summary bar with key metrics */}
-        <SummaryBar />
+        <SummaryBar id= {data.id} />
 
         {/* Carousel of tasks */}
         <SwiperTasks  id={data.id}/>

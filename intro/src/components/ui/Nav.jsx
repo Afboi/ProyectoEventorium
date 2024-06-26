@@ -26,9 +26,10 @@ export function Nav({ onOpenProfileModal, data }) {
   // Constant responsible for changing the theme
   //const setTheme = useChangeTheme();
 
-  export const removeToken = async () => {
+  const logout = async () => {
     try {
-      await AsyncStorage.removeItem("Token");
+      localStorage.removeItem('token');
+      window.location.href = '/SignIn'; 
     } catch (error) {
       console.log("Renove authentication token failed :", error?.message);
     }
@@ -150,13 +151,7 @@ export function Nav({ onOpenProfileModal, data }) {
                           
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-blue dark:text-white"
-                            )}
-                          >
+                          <a href="#" className={classNames( active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-blue dark:text-white")} onClick={logout}>
                             Log out
                           </a>
                         )}

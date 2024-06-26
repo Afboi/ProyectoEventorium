@@ -22,6 +22,12 @@ export function Assignments({id}) {
   const { data } = useFetchAllEventDetail(id);
  // console.log(data);
 
+ const areEvents = (items) =>{
+  if (items.length === 0){
+    return <p className="text-center text-lg textfont-normal ml-2 text-blue">No events available</p>
+  }
+}
+
   const createEvents = (items) => {
     return items.map( item => 
       <SwiperSlide>
@@ -69,6 +75,7 @@ export function Assignments({id}) {
         </div>
       </div>
       <div className="w-full h-[38.5rem]">
+      {areEvents(data)}
                   {/* The Swiper component with various props */}
 
         <Swiper

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export function ActivityCard({event_id, user_id, event_name, event_date_start, event_date_end, course_name}) {
+export function ActivityCard({event_id, event_name, event_date_start, event_date_end, course_name}) {
 
   const handleClick = () => {
     window.location.href = `/EventDetails/${event_id}`;

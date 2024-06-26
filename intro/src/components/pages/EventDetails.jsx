@@ -1,4 +1,5 @@
 // Importing page components
+import { useEffect } from "react";
 import { Nav } from "../ui/Nav.jsx";
 import { Details } from "../event_detail_components/Details.jsx";
 import { Calendar } from "../ui/Calendar.jsx";
@@ -36,7 +37,13 @@ export function EventDetails() {
   const {data, isLoading} = useFetchUsers();
   console.log(data);
 
-
+  
+  useEffect(() => {
+    const authToken = localStorage.getItem("token");
+    if (!authToken) {
+      window.location.href = "/SignIn";
+    }
+  }, []);
 
   //const in charge of storing the data of the hook useScreenWidth to determine the type of calendar displayed on the screen by means of the measurements of this hook.
   const getHeight = useScreenWidth();
@@ -50,7 +57,7 @@ export function EventDetails() {
 
       {/* Summary bar component */}
       <div className="mt-4 mx-4">
-        <SummaryBar />
+        <SummaryBar id={data.id}/>
       </div>
 
       {/* Event details and calendar components */}
