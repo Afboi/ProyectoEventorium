@@ -7,34 +7,40 @@ import { ThemeProvider } from "@mui/material/styles";
 import {
   optionsTipoDeEvento,
   optionsOrganizador,
-  optionsFrecuencia,
   style,
 } from "../../utils/filterSearchBar";
 
 // Constants that store the data to be displayed in the filters, as well as the visual style
-const tipoDeEvento = optionsTipoDeEvento();
-const organizador = optionsOrganizador();
-const frecuencia = optionsFrecuencia();
-const theme = style();
 
 /**
  * Search component.
  * Search bar with filters for type of event, organizer, and frequency
  *
  */
-export function Search() {
+export function Search({id}) {
+
+  const tipoDeEvento = optionsTipoDeEvento();
+  const curso = optionsOrganizador(id);
+  const theme = style();
+
+  function handleSearchInfo(){
+    
+    window.location.href = "/ViewMore/" + search.value + "/" + Evento.value + "/" + Curso.value;
+  }
+
   return (
     <div className="w-full bg-white my-4 dark:bg-dark-blue">
       {/* Search bar */}
       <div className="flex items-center justify-center rounded-full h-20 bg-blue-600">
         <div className="flex w-full h-14 mx-4 rounded-full bg-light-gray sm:w-[70%] dark:bg-not-so-dark-blue">
-          <input
+          <input id="search"            
             className=" w-full text-[1.5rem] border-none rounded-full bg-light-gray px-4 py-1 text-blue outline-none focus:outline-none dark:bg-not-so-dark-blue dark:text-white"
             type="search"
             name="search"
             placeholder="Search..."
           />
           <button
+            onClick={handleSearchInfo}
             type="submit"
             className="h-14 rounded-full bg-blue px-4  text-white dark:bg-orange"
           >
@@ -60,39 +66,26 @@ export function Search() {
         {/* Search filter by event type */}
         <ThemeProvider theme={theme}>
           <Autocomplete
-            id="tipoDeEvento"
+            id="Evento"
             size="small"
             options={tipoDeEvento}
             getOptionLabel={(option) => option.title}
             sx={{ width: 250 }}
             renderInput={(params) => (
-              <TextField {...params} label="Tipo de Evento" />
+              <TextField {...params} label="Categoria de Evento" />
             )}
           />
         </ThemeProvider>
         {/* Search filter by organizer */}
         <ThemeProvider theme={theme}>
           <Autocomplete
-            id="organizador"
+            id="Curso"
             size="small"
-            options={organizador}
+            options={curso}
             getOptionLabel={(option) => option.title}
             sx={{ width: 250 }}
             renderInput={(params) => (
-              <TextField {...params} label="Organizador" />
-            )}
-          />
-        </ThemeProvider>
-        {/* Search Filter by Frequency */}
-        <ThemeProvider theme={theme}>
-          <Autocomplete
-            id="frecuencia"
-            size="small"
-            options={frecuencia}
-            getOptionLabel={(option) => option.title}
-            sx={{ width: 250 }}
-            renderInput={(params) => (
-              <TextField {...params} label="Frecuencia" />
+              <TextField {...params} label="Curso" />
             )}
           />
         </ThemeProvider>

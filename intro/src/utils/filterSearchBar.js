@@ -1,28 +1,39 @@
 import { createTheme } from '@mui/material/styles';
+import { useFetchAllUserCourses } from '../hooks/useFetchUserCourses';
+import { useFetchCategories } from '../hooks/useFetchCategories';
 
 //Utility in charge of storing the data shown in the search filters, as well as the visual style of these filters.
 
 //Event type filter data
 export const optionsTipoDeEvento = () => {
-    const tipoDeEvento = [
-        { title: 'Universitario' },
-        { title: 'Carrera' },
-        { title: 'Curso' },
-        { title: 'Estudiantil' },
+
+    const { data } = useFetchCategories();
+
+    const tipoDeEvento = data.map(item => ({ title: item.name }));
+
+    const a = [
+        { title: 'Evento' },
+        { title: 'Tarea' },
+        { title: 'Comunicado' },
     ];
 
     return tipoDeEvento;
 }
 
 //Organizer filter data
-export const optionsOrganizador = () => {
-    const organizador = [
+export const optionsOrganizador = (id) => {
+
+    const { data } = useFetchAllUserCourses(id);
+
+    const curso = data.map(item => ({ title: item.initial }));
+
+    const a = [
         { title: 'UCR' },
         { title: 'Curso' },
         { title: 'Grupo' },
     ];
 
-    return organizador;
+    return curso;
 }
 
 //Frequency filter data

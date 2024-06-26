@@ -4,7 +4,7 @@
  * This component is used to display an activity card on the main page of the application.
  * Each card contains an SVG icon, activity name, progress, time, and course code.
 **/
-export function DefaultActivityCard({event_id, user_id, event_name, event_date_start, event_date_end, course_initials}) {
+export function DefaultActivityCard({event_id, event_name, event_date_start, event_date_end, course_initials}) {
 
   const handleClick = () => {
     window.location.href = `/EventDetails/${event_id}`;

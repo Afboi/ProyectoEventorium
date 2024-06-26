@@ -46,7 +46,7 @@ export function Homepage() {
 
 
   const {data, isLoading} = useFetchUsers();
-  console.log(data);
+  //console.log(data);
 
 
   //const {info, isLoadingEnrollCourses} = useFetchEnrollCourses(data.id);
@@ -76,7 +76,7 @@ export function Homepage() {
       
       {/* Navigation and search components */}
       <Nav onOpenProfileModal={openProfileModal} data={data} />
-      <Search />
+      <Search id={data.id} />
       <div className="mt-4 mx-4">
         {/* Summary bar with key metrics */}
         <SummaryBar id= {data.id} />

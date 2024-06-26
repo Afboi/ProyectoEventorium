@@ -22,7 +22,7 @@ export function EditProfileInfo({
     })
   );
 
-  console.log("formdata" + formData);
+  //console.log("formdata" + formData);
 
   // State for managing error messages.
   const [error, setError] = useState("");

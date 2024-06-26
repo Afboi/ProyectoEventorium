@@ -1,4 +1,5 @@
 // Importing necessary libraries, components, and utilities
+import { useEffect } from "react";
 import { Nav } from "../ui/Nav.jsx";
 import { Search } from "../ui/SearchBar.jsx";
 import { ModalProfile } from "../profile_user_components/ModalProfile.jsx";
@@ -11,6 +12,7 @@ import {
 } from "../../hooks/useGeneralInfo.js";
 import { CardsExtra } from "../view_more_components/CardsExtra.jsx";
 import { useFetchUsers } from "../../hooks/useFetchUsers.js";
+import { useParams } from 'react-router-dom';
 
 
 /**
@@ -25,6 +27,7 @@ import { useFetchUsers } from "../../hooks/useFetchUsers.js";
  * @see EditProfileInfo
  */
 export function ViewMore() {
+
   // State variables and functions for managing profile modal and edit modal
   const [isProfileModalOpen, openProfileModal, closeProfileModal] =
     useProfileModal();
@@ -38,16 +41,25 @@ export function ViewMore() {
   );
 
   const {data, isLoading} = useFetchUsers();
-  console.log(data);
+  //console.log('soy data',data);
+
+  useEffect(() => {
+    const authToken = localStorage.getItem("token");
+    if (!authToken) {
+      window.location.href = "/SignIn";
+    }
+  }, []);
 
   return (
     <div>
-      {/* Navigation and search components */}
+      { isLoading ? <h1 className="text-center text-9xl">Cargando...</h1> : <div> 
+
+        {/* Navigation and search components */}
       <Nav onOpenProfileModal={openProfileModal} data={data} />
-      <Search />
+      <Search id={data.id}/>
       {/* Results cards components */}
       <div className="flex lg:flex lg:w-full lg:gap-3 p-4">
-        <CardsExtra />
+        <CardsExtra id={data.id}/>
       </div>
 
       {/*Profile modal components */}
@@ -73,6 +85,9 @@ export function ViewMore() {
         onConfirm={confirmEdit}
         data={data}
       />
+
+      </div> }
+
     </div>
   );
 }

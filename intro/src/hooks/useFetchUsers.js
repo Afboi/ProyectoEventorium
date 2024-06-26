@@ -8,7 +8,7 @@ export const useFetchUsers = () => {
 
   const getData = async () => {
     try {
-      console.log(localStorage.getItem('token'));
+      //console.log(localStorage.getItem('token'));
       const response = await fetch('http://eventoriumbackend.test/api/token', {
         method: 'GET',
         headers: {
@@ -16,7 +16,7 @@ export const useFetchUsers = () => {
           'Content-Type': 'application/json'
         },
       });
-      console.log(response);
+      //console.log(response);
       const data = await response.json();
       setData(data);
       setIsLoading(false);

@@ -41,6 +41,17 @@ export function App() {
           }
         />
         <Route path="/ViewMore" element={<ViewMore />} />
+        <Route path="/ViewMore/:search" element={<ViewMore />} />
+
+        <Route path="/ViewMore/:search/:event" element={<ViewMore />} />
+        <Route path="/ViewMore//:event" element={<ViewMore />} />
+
+        <Route path="/ViewMore/:search/:event/:course" element={<ViewMore />} />
+        <Route path="/ViewMore//:event/:course" element={<ViewMore />} />
+
+        <Route path="/ViewMore/:search//:course" element={<ViewMore />} />
+        <Route path="/ViewMore///:course" element={<ViewMore />} />
+
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/Registration" element={<Registration />} />
         <Route path="/PasswordRecovery" element={<PasswordRecovery />} />
