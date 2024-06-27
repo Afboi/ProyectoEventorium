@@ -57,7 +57,7 @@ export function ProfileUserResult({
         </div>
 
         {/* Additional profile information */}
-        <div className="flex flex-col md:flex-row justify-between items-center mt-6 gap-10 md:gap-20">
+        <div className="flex flex-col md:flex-row justify-between items-center mt-6 gap-4 md:gap-20">
           <div className="text-center mt-4">
             <span className="block text-[1.70rem] font-medium text-blue">
               Diseases

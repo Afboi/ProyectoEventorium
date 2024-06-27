@@ -61,9 +61,6 @@ export function RegisterForm() {
   const baseUrl = `${window.location.protocol}//${window.location.hostname}${window.location.port ? `:${window.location.port}` : ''}`;
   const redirectUrl = `${baseUrl}/SignIn`;
 
-
-
-
   return (
     <section className="dark:text-white">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -180,7 +177,7 @@ export function RegisterForm() {
                     aria-describedby="terms"
                     type="checkbox"
                     className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
-                    required=""
+                    required
                   />
                 </div>
                 <div className="ml-3 text-sm">
