@@ -32,7 +32,7 @@ export function SignInForm() {
       .then((data) => {
         if (data.success) {
           localStorage.setItem("token", data.token);
-          window.location.href = "http://localhost:5173/Homepage";
+          window.location.href = "/Homepage";
         } else {
           setError('Email or password do not match');
         }
