@@ -20,7 +20,6 @@ import { useFetchUsers } from "../../hooks/useFetchUsers.js";
 
 // The main EventDetails component
 export function EventDetails() {
-
   //console.log('Soy la data de usuario del EventDetail',data)
 
   const [isProfileModalOpen, openProfileModal, closeProfileModal] =
@@ -33,11 +32,10 @@ export function EventDetails() {
     closeEditModal,
     openProfileModal
   );
-  
-  const {data, isLoading} = useFetchUsers();
+
+  const { data, isLoading } = useFetchUsers();
   console.log(data);
 
-  
   useEffect(() => {
     const authToken = localStorage.getItem("token");
     if (!authToken) {
@@ -48,58 +46,62 @@ export function EventDetails() {
   //const in charge of storing the data of the hook useScreenWidth to determine the type of calendar displayed on the screen by means of the measurements of this hook.
   const getHeight = useScreenWidth();
 
-
   return (
     <div className="">
-    { isLoading ? <h1 className="text-center text-9xl">Cargando...</h1> : <div> {/* Navigation and search components */}
-      <Nav onOpenProfileModal={openProfileModal} data={data} />
-      <Search />
+      {isLoading ? (
+        <h1 className=" text-[50px] text-[#038C8B] absolute top-[20rem] left-[30rem] text-center">
+          <img src="../../../public/logo.png" className="size-24 absolute bottom-[4rem] mb-4 left-[12rem]" alt="logo" />
+          Eventorium is loading...
+        </h1>
+      ) : (
+        <div>
+          {" "}
+          {/* Navigation and search components */}
+          <Nav onOpenProfileModal={openProfileModal} data={data} />
+          <Search />
+          {/* Summary bar component */}
+          <div className="mt-4 mx-4">
+            <SummaryBar id={data.id} />
+          </div>
+          {/* Event details and calendar components */}
+          <div className="flex flex-col-reverse mb-4 sm:flex-row justify-center gap-6 mx-4 sm:mx-0">
+            <Details userID={data.id} />
 
-      {/* Summary bar component */}
-      <div className="mt-4 mx-4">
-        <SummaryBar id={data.id}/>
-      </div>
-
-      {/* Event details and calendar components */}
-      <div className="flex flex-col-reverse mb-4 sm:flex-row justify-center gap-6 mx-4 sm:mx-0">
-
-        <Details userID={data.id}/>
-        
-        <div className="order-1 sm:order-2 w-full sm:w-[61%]">
-          {/* Calendar component. Its height and layout depends on the screen size.
+            <div className="order-1 sm:order-2 w-full sm:w-[61%]">
+              {/* Calendar component. Its height and layout depends on the screen size.
           The language used is specified in the "calendarLanguage" attribute. */}
-          <Calendar
-            calendarHeight={getHeight.heightDetail}
-            calendarMode={getHeight.gridModeDetail}
-            calendarLanguage={"en"}
-            id={data.id}            
+              <Calendar
+                calendarHeight={getHeight.heightDetail}
+                calendarMode={getHeight.gridModeDetail}
+                calendarLanguage={"en"}
+                id={data.id}
+              />
+            </div>
+          </div>
+          {/* Profile modal components */}
+          <ModalProfile
+            isOpen={isProfileModalOpen}
+            onClose={closeProfileModal}
+            onOpenEditModal={() => {
+              closeProfileModal();
+              openEditModal();
+            }}
+            profileData={profileData}
+            data={data}
+          />
+          {/* Edit profile modal components */}
+          <EditProfileInfo
+            isOpen={isEditModalOpen}
+            onClose={() => {
+              closeEditModal();
+              openProfileModal();
+            }}
+            profileData={profileData}
+            onConfirm={confirmEdit}
+            data={data}
           />
         </div>
-      </div>
-
-      {/* Profile modal components */}
-      <ModalProfile
-        isOpen={isProfileModalOpen}
-        onClose={closeProfileModal}
-        onOpenEditModal={() => {
-          closeProfileModal();
-          openEditModal();
-        }}
-        profileData={profileData}
-        data={data}
-      />
-
-      {/* Edit profile modal components */}
-      <EditProfileInfo
-        isOpen={isEditModalOpen}
-        onClose={() => {
-          closeEditModal();
-          openProfileModal();
-        }}
-        profileData={profileData}
-        onConfirm={confirmEdit}
-        data={data}
-      /></div>}
+      )}
     </div>
   );
 }

@@ -12,12 +12,12 @@ import React, { useState } from "react";
 export function SignInForm() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleSubmit = (event) => {
     
-    
     event.preventDefault();
+    setError('');
     fetch("http://eventoriumbackend.test/api/user/logIn", {
       method: "POST",
       headers: {
@@ -34,11 +34,11 @@ export function SignInForm() {
           localStorage.setItem("token", data.token);
           window.location.href = "http://localhost:5173/Homepage";
         } else {
+          setError('Email or password do not match');
         }
       })
-      .catch((error) => console.error("Error al iniciar sesión:", error));
   };
-
+   
   return (
     <section className="dark:text-white">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -56,7 +56,7 @@ export function SignInForm() {
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
-                  htmlFor=""
+                  htmlFor="email"
                   className="block mb-2 text-sm font-medium text-blue"
                 >
                   Email
@@ -86,13 +86,7 @@ export function SignInForm() {
                   required
                 />
               </div>
-              {/* <FormInput
-                type="password"
-                title="password"
-                name="Password"
-                placeholder=""
-                onChange={(e) => setPassword(e.target.value)}
-              /> */}
+              {error && <p className=" text-[#f52a2a]">{error}</p>}
               <p className="text-sm font-light text-gray-500">
                 Forgot your password?{" "}
                 <a

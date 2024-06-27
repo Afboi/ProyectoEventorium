@@ -12,17 +12,19 @@ export function EditProfileInfo({
   onConfirm,
   data,
 }) {
+  console.log(data.id);
   // State for managing form data.
-  const [formData, setFormData] = useState(
-    Object.entries({
-      username: data.username,
-      diseases: data.diseases,
-      physical_activity: data.physical_activity,
-      sleep_hours: data.sleep_hours,
-    })
-  );
+  const [formData, setFormData] = useState({
+    username: data.username,
+    diseases: data.diseases,
+    physical_activity: data.physical_activity,
+    sleep_hours: data.sleep_hours,
+    email: data.email,
+  });
 
-  //console.log("formdata" + formData);
+  const [imageFile, setImageFile] = useState(null); // Estado para el archivo de imagen
+
+  const [imageURL, setImageURL] = useState(data.image_url); // Estado para la URL de la imagen
 
   // State for managing error messages.
   const [error, setError] = useState("");
@@ -35,11 +37,15 @@ export function EditProfileInfo({
         diseases: data.diseases,
         physical_activity: data.physical_activity,
         sleep_hours: data.sleep_hours,
+        email: data.email,
       });
+      setImageURL(data.image_url); // Resetea la URL de la imagen al abrir el modal
+      setError(""); // Resetea el mensaje de error al abrir el modal
     }
-  }, [isOpen, profileData]);
+  }, [isOpen, profileData, data]);
 
   // Handler for input changes.
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -48,24 +54,61 @@ export function EditProfileInfo({
     });
   };
 
-  // Handler for confirming changes.
-  const handleConfirm = () => {
-    if (
-      !formData.diseases ||
-      !formData.physical_activity ||
-      !formData.sleep_hours
-    ) {
-      setError("Para confirmar tienes que seleccionar todas las opciones");
-      return;
+  // Función para manejar el cambio de imagen
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImageFile(file); // Guarda el archivo de imagen
+      const newImageUrl = URL.createObjectURL(file);
+      setImageURL(newImageUrl);
     }
-    onConfirm({
-      ...profileData,
-      username: formData.username,
-      diseases: formData.diseases,
-      physical_activity: formData.physical_activity,
-      sleep_hours: formData.sleep_hours,
-    });
-    setError("");
+  };
+
+  // Manejador para la presentación del formulario
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Evita el comportamiento por defecto del formulario
+
+    // Crear un objeto FormData para enviar los datos
+    const formDataToSend = new FormData();
+    formDataToSend.append("username", formData.username);
+    formDataToSend.append("diseases", formData.diseases);
+    formDataToSend.append("physical_activity", formData.physical_activity);
+    formDataToSend.append("sleep_hours", formData.sleep_hours);
+    formDataToSend.append("email", formData.email);
+
+    if (imageFile) {
+      formDataToSend.append("image", imageFile); // Añadir la imagen solo si se ha seleccionado
+    }
+
+    try {
+      const response = await fetch(
+        "http://eventoriumbackend.test/api/updateProfile",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`, // Añadir el token de autenticación desde el almacenamiento local
+          },
+          body: formDataToSend,
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Llama a la función onConfirm para actualizar el estado global o la interfaz según sea necesario
+        onConfirm(result.user);
+
+        // Cierra el modal tras la actualización exitosa
+        onClose();
+      } else {
+        // Manejar errores de la respuesta
+        setError(result.message || "Failed to update profile");
+      }
+    } catch (error) {
+      // Manejar errores de la solicitud
+      setError("An error occurred while updating the profile");
+      console.error("Error:", error);
+    }
   };
 
   // Return null if modal is not open.
@@ -88,7 +131,7 @@ export function EditProfileInfo({
       id: 2,
       title: "Diseases: ",
       type: "select",
-      placeholder: "choose your disease",
+      placeholder: "Choose your disease",
       options: [
         { value: "Diabetes", label: "Diabetes" },
         { value: "Hipertension", label: "Hypertension" },
@@ -99,7 +142,7 @@ export function EditProfileInfo({
       ],
       value: formData.diseases,
       onChange: handleChange,
-      name: "disease",
+      name: "diseases",
     },
     {
       id: 3,
@@ -133,43 +176,57 @@ export function EditProfileInfo({
 
       <div className="z-10 bg-white mx-4 p-8 rounded-lg shadow-md max-w-2xl h-[45rem] md:max-h-[36rem] w-full">
         {/* Profile Picture */}
-        <div className="relative">
-          <img
-            src={data.image_url}
-            alt="Profile Picture"
-            className="absolute bottom-0 left-2/4 transform -translate-x-1/2 translate-y-1/2 w-32 h-32 rounded-full border-4 border-white"
-          />
-        </div>
-        {/* Close Button */}
-        <div className="flex justify-end">
-          <div className="flex gap-4">
-            <a
-              role="button"
-              onClick={onClose}
-              onKeyDown={onClose}
-              className="cursor-pointer"
-              tabIndex="0"
-            >
-              <img src={Cancel} alt="Close button" className="size-10" />
-            </a>
-          </div>
-        </div>
-
-        {/* Course Information */}
         <form
           action="http://eventoriumbackend.test/api/updateProfile"
           method="POST"
+          encType="multipart/form-data"
         >
+          <div className="relative">
+            <img
+              src={imageURL || data.image_url}
+              alt="Profile Picture"
+              className="absolute bottom-0 left-2/4 transform -translate-x-1/2 translate-y-1/2 w-32 h-32 rounded-full border-4 border-white"
+            />
+            <input
+              type="file"
+              style={{ objectFit: "cover" }}
+              name="image"
+              onChange={handleImageChange}
+              className="cursor-pointer absolute bottom-0 left-2/4 transform -translate-x-1/2 translate-y-1/2 opacity-0 w-32 h-32 rounded-full"
+            />
+          </div>
+          {/* Close Button */}
+          <div className="flex justify-end">
+            <div className="flex gap-4">
+              <a
+                role="button"
+                onClick={onClose}
+                onKeyDown={onClose}
+                className="cursor-pointer"
+                tabIndex="0"
+              >
+                <img src={Cancel} alt="Close button" className="size-10" />
+              </a>
+            </div>
+          </div>
+
+          {/* Course Information */}
+          {/* http://eventoriumbackend.test/api/updateProfile */}
+          {/* <form onSubmit={handleSubmit}> */}
+          <input type="hidden" name="userId" value={data.id} />
           <div className="mt-8">
             <h2 className="text-blue font-medium mt-2 text-[1.90rem] text-center">
               Edit the profile information
             </h2>
             <div className="flex flex-col gap-2">
               <h2 className="text-[1.50rem] font-medium text-blue">Email:</h2>
-              <input name="email"
+              <input
+                name="email"
                 className="text-main-ty-light border-main-ty-light border-2 rounded-full py-2 px-3 w-full"
                 type="email"
+                value={formData.email}
                 defaultValue={data.email}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -179,9 +236,9 @@ export function EditProfileInfo({
           {error && <p className="text-red-500 text-center">{error}</p>}
           {/* Button to confirm the editing of the information */}
           <div className="mt-8 justify-center items-center flex">
-            <button type="submit"
+            <button
+              type="submit"
               className="rounded-full text-light-gray bg-blue w-full md:w-48W h-10"
-              
             >
               Confirm
             </button>

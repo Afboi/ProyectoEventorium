@@ -12,8 +12,7 @@ import {
 } from "../../hooks/useGeneralInfo.js";
 import { CardsExtra } from "../view_more_components/CardsExtra.jsx";
 import { useFetchUsers } from "../../hooks/useFetchUsers.js";
-import { useParams } from 'react-router-dom';
-
+import { useParams } from "react-router-dom";
 
 /**
  * View More Page component.
@@ -27,7 +26,6 @@ import { useParams } from 'react-router-dom';
  * @see EditProfileInfo
  */
 export function ViewMore() {
-
   // State variables and functions for managing profile modal and edit modal
   const [isProfileModalOpen, openProfileModal, closeProfileModal] =
     useProfileModal();
@@ -40,8 +38,7 @@ export function ViewMore() {
     openProfileModal
   );
 
-  const {data, isLoading} = useFetchUsers();
-  //console.log('soy data',data);
+  const { data, isLoading } = useFetchUsers();
 
   useEffect(() => {
     const authToken = localStorage.getItem("token");
@@ -52,42 +49,46 @@ export function ViewMore() {
 
   return (
     <div>
-      { isLoading ? <h1 className="text-center text-9xl">Cargando...</h1> : <div> 
+      {isLoading ? (
+       <h1 className=" text-[50px] text-[#038C8B] absolute top-[20rem] left-[30rem] text-center">
+       <img src="../../../public/logo.png" className="size-24 absolute bottom-[4rem] mb-4 left-[12rem]" alt="logo" />
+       Eventorium is loading...
+     </h1>
+      ) : (
+        <div>
+          {/* Navigation and search components */}
+          <Nav onOpenProfileModal={openProfileModal} data={data} />
+          <Search id={data.id} />
+          {/* Results cards components */}
+          <div className="flex lg:flex lg:w-full lg:gap-3 p-4">
+            <CardsExtra id={data.id} />
+          </div>
 
-        {/* Navigation and search components */}
-      <Nav onOpenProfileModal={openProfileModal} data={data} />
-      <Search id={data.id}/>
-      {/* Results cards components */}
-      <div className="flex lg:flex lg:w-full lg:gap-3 p-4">
-        <CardsExtra id={data.id}/>
-      </div>
+          {/*Profile modal components */}
+          <ModalProfile
+            isOpen={isProfileModalOpen}
+            onClose={closeProfileModal}
+            onOpenEditModal={() => {
+              closeProfileModal();
+              openEditModal();
+            }}
+            profileData={profileData}
+            data={data}
+          />
 
-      {/*Profile modal components */}
-      <ModalProfile
-        isOpen={isProfileModalOpen}
-        onClose={closeProfileModal}
-        onOpenEditModal={() => {
-          closeProfileModal();
-          openEditModal();
-        }}
-        profileData={profileData}
-        data={data}
-      />
-
-      {/* Edit profile modal components */}
-      <EditProfileInfo
-        isOpen={isEditModalOpen}
-        onClose={() => {
-          closeEditModal();
-          openProfileModal();
-        }}
-        profileData={profileData}
-        onConfirm={confirmEdit}
-        data={data}
-      />
-
-      </div> }
-
+          {/* Edit profile modal components */}
+          <EditProfileInfo
+            isOpen={isEditModalOpen}
+            onClose={() => {
+              closeEditModal();
+              openProfileModal();
+            }}
+            profileData={profileData}
+            onConfirm={confirmEdit}
+            data={data}
+          />
+        </div>
+      )}
     </div>
   );
 }

@@ -22,7 +22,7 @@ export function PasswordRecoveryForm() {
         <div className="w-full bg-bg-card-light rounded-2xl shadow-secondary md:mt-0 sm:max-w-md xl:p-0 dark:bg-dark-blue">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-[2rem] font-bold leading-tight tracking-tight text-blue md:text-2xl">
-              Recuperar Contraseña
+              Revovery Password
             </h1>
             <form className="space-y-4 md:space-y-6" action="#">
               <FormInput

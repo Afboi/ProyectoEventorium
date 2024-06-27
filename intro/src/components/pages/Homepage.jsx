@@ -16,7 +16,6 @@ import {
 } from "../../hooks/useGeneralInfo.js";
 import { Assignments } from "../homepage_components/AssignmentsBar.jsx";
 import { useFetchUsers } from "../../hooks/useFetchUsers.js";
-//import { useFetchEnrollCourses } from "../../hooks/useFetchEnrollCourses.js";
 
 /**
  * Homepage component.
@@ -31,12 +30,10 @@ import { useFetchUsers } from "../../hooks/useFetchUsers.js";
  * @see Assignments
  */
 export function Homepage() {
-
   const [isProfileModalOpen, openProfileModal, closeProfileModal] =
     useProfileModal();
   const [isEditModalOpen, openEditModal, closeEditModal] = useEditModal();
   const [profileData, setProfileData] = useProfileData();
-  
 
   const confirmEdit = handleEditConfirm(
     setProfileData,
@@ -44,87 +41,79 @@ export function Homepage() {
     openProfileModal
   );
 
+  const { data, isLoading } = useFetchUsers();
 
-  const {data, isLoading} = useFetchUsers();
-  //console.log(data);
-
-
-  //const {info, isLoadingEnrollCourses} = useFetchEnrollCourses(data.id);
-  //console.log(info);
-
-  /*function redirect() {
+  useEffect(() => {
     const authToken = localStorage.getItem("token");
-
     if (!authToken) {
       window.location.href = "/SignIn";
     }
-  }*/
-
-    useEffect(() => {
-      const authToken = localStorage.getItem("token");
-      if (!authToken) {
-        window.location.href = "/SignIn";
-      }
-    }, []);
+  }, []);
 
   //const is responsible for storing data from the useScreenWidth hook to determine the type of calendar that is displayed on the screen by means of the measurements of this
   const getHeight = useScreenWidth();
 
   return (
     <div>
-    { isLoading ? <h1 className="text-center text-9xl">Cargando...</h1> : <div> 
-      
-      {/* Navigation and search components */}
-      <Nav onOpenProfileModal={openProfileModal} data={data} />
-      <Search id={data.id} />
-      <div className="mt-4 mx-4">
-        {/* Summary bar with key metrics */}
-        <SummaryBar id= {data.id} />
+      {isLoading ? (
+        <h1 className=" text-[50px] text-[#038C8B] absolute top-[20rem] left-[30rem] text-center">
+        <img src="../../../public/logo.png" className="size-24 absolute bottom-[4rem] mb-4 left-[12rem]" alt="logo" />
+        Eventorium is loading...
+      </h1>
+      ) : (
+        <div>
+          {/* Navigation and search components */}
+          <Nav onOpenProfileModal={openProfileModal} data={data} />
+          <Search id={data.id} />
+          <div className="mt-4 mx-4">
+            {/* Summary bar with key metrics */}
+            <SummaryBar id={data.id} />
 
-        {/* Carousel of tasks */}
-        <SwiperTasks  id={data.id}/>
-      </div>
-      <div className="lg:flex lg:w-full lg:gap-3 p-4">
-        <div className="lg:w-[70%] sm:w-[100%]">
-          {/* Calendar component. Its height and design depends on the measurements of the screen. 
+            {/* Carousel of tasks */}
+            <SwiperTasks id={data.id} />
+          </div>
+          <div className="lg:flex lg:w-full lg:gap-3 p-4">
+            <div className="lg:w-[70%] sm:w-[100%]">
+              {/* Calendar component. Its height and design depends on the measurements of the screen. 
           The language used is specified in the "calendarLanguage" attribute*/}
-          <Calendar
-            calendarHeight={getHeight.heightHome}
-            calendarMode={"dayGridMonth"}
-            calendarLanguage={"en"}
-            id={data.id}
+              <Calendar
+                calendarHeight={getHeight.heightHome}
+                calendarMode={"dayGridMonth"}
+                calendarLanguage={"en"}
+                id={data.id}
+              />
+            </div>
+            <div className="lg:w-[34.2%] sm:w-[100%]">
+              {/* List of assignments */}
+              <Assignments id={data.id} />
+            </div>
+          </div>
+
+          {/* Profile modal components */}
+          <ModalProfile
+            isOpen={isProfileModalOpen}
+            onClose={closeProfileModal}
+            onOpenEditModal={() => {
+              closeProfileModal();
+              openEditModal();
+            }}
+            profileData={profileData}
+            data={data}
+          />
+
+          {/* Edit profile modal components */}
+          <EditProfileInfo
+            isOpen={isEditModalOpen}
+            onClose={() => {
+              closeEditModal();
+              openProfileModal();
+            }}
+            profileData={profileData}
+            onConfirm={confirmEdit}
+            data={data}
           />
         </div>
-        <div className="lg:w-[34.2%] sm:w-[100%]">
-          {/* List of assignments */}
-          <Assignments id={data.id} />
-        </div>
-      </div>
-
-      {/* Profile modal components */}
-      <ModalProfile
-        isOpen={isProfileModalOpen}
-        onClose={closeProfileModal}
-        onOpenEditModal={() => {
-          closeProfileModal();
-          openEditModal();
-        }}
-        profileData={profileData}
-        data={data} 
-      />
-
-      {/* Edit profile modal components */}
-      <EditProfileInfo
-        isOpen={isEditModalOpen}
-        onClose={() => {
-          closeEditModal();
-          openProfileModal();
-        }}
-        profileData={profileData}
-        onConfirm={confirmEdit}
-        data={data}
-      /></div> }
-      
+      )}
     </div>
   );
 }
