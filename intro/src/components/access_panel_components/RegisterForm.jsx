@@ -1,8 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect  } from "react";
 import "../../index.css";
 import { FormInput } from "../access_panel_components/FormInput";
 import Logo from "../../assets/imgs/logoEventorium.svg";
 import { SelectInput } from "../access_panel_components/SelectInput";
+import  TermsConditions  from "./TermsModal";
 
 export const diseases = [
   { id: 1, name: "Diabetes", label: "Diabetes"},
@@ -30,6 +31,19 @@ export function RegisterForm() {
   const [selectedImage, setSelectedImage] = useState(null);
   const fileInputRef = useRef(null);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isModalOpen]);
+
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -46,6 +60,9 @@ export function RegisterForm() {
 
   const baseUrl = `${window.location.protocol}//${window.location.hostname}${window.location.port ? `:${window.location.port}` : ''}`;
   const redirectUrl = `${baseUrl}/SignIn`;
+
+
+
 
   return (
     <section className="dark:text-white">
@@ -169,12 +186,15 @@ export function RegisterForm() {
                 <div className="ml-3 text-sm">
                   <label htmlFor="terms" className="font-light text-gray-500">
                     I accept the{" "}
-                    <a
+                    <button
                       className="font-medium text-blue hover:underline dark:text-orange"
                       href="#"
+                      onClick={openModal}
+                      required
                     >
                       Terms and Conditions
-                    </a>
+                    </button>
+                    <TermsConditions isOpen={isModalOpen} onClose={closeModal} />
                   </label>
                 </div>
               </div>

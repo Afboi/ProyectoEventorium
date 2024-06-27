@@ -24,22 +24,25 @@ export function PasswordRecoveryForm() {
             <h1 className="text-[2rem] font-bold leading-tight tracking-tight text-blue md:text-2xl">
               Revovery Password
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form className="space-y-4 md:space-y-6" action="http://eventoriumbackend.test/api/recoveryPassword" method="POST">
               <FormInput
                 type="email"
-                name="Correo"
-                placeholder="luis.solis.b@gmail.com"
+                name="Email"
+                title="email"
+                placeholder="Enter your email"
               />
               <FormInput
-                type="new_password"
-                name="Nueva Contraseña"
-                placeholder="Digite su nueva contraseña"
+                type="password"
+                name="New Password"
+                title="password"
+                placeholder="Enter your new password"
               />
-              <FormInput
-                type="confirm_password"
-                name="Confirmar Nueva Contraseña"
-                placeholder="Confirme su nueva contraseña"
-              />
+              {/* <FormInput
+                type="password"
+                name="Confirm new Password"
+                title="confirm_new_password"
+                placeholder="Confirm your new password"
+              /> */}
               <button
                 type="submit"
                 className="w-full text-white bg-blue hover:bg-light-gray hover:text-blue focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-orange dark:hover:bg-[#bb7c4c] dark:focus:ring-[#ffcca4]"

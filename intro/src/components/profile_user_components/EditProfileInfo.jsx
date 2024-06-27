@@ -169,7 +169,9 @@ export function EditProfileInfo({
     },
   ];
 
-  const baseUrl = `${window.location.protocol}//${window.location.hostname}${window.location.port ? `:${window.location.port}` : ''}`;
+  const baseUrl = `${window.location.protocol}//${window.location.hostname}${
+    window.location.port ? `:${window.location.port}` : ""
+  }`;
   const path = window.location.pathname;
   const redirectUrl = `${baseUrl}${path}`;
 
@@ -201,6 +203,9 @@ export function EditProfileInfo({
               onChange={handleImageChange}
               className="cursor-pointer absolute bottom-0 left-2/4 transform -translate-x-1/2 translate-y-1/2 opacity-0 w-32 h-32 rounded-full"
             />
+            <div className="absolute inset-0 flex justify-center items-center opacity-0 hover:opacity-100 rounded-full cursor-pointer">
+              <p className="text-white text-sm">Change</p>
+            </div>
           </div>
           {/* Close Button */}
           <div className="flex justify-end">
