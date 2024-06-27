@@ -8,8 +8,13 @@ import Logo from "../../assets/imgs/logoEventorium.svg";
  *
  * Subcomponents:
  * @see FormInput
+ * 
  */
 export function PasswordRecoveryForm() {
+
+  const baseUrl = `${window.location.protocol}//${window.location.hostname}${window.location.port ? `:${window.location.port}` : ''}`;
+  const redirectUrl = `${baseUrl}/SignIn`;
+  
   return (
     <section className="dark:text-white">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -25,6 +30,7 @@ export function PasswordRecoveryForm() {
               Revovery Password
             </h1>
             <form className="space-y-4 md:space-y-6" action="http://eventoriumbackend.test/api/recoveryPassword" method="POST">
+            <input type="hidden" name="url" value={redirectUrl}></input>
               <FormInput
                 type="email"
                 name="Email"
@@ -37,17 +43,11 @@ export function PasswordRecoveryForm() {
                 title="password"
                 placeholder="Enter your new password"
               />
-              {/* <FormInput
-                type="password"
-                name="Confirm new Password"
-                title="confirm_new_password"
-                placeholder="Confirm your new password"
-              /> */}
               <button
                 type="submit"
                 className="w-full text-white bg-blue hover:bg-light-gray hover:text-blue focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-orange dark:hover:bg-[#bb7c4c] dark:focus:ring-[#ffcca4]"
               >
-                Restablecer Contraseña
+                Reset Password
               </button>
             </form>
           </div>

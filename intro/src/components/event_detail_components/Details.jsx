@@ -37,7 +37,7 @@ export function Details({userID}) {
             <h3>{item.course_initial}</h3>
           </div>
           <div className="border-2 border-bg-main  mb-4 w-[95%] ms:w-full sm:w-[95%] mx-auto p-4 rounded-[1.5rem] flex justify-between dark:bg-not-so-dark-blue">
-            <h2>Fecha: {item.event_date_start} - {item.event_date_end}</h2>
+            <h2>Date: {item.event_date_start} - {item.event_date_end}</h2>
             <h3>{item.course_initial}</h3>
           </div>
         </>
@@ -47,7 +47,7 @@ export function Details({userID}) {
 
   return (
     <div className="flex flex-col bg-white w-full h-[63.5rem] rounded-3xl mt-4 sm:w-[35.5%] dark:bg-dark-blue dark:text-white">
-    { isLoading ? <h1 className="text-center text-9xl">Cargando...</h1> : <div>
+    { isLoading ? <h1 className="text-center text-9xl">Loading...</h1> : <div>
       {createEventDetail(data)}
       <div>
         <div>

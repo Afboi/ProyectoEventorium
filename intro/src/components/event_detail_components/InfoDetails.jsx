@@ -57,10 +57,7 @@ export function InfoDetails({event_time_start, event_time_end, course_initial, s
       <div className="flex justify-center items-center border-2 border-bg-main  w-[45%] h-10 rounded-3xl dark:bg-not-so-dark-blue">
         {event_time_start} - {event_time_end}
       </div>
-{/*      { Priority }
-      <div className="flex justify-center items-center border-2 border-[#FD8390] w-[45%] h-10 rounded-3xl dark:bg-orange">
-        Priority: High
-      </div>*/}
+
       {/* Progress */}
         {stateColor(state)}
     </div>

@@ -29,7 +29,7 @@ export function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<PagesDirectory />} />
+        <Route path="/" element={<Registration />} />
         <Route
           path="/Homepage"
           element={

@@ -8,47 +8,57 @@ import "swiper/css/pagination";
 import "./styles.css";
 
 import { useFetchAllEventDetail } from "../../hooks/useFetchEventDetail";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import {
+  useFetchUserEventsComplete,
+  useFetchUserEventsIncomplete,
+} from "../../hooks/useFetchEventDetail";
 
 /**
  * Assignments Component
  * This component is used to display a list of assignments in a carousel.
  * Each assignment is represented by a DefaultActivityCard.
  * The carousel supports autoplay and pagination.
- * 
-**/
-export function Assignments({id}) {
+ *
+ **/
+export function Assignments({ id }) {
+  const { dataComplete } = useFetchUserEventsComplete(id);
+  const { dataIncomplete } = useFetchUserEventsIncomplete(id);
 
   const { data } = useFetchAllEventDetail(id);
- // console.log(data);
+  // console.log(data);
 
- const areEvents = (items) =>{
-  if (items.length === 0){
-    return <p className="text-center text-lg textfont-normal ml-2 text-blue">No events available</p>
-  }
-}
+  const areEvents = (items) => {
+    if (items.length === 0) {
+      return (
+        <p className="text-center text-lg textfont-normal ml-2 text-blue">
+          No events available
+        </p>
+      );
+    }
+  };
 
   const createEvents = (items) => {
-    return items.map( item => 
+    return items.map((item) => (
       <SwiperSlide>
-        <DefaultActivityCard 
-        key={item.id}
-        event_id={item.id}
-        user_id={item.user_id}
-        event_name={item.event_name}
-        event_date_start={item.event_date_start_short}
-        event_date_end={item.event_date_end_short}
-        course_initials={item.course_initial}
+        <DefaultActivityCard
+          key={item.id}
+          event_id={item.id}
+          user_id={item.user_id}
+          event_name={item.event_name}
+          event_date_start={item.event_date_start_short}
+          event_date_end={item.event_date_end_short}
+          course_initials={item.course_initial}
         />
-      </SwiperSlide>    
-    )
-}
+      </SwiperSlide>
+    ));
+  };
 
   return (
     <div className="swiper-assignments rounded-xl bg-white">
       <section className="m-4">
         <h5 className="text-lg font-medium text-blue text-center">
-          Asignaciones
+          Assignments
         </h5>
       </section>
 
@@ -57,26 +67,33 @@ export function Assignments({id}) {
           <div className="flex mb-2 items-center justify-between">
             <div>
               <span className="text-sm font-semibold inline-block py-1 px-2 uppercase rounded-full text-green bg-light-gray">
-                Realizadas
+                Done
               </span>
             </div>
             <div className="text-right">
               <span className="text-sm font-semibold inline-block text-green">
-                7/10
+                {dataComplete.length}/
+                {dataComplete.length + dataIncomplete.length}
               </span>
             </div>
           </div>
           <div className="flex rounded-full w-72 sm:w-[20rem] h-2 bg-light-gray">
             <div
-              style={{ width: "70%" }}
+              style={{
+                width: `${
+                  (dataComplete.length /
+                    (dataComplete.length + dataIncomplete.length)) *
+                  100
+                }%`,
+              }}
               className="rounded-full bg-green"
             ></div>
           </div>
         </div>
       </div>
       <div className="w-full h-[38.5rem]">
-      {areEvents(data)}
-                  {/* The Swiper component with various props */}
+        {areEvents(data)}
+        {/* The Swiper component with various props */}
 
         <Swiper
           direction={"vertical"}

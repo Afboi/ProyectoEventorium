@@ -58,7 +58,7 @@ export function EventDetails() {
           {" "}
           {/* Navigation and search components */}
           <Nav onOpenProfileModal={openProfileModal} data={data} />
-          <Search />
+          <Search id={data.id}/>
           {/* Summary bar component */}
           <div className="mt-4 mx-4">
             <SummaryBar id={data.id} />

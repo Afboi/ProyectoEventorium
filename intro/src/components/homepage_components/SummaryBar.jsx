@@ -106,7 +106,7 @@ export function SummaryBar({id}) {
               <div className="relative w-full h-full">
                 <img
                   className="w-full h-full object-cover rounded-[1rem]"
-                  src="./src/assets/imgs/dia-internacional-trabajadores-2022-celebra-domingo-1-mayo_98.webp"
+                  src="https://okdiario.com/img/2023/05/01/-feliz-dia-del-trabajador-las-10-mejores-frases-para-felicitar-el-1-de-mayo.jpg"
                   alt=""
                 />
                 <div className="absolute inset-0 bg-black opacity-25 rounded-[1rem]"></div>
