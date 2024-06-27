@@ -34,7 +34,7 @@ export function EventDetails() {
   );
 
   const { data, isLoading } = useFetchUsers();
-  console.log(data);
+  //console.log(data);
 
   useEffect(() => {
     const authToken = localStorage.getItem("token");

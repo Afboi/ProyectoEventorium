@@ -2,7 +2,7 @@ import { physical_activity } from "../access_panel_components/RegisterForm";
 
 // The main InputsProfile component
 export function InputsProfile({ objects, data }) {
-  console.log("objetos sin value " + objects);
+  //console.log("objetos sin value " + objects);
   // Return the inputs structure.
   return (
     <div className="grid grid-cols-2 mt-8 gap-4">

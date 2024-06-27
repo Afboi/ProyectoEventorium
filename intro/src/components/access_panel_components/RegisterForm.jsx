@@ -44,6 +44,9 @@ export function RegisterForm() {
     }
   };
 
+  const baseUrl = `${window.location.protocol}//${window.location.hostname}${window.location.port ? `:${window.location.port}` : ''}`;
+  const redirectUrl = `${baseUrl}/SignIn`;
+
   return (
     <section className="dark:text-white">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -65,6 +68,7 @@ export function RegisterForm() {
               method="POST"
               encType="multipart/form-data"
             >
+              <input type="hidden" name="url" value={redirectUrl}></input>
               <div className="grid grid-cols-2 gap-4 overflow-x-auto h-[20rem]">
                 <div className="col-span-2 flex items-center ">
                   <input
@@ -174,9 +178,7 @@ export function RegisterForm() {
                   </label>
                 </div>
               </div>
-              <button
-                type="submit"
-                className="w-full text-white bg-blue hover:bg-light-gray hover:text-blue focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-orange dark:hover:bg-[#bb7c4c] dark:focus:ring-[#ffcca4]"
+              <button type="submit" className="w-full text-white bg-blue hover:bg-light-gray hover:text-blue focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-orange dark:hover:bg-[#bb7c4c] dark:focus:ring-[#ffcca4]"
               >
                 Create an account
               </button>
@@ -193,6 +195,7 @@ export function RegisterForm() {
           </div>
         </div>
       </div>
+      
     </section>
   );
 }

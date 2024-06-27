@@ -12,7 +12,7 @@ export function EditProfileInfo({
   onConfirm,
   data,
 }) {
-  console.log(data.id);
+  //console.log(data.id);
   // State for managing form data.
   const [formData, setFormData] = useState({
     username: data.username,
@@ -169,6 +169,12 @@ export function EditProfileInfo({
     },
   ];
 
+  const baseUrl = `${window.location.protocol}//${window.location.hostname}${window.location.port ? `:${window.location.port}` : ''}`;
+  const path = window.location.pathname;
+  const redirectUrl = `${baseUrl}${path}`;
+
+  console.log(redirectUrl);
+
   // Return the modal structure.
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -181,6 +187,7 @@ export function EditProfileInfo({
           method="POST"
           encType="multipart/form-data"
         >
+          <input type="hidden" name="url" value={redirectUrl}></input>
           <div className="relative">
             <img
               src={imageURL || data.image_url}
