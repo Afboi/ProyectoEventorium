@@ -57,6 +57,8 @@ export function Details({userID}) {
               event_time_end={item.event_time_end}
               course_initial={item.course_initial}
               state={item.state}
+              user_id={item.user_id}
+              event_id={item.event_id}
             />
           ))}
 
